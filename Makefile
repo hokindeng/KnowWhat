@@ -34,5 +34,4 @@ clean:
 	rm -rf */*/__pycache__/
 	rm -rf .pytest_cache/
 	rm -rf *.pyc
-	rm -rf processed_data/
-	rm -rf figures/ 
+	rm -rf analysis_results/ 
