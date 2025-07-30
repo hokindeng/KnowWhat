@@ -1,0 +1,65 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 P 0 0
+1 1 1 1 0 1 1
+1 1 1 1 0 1 1
+1 1 1 1 G 0 0
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will make my next move to the right, as there is an empty space adjacent to the current player position (P) in that direction. My current position is (1,4), so I will move to (1,5).
+
+Please update the maze according to my move, and I'll plan my next step. 
+
+Move coordinates: (1,5)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 0 P 0
+1 1 1 1 0 1 1
+1 1 1 1 0 1 1
+1 1 1 1 G 0 0
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Now that I'm at position (1,5), I notice that I can move down to (2,5) as there is a wall below me at that x-coordinate, but I can move to the empty space on my left at (2,4) if I first move left then down. However, it would be better to move down at a position to the right of the wall. Since the position below me is (2,5) which has a wall I should stay in the same column and move further down to an open space which is at position (4,5). To get there I will have to move down three spaces.
+
+
+Move coordinates: (2,5)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces as a "Vertical Rectangular Path" or more broadly, a "Rectangle".
+
+Here's a new maze of the same size, with empty spaces that form a similar rectangular shape:
+
+
+1 1 1 1 1 1 1
+1 0 0 P 0 1 1
+1 0 0 0 0 1 1
+1 1 1 1 0 1 1
+1 0 0 G 0 0 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+This new maze meets the criteria: it's the same size, has a valid path from P to G, is not an identical copy of the original, and its empty spaces form a recognizable rectangular shape.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

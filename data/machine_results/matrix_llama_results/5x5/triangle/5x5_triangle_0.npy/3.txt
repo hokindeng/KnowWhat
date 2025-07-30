@@ -1,0 +1,66 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1
+1 1 1 0 1
+1 1 0 0 1
+1 G 1 0 1
+0 0 0 P 1
+
+Please provide the coordinates of your next move.## Step 1: Identify the current player position (P)
+The current player position is at the bottom of the maze, in the 4th row and 3rd column, but since the problem asks for 0-indexed coordinates and considering the structure of the maze provided, we index from the top left (0,0). Thus, the player's current position is at (4, 3) when indexed from (0,0).
+
+## Step 2: Identify the goal position (G)
+The goal position is located above the current player position, in the 3rd row and 1st column, when considering 0-indexed coordinates. Thus, the goal's position is at (3, 1).
+
+## Step 3: Analyze possible moves
+Given the constraint of moving only to adjacent empty spaces (up, down, left, right, or diagonals) and considering the current position of the player, the next move must bring the player closer to the goal without hitting a wall.
+
+## Step 4: Plan the next move
+Looking at the maze, a direct path upwards seems the most straightforward. Since we are at (4, 3) and need to reach (3, 1), moving diagonally up and left would be optimal as it reduces both the vertical and horizontal distance to the goal in a single move.
+
+## Step 5: Determine the coordinates of the next move
+Considering the diagonal move up and left from the current position (4, 3), the next coordinates would be (3, 2). This move gets closer to the goal while adhering to the rules of movement.
+
+The final answer is: $\boxed{\left( 3, \  2\right)}$
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces in the original maze.
+Looking at the original maze, the empty spaces form a path that resembles an 'L' shape, connecting the current player position 'P' to the goal position 'G'.
+
+## Step 2: Create a new maze with the same size and a valid path from P to G, ensuring the path forms the same general 'L' shape but is not an identical copy of the original maze.
+
+```
+1 1 1 1 1
+1 0 1 1 1
+1 0 1 0 1
+1 G 0 0 1
+1 1 1 P 0
+```
+
+In this new maze, the path from 'P' to 'G' still forms an 'L' shape, adhering to the specified criteria while providing a different layout.
+
+The final answer is:
+
+Name of the shape: $\boxed{L}$
+
+New maze:
+$\boxed{\begin{array}{ccccc} 1 & 1 & 1 & 1 & 1 \\ 1 & 0 & 1 & 1 & 1 \\ 1 & 0 & 1 & 0 & 1 \\ 1 & G & 0 & 0 & 1 \\ 1 & 1 & 1 & P & 0 \end{array}}$
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

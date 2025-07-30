@@ -1,0 +1,141 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 0 0 0 0 0
+1 1 0 1 1 1 0
+1 1 0 1 0 0 0
+1 1 P 1 1 1 1
+1 1 0 0 0 0 G
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.To solve the maze, we need to navigate from the current player position 'P' to the goal position 'G'. The player is currently at position (3, 2). Let's analyze the possible moves:
+
+From (3, 2), the possible moves are:
+- Up to (2, 2)
+- Down to (4, 2)
+
+The move to (2, 2) is valid as it is an empty space ('0'). The move to (4, 2) is also valid as it is an empty space ('0').
+
+Let's choose to move down to (4, 2) as it brings us closer to the goal.
+
+The next move is to (4, 2).
+
+Here is the current state of the maze after your latest move:
+
+1 1 0 0 0 0 0
+1 1 0 1 1 1 0
+1 1 0 1 0 0 0
+1 1 0 1 1 1 1
+1 1 P 0 0 0 G
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.The player is now at position (4, 2). From here, let's evaluate the possible moves:
+
+From (4, 2), the possible moves are:
+- Right to (4, 3)
+
+The move to (4, 3) is valid as it is an empty space ('0').
+
+Let's move right to (4, 3).
+
+The next move is to (4, 3).
+
+Here is the current state of the maze after your latest move:
+
+1 1 0 0 0 0 0
+1 1 0 1 1 1 0
+1 1 0 1 0 0 0
+1 1 0 1 1 1 1
+1 1 0 P 0 0 G
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.The player is now at position (4, 3). From here, let's evaluate the possible moves:
+
+From (4, 3), the possible moves are:
+- Right to (4, 4)
+
+The move to (4, 4) is valid as it is an empty space ('0').
+
+Let's move right to (4, 4).
+
+The next move is to (4, 4).
+
+Here is the current state of the maze after your latest move:
+
+1 1 0 0 0 0 0
+1 1 0 1 1 1 0
+1 1 0 1 0 0 0
+1 1 0 1 1 1 1
+1 1 0 0 P 0 G
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.The player is now at position (4, 4). From here, let's evaluate the possible moves:
+
+From (4, 4), the possible moves are:
+- Right to (4, 5)
+
+The move to (4, 5) is valid as it is an empty space ('0').
+
+Let's move right to (4, 5).
+
+The next move is to (4, 5).
+
+Here is the current state of the maze after your latest move:
+
+1 1 0 0 0 0 0
+1 1 0 1 1 1 0
+1 1 0 1 0 0 0
+1 1 0 1 1 1 1
+1 1 0 0 0 P G
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.The player is now at position (4, 5). From here, let's evaluate the possible moves:
+
+From (4, 5), the possible moves are:
+- Right to (4, 6)
+
+The move to (4, 6) is valid as it is the goal position ('G').
+
+Let's move right to (4, 6).
+
+The next move is to (4, 6).
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces (corridors) in the original maze resembles an "L" shape.
+
+(2) Here is a new maze of the same size, with empty spaces that form an "L" shape. The maze includes a valid path from 'P' to 'G' and is not an identical copy of the original maze:
+
+```
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+P 0 0 0 0 0 1
+1 1 1 1 1 0 1
+1 1 1 1 1 0 1
+1 1 1 1 1 0 G
+1 1 1 1 1 1 1
+```
+
+In this new maze, the path from 'P' to 'G' follows an "L" shape, starting from the top left corner and moving right, then down.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

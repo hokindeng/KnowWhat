@@ -1,0 +1,86 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1
+1 1 1 1 1
+G 0 0 1 1
+0 1 1 1 1
+0 P 0 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will plan my move. To start, I will identify the coordinates of the current player position (P) and the goal position (G). The coordinates are as follows:
+- P (Current player position): (4, 1)
+- G (Goal position): (2, 0)
+
+My objective is to move closer to the goal position (G) while avoiding walls. Considering the maze layout, my next move will be to the position right above the current player position, which is an empty space (0).
+
+The coordinates of my next move are: (4, 0) 
+
+Please update the maze with my new position and let me know the updated maze layout.
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 1 1 1 1
+G 0 0 1 1
+0 1 1 1 1
+P 0 0 1 1
+
+Please provide the coordinates of your next move.Based on the updated maze, I will plan my next move.
+
+Since my goal is to reach the goal position (G), I will aim to move closer to it. Observing the maze, I notice that I can move to the left, but that won't bring me closer to the goal. Instead, I can move up to the empty space (0) directly above my current position.
+
+The coordinates of my next move are: (3, 0) 
+
+Please update the maze with my new position and let me know the updated maze layout.
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 1 1 1 1
+G 0 0 1 1
+P 1 1 1 1
+0 0 0 1 1
+
+Please provide the coordinates of your next move.Based on the updated maze, I will plan my next move.
+
+I've moved up to the row just below the goal position (G), but I'm still blocked by walls (1) to my right. However, I notice that I can move to the right is blocked, but I can move to the left or move up is not possible due to a wall on the left of G. However I see I can move to the left and then up.
+
+My first move would be moving left to (3,0) no (3, -1)  move isn't possible but I see a (2, 1) empty space left and up of my current position.
+
+
+
+The coordinates of my next move are: (3,1)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces (corridors) in the original maze is an "inverted L-shape" or a " Gamma shape", where the path from P to G forms an 'L' shape when viewed from the top or as gamma Greek alphabet_CAP "Γ".
+
+
+(2) Here is a new maze with empty spaces that form the same shape:
+
+
+1 1 1 1 1
+1 0 0 0 1
+G 0 1 1 1
+1 1 1 0 1
+1 P 1 1 1
+
+
+In this new maze, the empty spaces form an inverted L-shape (Gamma shape) that connects the starting position (P) to the goal position (G), just like in the original maze. However, the wall layout and the position of the corridors are different.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

@@ -1,0 +1,43 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 3), (2, 0), (2, 1), (2, 2), (2, 4), (3, 0), (3, 1), (3, 3), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (1, 4), (2, 3), (3, 2)
+Player position: (3, 4)
+Goal: (1, 2)
+
+Please provide the coordinates of your next move.I'll navigate through the maze step by step. Based on the current maze configuration:
+
+Given the constraints and positions, I notice that my player position (P) is at (3, 4), and my goal (G) is at (1, 2). My immediate next step cannot directly move towards the goal because there are walls in the way, but I can move towards the empty spaces that can eventually lead me to the goal or provide a path around the walls.
+
+Looking at the empty spaces, I see (1, 4), (2, 3), and (3, 2) as available moves. Since I am at (3, 4), my next logical move would be to go to an adjacent empty space. The space (2, 3) is more aligned with moving towards the goal, but I also notice (3, 2) is directly to my left, which doesn't directly move me towards the goal but is my only immediate option since I can move left or right, and (3, 2) is my only adjacent empty space.
+
+Considering I can move in any direction (up, down, left, right, or diagonal) through empty spaces and considering my constraints, I will move to (3, 2) from (3, 4) as it's the only immediate and logical choice given the layout and it's adjacent to my current position.
+
+Next move: (3, 2)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. The general shape formed by the empty spaces (corridors) in the original maze is an "L-Shape".
+
+2. Here's a new maze of the same size (5x5) with empty spaces forming an L-Shape:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (2, 0), (2, 1), (3, 0), (3, 1), (4, 0), (4, 2), (4, 3), (4, 4), (3, 4), (2, 4), (1, 4), (1, 3)
+Empty: (1, 2), (2, 2), (3, 2), (3, 3), (2, 3)
+Player position: (1, 2)
+Goal: (3, 3)
+
+This new maze has an L-Shaped corridor formed by the empty spaces, is not an identical copy of the original, and includes a valid path from the player position (P) to the goal (G).
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

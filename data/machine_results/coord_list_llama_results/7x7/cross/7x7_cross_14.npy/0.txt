@@ -1,0 +1,89 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 2), (2, 3), (2, 4), (2, 6), (3, 0), (3, 1), (3, 3), (3, 5), (3, 6), (4, 0), (4, 1), (4, 2), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 3), (5, 5), (5, 6), (6, 0), (6, 2), (6, 3), (6, 4), (6, 6)
+Empty: (2, 1), (2, 5), (3, 2), (4, 3), (5, 4), (6, 1), (6, 5)
+Player position: (3, 4)
+Goal: (5, 2)
+
+Please provide the coordinates of your next move.## Step 1: Understand the maze layout and the objective
+The maze is a 2D grid with walls, empty spaces, a current player position (P), and a goal position (G). The objective is to navigate from the current player position to the goal position by moving only through empty spaces while avoiding walls.
+
+## Step 2: Identify the possible moves from the current position
+Given the current player position is (3, 4), we need to identify the adjacent empty spaces where we can move. The possible moves are up, down, left, right, or any diagonal.
+
+## Step 3: Analyze the adjacent spaces
+Looking at the maze, the adjacent spaces to (3, 4) are:
+- Up: (2, 4) - Wall
+- Down: (4, 4) - Wall
+- Left: (3, 3) - Wall
+- Right: (3, 5) - Empty
+- Diagonal up-left: (2, 3) - Wall
+- Diagonal up-right: (2, 5) - Empty
+- Diagonal down-left: (4, 3) - Empty
+- Diagonal down-right: (4, 5) - Wall
+
+## Step 4: Choose the next move
+Based on the analysis, the possible next moves are (3, 5), (2, 5), or (4, 3). Since the goal is to move towards the goal position (5, 2), we should choose the move that brings us closer to the goal. Moving to (4, 3) is the most direct move towards the goal.
+
+The final answer is: $\boxed{(4, 3)}$
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 2), (2, 3), (2, 4), (2, 6), (3, 0), (3, 1), (3, 3), (3, 5), (3, 6), (4, 0), (4, 1), (4, 2), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 3), (5, 5), (5, 6), (6, 0), (6, 2), (6, 3), (6, 4), (6, 6)
+Empty: (2, 1), (2, 5), (3, 2), (3, 4), (5, 4), (6, 1), (6, 5)
+Player position: (4, 3)
+Goal: (5, 2)
+
+Please provide the coordinates of your next move.## Step 1: Understand the current state of the maze
+The maze is a 2D grid with walls, empty spaces, a current player position (P), and a goal position (G). The objective is to navigate from the current player position to the goal position by moving only through empty spaces while avoiding walls.
+
+## Step 2: Identify the possible moves from the current position
+Given the current player position is (4, 3), we need to identify the adjacent empty spaces where we can move. The possible moves are up, down, left, right, or any diagonal.
+
+## Step 3: Analyze the adjacent spaces
+Looking at the maze, the adjacent spaces to (4, 3) are:
+- Up: (3, 3) - Wall
+- Down: (5, 3) - Wall
+- Left: (4, 2) - Wall
+- Right: (4, 4) - Wall
+- Diagonal up-left: (3, 2) - Empty
+- Diagonal up-right: (3, 4) - Empty (previous position)
+- Diagonal down-left: (5, 2) - Goal
+- Diagonal down-right: (5, 4) - Empty
+
+## Step 4: Choose the next move
+Based on the analysis, the possible next moves are (3, 2), (5, 4), or (5, 2). Since the goal is to move towards the goal position (5, 2), we should choose the move that brings us directly to the goal.
+
+The final answer is: $\boxed{(5, 2)}$
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces in the original maze
+The original maze has empty spaces at (2, 1), (2, 5), (3, 2), (3, 4), (4, 3), (5, 4), (6, 1), and (6, 5). Upon examination, the general shape formed by these empty spaces resembles a zigzag or a winding path.
+
+## Step 2: Create a new maze with the same shape
+To create a new maze with the same shape, we need to ensure that the empty spaces form a similar winding path. We will place the empty spaces in a way that creates a recognizable zigzag pattern.
+
+## Step 3: Define the new maze
+Here is the new maze with the same shape:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 2), (2, 4), (2, 6), (3, 0), (3, 1), (3, 3), (3, 5), (3, 6), (4, 0), (4, 1), (4, 2), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 3), (5, 5), (5, 6), (6, 0), (6, 2), (6, 3), (6, 4), (6, 6)
+Empty: (2, 1), (2, 5), (3, 2), (3, 4), (4, 3), (5, 2), (5, 4), (6, 1), (6, 5)
+Player position: (3, 4)
+Goal: (5, 2)
+
+The final answer is: $\boxed{zigzag}$
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

@@ -1,0 +1,92 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 0 1 1 1 1
+1 0 1 G 1 1 1
+0 P 0 0 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will make my next move to the position (4, 2), since it's an empty space that is adjacent to the current player position.
+
+My reasoning is as follows:
+
+* I'll start by analyzing the current player position (P), which is at coordinates (4, 1) since the top-left corner is (0,0).
+* I'll look for empty spaces (0) adjacent to the current position. I find that I can move right to (4, 2), which is an empty space.
+* This move seems like a good starting point, as it brings me closer to the goal (G) and doesn't trap me in a corner.
+
+Please update the maze accordingly, and I'll be ready to make my next move.
+
+Next move: (4, 2)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 0 1 1 1 1
+1 0 1 G 1 1 1
+0 0 P 0 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.I'll analyze the updated maze and plan my next move.
+
+Based on the current state of the maze, my next move will be to the position (4, 3). I'm moving right again to take advantage of the adjacent empty space and to get closer to the goal (G).
+
+Please update the maze accordingly, and I'll be ready to make my next move.
+
+Next move: (4, 3)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 0 1 1 1 1
+1 0 1 G 1 1 1
+0 0 0 P 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.With the updated maze, I'll plan my next move.
+
+Based on the current state of the maze, my next move will be to the position (3, 3). I'm moving up to get closer to the goal (G) and to take advantage of the adjacent empty space on the left of the goal.
+
+Please update the maze accordingly, and I'll be ready to make my next move.
+
+Next move: (3, 3)
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces (corridors) in the original maze is a "zag" or a zigzag pattern, but more specifically it resembles an "L" shape with a jagged edge.
+
+(2) Here is a new maze with the same size as the original, and with empty spaces that form a similar "L" shape with a jagged edge:
+
+
+1 1 1 1 1 1 1
+1 0 0 0 1 1 1
+1 0 1 0 1 1 1
+1 0 1 G 1 1 1
+0 P 0 0 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Note that this new maze has a valid path from P to G, is not an identical copy of the original maze, and has a recognizable "L" shape with a jagged edge formed by its empty spaces.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

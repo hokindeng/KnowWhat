@@ -1,0 +1,63 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 0 1 1 1 0
+1 1 1 0 1 0 1
+1 1 1 1 0 1 1
+1 1 1 G 1 0 1
+1 1 0 1 1 1 P
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the surroundings of the current player position (P) at the coordinates (6,5).
+
+From the maze, I can see the following adjacent positions:
+
+* Up: (6,4) is a wall (1)
+* Down: (6,6) is a wall (1)
+* Left: (5,5) is a wall (1)
+* Right: (7,5) is out of bounds (since it exceeds the grid width)
+* Top-left diagonal: (5,4) is a wall (1)
+* Top-right diagonal: (7,4) is out of bounds
+* Bottom-left diagonal: (5,6) is a wall (1)
+* Bottom-right diagonal: (7,6) is out of bounds
+
+However, I notice that there is an empty space (0) at coordinates (5,4), but it is not directly adjacent. I can also see that if I move to (5,4), it will open up a path.
+
+Fortunately, I can see an empty space at (5,4), which is two steps away, if I move diagonally to (6,4) it will put me against the wall, but if I move up-left diagonally (-1x,-1y) to coordinates (5,4) it's not possible, as per the rules, I can only move to the adjacent space. 
+
+I can see there is only one move adjacent that will potentially open more paths, (6,4) is a wall, but moving (5,5) is also a wall the best move here is to move up in (6,4) The only possibility of movement in this case is, coordinates (6,4).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces as a "zig-zag path" or a "winding corridor".
+
+Here is a new maze of the same size, with empty spaces that form a similar zig-zag path:
+
+
+1 1 0 1 1 1 1
+1 1 1 0 1 1 0
+1 0 1 1 0 1 1
+1 1 1 0 1 1 1
+1 1 0 1 0 1 G
+1 1 1 1 1 0 P
+1 1 1 1 1 1 1
+
+This new maze has the same size as the original (7x7) and includes a valid path from P to G through empty spaces. The empty spaces form a zig-zag path, similar to the original maze. Note that this is not an identical copy of the original maze, but rather a new one that meets the criteria.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

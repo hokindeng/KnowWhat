@@ -1,0 +1,60 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 0 1 1 1 0 1
+1 1 0 1 P 1 1
+1 1 1 0 1 1 1
+1 1 G 1 0 1 1
+1 0 1 1 1 0 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the surroundings of the current player position (P). It seems the only adjacent empty space is directly below the player's current position, but since diagonal moves are allowed, I notice another possible move diagonally down and to the left of the player.
+
+Let's calculate the coordinates. If the top-left corner is (0,0), and considering the player's position:
+
+The player is at the 4th row (counting from the top), 5th column (counting from the left) which is (3,4) if we start counting from 0.
+
+- Moving directly down would mean increasing the row by 1.
+- Moving diagonally down and to the left means increasing the row by 1 and decreasing the column by 1.
+
+Considering the options and aiming to move closer to the goal or at least to a position that allows more flexibility for the next move, moving diagonally down and to the left looks promising because it might offer more paths towards the goal in the subsequent moves.
+
+However, since the goal is to move down towards the 'G', which is located at a higher row and lower column than 'P', and noting the presence of a '0' directly below 'P' that can be used in further planning after this move, I decide the most straightforward and potentially least risky initial move, considering we need to navigate through this maze step by step, is to move directly down.
+
+The player is currently at (3,4). Moving directly down means going to (4,4).
+
+Therefore, my next move is to (4,4).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+After analyzing the original maze, I would describe the general shape formed by the empty spaces as a "zig-zag".
+
+Here is a new maze that meets the criteria:
+
+1 1 1 1 1 1 1
+1 0 1 1 1 0 1
+1 1 0 1 1 1 1
+1 1 1 0 1 P 1
+1 0 1 1 1 1 1
+1 1 1 0 G 1 1
+1 1 1 1 0 1 1
+
+In this new maze, the empty spaces form a zig-zag shape similar to the original maze. The player's position (P) and the goal (G) are placed in a way that requires navigation through this zig-zag path to reach the goal.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

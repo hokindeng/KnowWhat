@@ -1,0 +1,61 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 0 0 0 0 0 1
+1 G 1 1 1 P 1
+1 0 1 1 1 0 1
+1 0 1 1 1 0 1
+1 0 0 0 0 0 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the situation and provide the coordinates of my next move.
+
+First, I'll identify the current player position (P) and the goal position (G). The player is at position (1,5) and the goal is at position (1,1).
+
+To move towards the goal, I will try to get closer to the goal while avoiding walls. Since I can move in any of the four directions (up, down, left, or right), I will choose the direction that brings me closer to the goal.
+
+In this case, I can move the player up to position (1,4), as it is an empty space. The new position will be:
+
+1 0 0 0 0 0 1
+1 G 1 1 1 P 1 -> 1 G 1 1 P 0 1
+1 0 1 1 1 0 1
+1 0 1 1 1 0 1
+1 0 0 0 0 0 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+The coordinates of my next move are: (1,4)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces (corridors) in the original maze is an "S-shape" or a curved path.
+
+(2) Here is a new maze with the same size and a valid path from P to G, forming the same S-shape:
+
+1 0 0 0 0 0 1
+1 P 1 1 1 G 1
+1 0 1 1 1 0 1
+1 0 0 0 1 0 1
+1 0 1 1 1 0 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Note that this new maze meets all the criteria: it has the same size, a valid path from P to G, and is not an identical copy of the original maze. The empty spaces form the same S-shape as in the original maze.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

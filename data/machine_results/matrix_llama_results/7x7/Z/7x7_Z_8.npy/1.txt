@@ -1,0 +1,61 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+0 0 0 0 1 1 1
+1 1 G 1 1 1 1
+1 0 1 1 1 1 1
+P 0 0 0 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will plan my move. My current position is at 'P' which seems to be at coordinates (4,0). My goal is 'G' at coordinates (2,2). Looking at the maze, a direct path isn't straightforward, but I must start by moving towards the goal. Given the constraints and the maze layout, my first move will be to move diagonally up and to the right to start navigating towards 'G' and avoid the wall directly above me.
+
+My next move will be to coordinates (3,1). This move gets me closer to the goal while navigating through empty spaces and avoiding walls.
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+0 0 0 0 1 1 1
+1 1 G 1 1 1 1
+1 P 1 1 1 1 1
+0 0 0 0 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.I've moved to (3,1) successfully. Now, my next goal is to get even closer to 'G'. Since I can move diagonally, I'll make use of that to avoid obstacles. My next move will be diagonally up and to the right, aiming for the coordinates (2,2). This is actually the position of 'G', so if I'm correct, this move should reach the goal.
+
+My next move will be to coordinates (2,2).
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces as a zigzag path or more broadly, a modified or broken zigzag pattern since it includes some straight segments and sharp turns.
+
+Here's a new maze that meets the criteria:
+
+1 1 1 1 1 1 1
+0 0 1 0 0 1 1
+1 0 G 0 1 1 1
+1 0 1 0 0 0 1
+1 P 1 1 1 0 1
+1 0 0 0 1 1 1
+1 1 1 1 1 1 1
+
+This new maze is not an identical copy of the original. The path from 'P' to 'G' forms a zigzag pattern with straight segments, much like the original maze, but with differences in the layout and position of empty spaces and walls.
+
+RECOGNIZE: SUCCESS
+
+GENERATE: FAIL

@@ -1,0 +1,78 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 0 0 1 1 1
+P 1 1 1 1 1 1
+0 1 1 1 1 1 1
+0 G 0 0 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will make my next move to the empty space above the current position (P). This will put me at coordinates (0,1) → (0,0), as the top left corner is (0,0).
+
+However, I realized that my new X coordinate will remain the same as 'P' was at (1,0) and I moved up so now it is at (1,0) → (0,0) hence new Y coordinate changed but the X coordinate will be the same
+
+
+My new position will be (0,0) in terms of Y but as we can see that column has all zeros hence I can only move up in that case so my correct new X coordinate will be 0
+
+
+
+New coordinates: (0,0).
+Wait as per above consideration my X will remain the same
+
+
+
+Correct new coordinates are (1,0) is old hence after moving up it should be new Y 0 => (1,0)
+
+
+My new correct Y coordinate is 0
+
+
+
+Current Pos P is at X= 1 ,Y=1
+
+
+
+Now I moved up hence Y became 0
+
+
+
+So new correct coordinates  after this consideration should be CurrentPos-Cordinates_X=1 and CurrentPos-Cordinates_Y= is equal to new Y after moving up and became 0 hence co-ordinate became equal to currentcoord_X and Y became one less
+
+
+
+New Coordinate will be [1,0]
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+After analyzing the original maze, I would describe the general shape formed by the empty spaces (corridors) as an "L-shape".
+
+Here is a new maze that meets the criteria:
+
+0 1 1 1 1 1 1
+P 0 0 0 1 1 1
+0 0 0 0 1 1 1
+0 1 1 0 G 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+This new maze has the same size as the original and includes a valid path from P to G that can be reached through empty spaces. The general shape formed by its empty spaces is also an "L-shape", making it recognizable as the same shape as the original. Note that this is not an identical copy of the original maze, but rather a new maze that meets the criteria.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

@@ -1,0 +1,62 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 0 1 1 1 0
+1 1 1 0 1 0 1
+1 1 1 1 0 1 1
+1 1 1 G 1 0 1
+1 1 0 1 1 1 P
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.## Step 1: Identify the current player position (P) and the goal position (G)
+The current player position (P) is at coordinates (5,5), and the goal position (G) is at coordinates (4,3).
+
+## Step 2: Examine the eight adjacent positions to the current player position (P) to find a possible next step
+The eight adjacent positions to (5,5) are (4,4), (4,5), (4,6), (5,4), (5,6), (6,4), (6,5), and (6,6). We must identify which of these positions is an empty space (0) to determine the next move.
+
+## Step 3: Select the adjacent empty space that is the shortest distance to the goal (G)
+Upon inspecting the maze, we see that the empty space directly adjacent to P that is closest to G is (5,4) because it is an empty space (0) and moving there reduces the distance to G.
+
+## Step 4: Move to the selected position and update the coordinates
+Move from (5,5) to (5,4).
+
+The final answer is: $\boxed{\left( 5, \  4\right)}$
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces (corridors) in the original maze.
+Upon examining the maze, we can see that the empty spaces form a winding path that can be described as a "zigzag" or more generally, a "serpentine" shape.
+
+## Step 2: Create a new maze with the same size as the original, ensuring it has a valid path from P to G through empty spaces and is not an identical copy of the original maze.
+To achieve this, we must rearrange the positions of the walls (1) and empty spaces (0) while maintaining a serpentine path that connects P to G.
+
+## Step 3: Design the new maze ensuring the serpentine shape of the corridors is maintained.
+Here's a new maze that meets the criteria:
+
+1 1 1 1 1 1 1
+1 0 1 0 1 1 1
+1 1 0 1 0 1 1
+1 0 1 0 1 1 0
+1 1 0 1 G 0 1
+1 0 1 1 1 0 P
+1 1 1 1 1 1 1
+
+The final answer is: $\boxed{1}$
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

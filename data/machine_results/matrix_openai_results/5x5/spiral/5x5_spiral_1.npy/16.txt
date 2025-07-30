@@ -1,0 +1,169 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 0 0 P
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.To solve the maze, we need to navigate from the current player position (P) to the goal position (G). Let's start by identifying the coordinates of the current player position and the goal position.
+
+The current player position (P) is at (0, 4).
+The goal position (G) is at (2, 1).
+
+We will use a step-by-step approach to move towards the goal. The first move should be to an adjacent empty space. From (0, 4), the possible moves are:
+- Up: Not possible (out of bounds)
+- Down: (1, 4)
+- Left: (0, 3)
+- Right: Not possible (out of bounds)
+
+The best move to get closer to the goal is to move down to (1, 4).
+
+So, the next move is to (1, 4).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+1 1 1 1 P
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.From the current player position (P) at (1, 4), the possible moves are:
+- Up: (0, 4)
+- Down: (2, 4)
+- Left: (1, 3) (not possible, it's a wall)
+- Right: Not possible (out of bounds)
+
+The best move to get closer to the goal is to move down to (2, 4).
+
+So, the next move is to (2, 4).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+1 1 1 1 0
+0 G 0 1 P
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.From the current player position (P) at (2, 4), the possible moves are:
+- Up: (1, 4)
+- Down: (3, 4)
+- Left: (2, 3) (not possible, it's a wall)
+- Right: Not possible (out of bounds)
+
+The best move to get closer to the goal is to move down to (3, 4).
+
+So, the next move is to (3, 4).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 P
+0 0 0 0 0
+
+Please provide the coordinates of your next move.From the current player position (P) at (3, 4), the possible moves are:
+- Up: (2, 4)
+- Down: (4, 4)
+- Left: (3, 3) (not possible, it's a wall)
+- Right: Not possible (out of bounds)
+
+The best move to get closer to the goal is to move down to (4, 4).
+
+So, the next move is to (4, 4).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 0 P
+
+Please provide the coordinates of your next move.From the current player position (P) at (4, 4), the possible moves are:
+- Up: (3, 4)
+- Down: Not possible (out of bounds)
+- Left: (4, 3)
+- Right: Not possible (out of bounds)
+
+The best move to get closer to the goal is to move left to (4, 3).
+
+So, the next move is to (4, 3).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 P 0
+
+Please provide the coordinates of your next move.From the current player position (P) at (4, 3), the possible moves are:
+- Up: (3, 3) (not possible, it's a wall)
+- Down: Not possible (out of bounds)
+- Left: (4, 2)
+- Right: (4, 4)
+
+The best move to get closer to the goal is to move left to (4, 2).
+
+So, the next move is to (4, 2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 0
+0 0 P 0 0
+
+Please provide the coordinates of your next move.From the current player position (P) at (4, 2), the possible moves are:
+- Up: (3, 2)
+- Down: Not possible (out of bounds)
+- Left: (4, 1)
+- Right: (4, 3)
+
+The best move to get closer to the goal is to move up to (3, 2).
+
+So, the next move is to (3, 2).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+### (1) The General Shape of the Empty Spaces (Corridors)
+The general shape formed by the empty spaces in the original maze is a "U" shape.
+
+### (2) A New Maze with the Same "U" Shape
+Here is a new maze of the same size (5x5) with empty spaces forming a "U" shape. The maze includes a valid path from P to G that can be reached through empty spaces, and it is not an identical copy of the original maze.
+
+```
+P 0 0 0 0
+1 1 1 1 0
+0 1 0 1 0
+0 1 1 1 0
+0 0 0 0 G
+```
+
+In this new maze:
+- The player starts at the top left corner (0, 0).
+- The goal is at the bottom right corner (4, 4).
+- The empty spaces form a "U" shape, similar to the original maze.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

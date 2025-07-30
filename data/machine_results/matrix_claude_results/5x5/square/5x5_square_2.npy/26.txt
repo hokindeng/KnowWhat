@@ -1,0 +1,148 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 0 G 0 0
+1 0 1 1 0
+1 0 1 1 0
+1 0 P 0 0
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Let me analyze the maze:
+
+1. Current position 'P' is at (3,2)
+2. Goal position 'G' is at (0,2)
+3. Looking at possible moves from current position:
+   - Up: (2,2) - blocked by wall
+   - Down: (4,2) - blocked by wall
+   - Left: (3,1) - empty space
+   - Right: (3,3) - empty space
+
+To reach the goal at (0,2), I need to move up through the empty path on the left side of the maze. Therefore, I should first move left.
+
+I choose to move to coordinates (3,1).
+
+Here is the current state of the maze after your latest move:
+
+1 0 G 0 0
+1 0 1 1 0
+1 0 1 1 0
+1 P 0 0 0
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Let me analyze the current position and possible moves:
+
+1. Current position 'P' is at (3,1)
+2. Goal position 'G' is at (0,2)
+3. Looking at possible moves from current position:
+   - Up: (2,1) - empty space
+   - Down: (4,1) - blocked by wall
+   - Left: (3,0) - blocked by wall
+   - Right: (3,2) - empty space
+
+To reach the goal at (0,2), I need to continue moving up through the empty path.
+
+I choose to move to coordinates (2,1).
+
+Here is the current state of the maze after your latest move:
+
+1 0 G 0 0
+1 0 1 1 0
+1 P 1 1 0
+1 0 0 0 0
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Let me analyze the current position and possible moves:
+
+1. Current position 'P' is at (2,1)
+2. Goal position 'G' is at (0,2)
+3. Looking at possible moves from current position:
+   - Up: (1,1) - empty space
+   - Down: (3,1) - empty space
+   - Left: (2,0) - blocked by wall
+   - Right: (2,2) - blocked by wall
+
+To reach the goal at (0,2), I need to continue moving up through the empty path.
+
+I choose to move to coordinates (1,1).
+
+Here is the current state of the maze after your latest move:
+
+1 0 G 0 0
+1 P 1 1 0
+1 0 1 1 0
+1 0 0 0 0
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Let me analyze the current position and possible moves:
+
+1. Current position 'P' is at (1,1)
+2. Goal position 'G' is at (0,2)
+3. Looking at possible moves from current position:
+   - Up: (0,1) - empty space
+   - Down: (2,1) - empty space
+   - Left: (1,0) - blocked by wall
+   - Right: (1,2) - blocked by wall
+
+To reach the goal at (0,2), I need to continue moving up, and then I'll be able to move right to reach the goal.
+
+I choose to move to coordinates (0,1).
+
+Here is the current state of the maze after your latest move:
+
+1 P G 0 0
+1 0 1 1 0
+1 0 1 1 0
+1 0 0 0 0
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Let me analyze the current position and possible moves:
+
+1. Current position 'P' is at (0,1)
+2. Goal position 'G' is at (0,2)
+3. Looking at possible moves from current position:
+   - Up: not possible (out of bounds)
+   - Down: (1,1) - empty space
+   - Left: (0,0) - blocked by wall
+   - Right: (0,2) - this is the goal position!
+
+The goal is right next to my current position, so I'll move right to reach it.
+
+I choose to move to coordinates (0,2).
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1) Looking at the empty spaces in the original maze, they form an "L" shape (or an inverted "L" shape, depending on orientation).
+
+2) Here's a new maze of the same size (5x5) that also has an "L" shaped corridor but with a different arrangement:
+
+1 1 1 P 1
+1 1 1 0 1
+1 1 1 0 1
+1 G 0 0 1
+1 1 1 1 1
+
+This maze:
+- Has the same 5x5 dimensions
+- Contains a valid path from P to G through empty spaces
+- Is not identical to the original maze
+- Forms an "L" shape with its corridors
+- Uses the same encoding (1 for walls, 0 for empty spaces, P for player, G for goal)
+
+The L-shape in this new maze is rotated 90 degrees compared to the original, but it maintains the essential L-shaped characteristic of the corridors.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

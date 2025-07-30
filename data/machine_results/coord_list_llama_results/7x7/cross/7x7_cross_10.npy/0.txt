@@ -1,0 +1,60 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 4), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (3, 5), (4, 4), (5, 3)
+Player position: (5, 5)
+Goal: (3, 3)
+
+Please provide the coordinates of your next move.## Step 1: Understand the maze layout and the objective
+The maze is a 2D grid with walls, empty spaces, a current player position (P), and a goal position (G). The objective is to navigate from the current player position to the goal position by moving only through empty spaces while avoiding walls.
+
+## Step 2: Identify the possible moves from the current position
+Given the current player position (5, 5), we can move to any adjacent empty space. The possible moves are up, down, left, right, or any diagonal. However, we need to check which of these moves are valid by ensuring the destination is an empty space.
+
+## Step 3: Analyze the maze to determine valid moves
+Looking at the maze, the current position (5, 5) is an empty space. We need to find a path to the goal (3, 3). The closest empty space to the goal that is also connected to the current position via empty spaces needs to be identified.
+
+## Step 4: Determine the closest valid move towards the goal
+From the given empty spaces (3, 5), (4, 4), and (5, 3), the closest one to the goal (3, 3) that we can move to directly or indirectly is (5, 3), as it is on the same row as the current position and moving diagonally or horizontally to it does not violate the rules of the maze.
+
+## Step 5: Choose the next move
+Given the analysis, the next move should be to the empty space that is closest to the goal and reachable. Since we are at (5, 5) and (5, 3) is a valid move towards the goal, our next move will be to (5, 3).
+
+The final answer is: $\boxed{(5, 3)}$
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces in the original maze
+The original maze has empty spaces at (3, 5), (4, 4), and (5, 3). These points form a diagonal line from the top-right to the bottom-left of the maze, but considering the constraints and the goal, the path resembles more of an "L" shape when considering the movement from the player position to the goal.
+
+## Step 2: Design a new maze with the same shape but different layout
+To create a new maze with the same "L" shape but not an identical copy, we can rotate the shape or adjust the positions of the empty spaces while maintaining the overall "L" shape. Given the size of the original maze (7x7), we will create a new maze with the same size.
+
+## Step 3: Determine the walls, empty spaces, player position, and goal for the new maze
+For the new maze, we will place the empty spaces to form an "L" shape. Let's place the empty spaces at (1, 3), (2, 3), (3, 3), (3, 4), (3, 5), and (4, 5). The player position will be at (4, 5), and the goal will be at (1, 3).
+
+## Step 4: Encode the new maze
+Walls: All coordinates not listed as empty spaces or the player/goal positions.
+Empty: (1, 3), (2, 3), (3, 3), (3, 4), (3, 5), (4, 5)
+Player position: (4, 5)
+Goal: (1, 3)
+
+The final answer is: 
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 2), (2, 4), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (2, 3), (3, 3), (3, 4), (3, 5), (4, 5)
+Player position: (4, 5)
+Goal: (1, 3)
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

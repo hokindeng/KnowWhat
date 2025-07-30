@@ -1,0 +1,145 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 0 1 1
+1 0 1 0 1
+G 0 0 0 P
+1 1 1 1 1
+1 1 1 1 1
+
+Please provide the coordinates of your next move.To solve the maze, we need to navigate from the current player position (P) to the goal position (G). Let's first identify the coordinates of the player and the goal:
+
+- Player position (P): (2, 4)
+- Goal position (G): (2, 0)
+
+We can move to any adjacent empty space (0) in any direction. Let's find the next move:
+
+From (2, 4), the possible moves are:
+- Up: (1, 4) - Wall (1)
+- Down: (3, 4) - Wall (1)
+- Left: (2, 3) - Empty (0)
+- Right: (2, 5) - Out of bounds
+- Diagonal up-left: (1, 3) - Empty (0)
+- Diagonal up-right: (1, 5) - Out of bounds
+- Diagonal down-left: (3, 3) - Wall (1)
+- Diagonal down-right: (3, 5) - Out of bounds
+
+The best move is to go left to (2, 3).
+
+Next move: (2, 3)
+
+Here is the current state of the maze after your latest move:
+
+1 1 0 1 1
+1 0 1 0 1
+G 0 0 P 0
+1 1 1 1 1
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Let's identify the current player position and the goal position again:
+
+- Player position (P): (2, 3)
+- Goal position (G): (2, 0)
+
+From (2, 3), the possible moves are:
+- Up: (1, 3) - Empty (0)
+- Down: (3, 3) - Wall (1)
+- Left: (2, 2) - Empty (0)
+- Right: (2, 4) - Empty (0)
+- Diagonal up-left: (1, 2) - Wall (1)
+- Diagonal up-right: (1, 4) - Wall (1)
+- Diagonal down-left: (3, 2) - Wall (1)
+- Diagonal down-right: (3, 4) - Wall (1)
+
+The best move is to go left to (2, 2).
+
+Next move: (2, 2)
+
+Here is the current state of the maze after your latest move:
+
+1 1 0 1 1
+1 0 1 0 1
+G 0 P 0 0
+1 1 1 1 1
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Let's identify the current player position and the goal position again:
+
+- Player position (P): (2, 2)
+- Goal position (G): (2, 0)
+
+From (2, 2), the possible moves are:
+- Up: (1, 2) - Wall (1)
+- Down: (3, 2) - Wall (1)
+- Left: (2, 1) - Empty (0)
+- Right: (2, 3) - Empty (0)
+- Diagonal up-left: (1, 1) - Empty (0)
+- Diagonal up-right: (1, 3) - Empty (0)
+- Diagonal down-left: (3, 1) - Wall (1)
+- Diagonal down-right: (3, 3) - Wall (1)
+
+The best move is to go left to (2, 1).
+
+Next move: (2, 1)
+
+Here is the current state of the maze after your latest move:
+
+1 1 0 1 1
+1 0 1 0 1
+G P 0 0 0
+1 1 1 1 1
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Let's identify the current player position and the goal position again:
+
+- Player position (P): (2, 1)
+- Goal position (G): (2, 0)
+
+From (2, 1), the possible moves are:
+- Up: (1, 1) - Empty (0)
+- Down: (3, 1) - Wall (1)
+- Left: (2, 0) - Goal (G)
+- Right: (2, 2) - Empty (0)
+- Diagonal up-left: (1, 0) - Wall (1)
+- Diagonal up-right: (1, 2) - Wall (1)
+- Diagonal down-left: (3, 0) - Wall (1)
+- Diagonal down-right: (3, 2) - Wall (1)
+
+The best move is to go left to (2, 0), which is the goal position.
+
+Next move: (2, 0)
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. The general shape formed by the empty spaces (corridors) in the original maze is a "zigzag" pattern.
+
+2. Here is a new maze of the same size (5x5) with empty spaces that form a similar "zigzag" pattern. The maze includes a valid path from P to G:
+
+```
+1 1 0 1 1
+1 0 1 0 1
+P 0 0 0 1
+1 1 1 0 1
+1 1 1 G 1
+```
+
+In this new maze:
+- The player starts at position (2, 0) and the goal is at position (4, 3).
+- The empty spaces form a zigzag pattern similar to the original maze.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

@@ -1,0 +1,63 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 P 0 1
+1 1 0 1 1
+1 G 1 1 1
+0 0 0 0 1
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Let's analyze the maze. The current player position (P) is at coordinates (0, 2).
+
+My first move will be to the position right below the current player position, which is an empty space. The new coordinates will be (1, 2).
+
+Please update the maze with my new position.
+
+(Next move coordinates: (1, 2))
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 1
+1 1 P 1 1
+1 G 1 1 1
+0 0 0 0 1
+1 1 1 1 1
+
+Please provide the coordinates of your next move.With the updated maze, I can see that I am now closer to the goal position (G), which is at coordinates (2, 1).
+
+My next move will be diagonally down and left, to the position immediately above the goal. The new coordinates will be (2, 0) is a wall and out of bounds, however, the adjacent diagonal square (2, 2) is not available. The available position diagonally down and left from P is not good because that square is out of bounds so I'll have the next move be diagonally down right to coordinates (2, 3) also isn't available. Given that, I'll choose the other available square to move, down to the square of coordinates (2, 1) isn't possible as it is obstructed by a wall, so I will move  left one square (1,1).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+After analyzing the original maze, I would describe the general shape formed by the empty spaces as a:
+
+(1) Irregular zigzagged corridor.
+
+The empty spaces form a zigzagged path that allows the player to move from the starting position (P) to the goal position (G), avoiding walls.
+
+Here's a new maze with the same size (5x5) and a similar irregular zigzagged corridor shape:
+
+0 1 0 0 1
+0 1 P 1 0
+1 0 1 G 1
+0 0 0 1 0
+1 1 1 0 1
+
+In this new maze, the player can navigate from the starting position (P) to the goal position (G) by moving through the empty spaces, avoiding walls. The corridor shape is similar to the original maze, but the wall and empty space arrangement is different.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

@@ -1,0 +1,152 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 G 0 0 0
+0 1 1 1 1
+0 1 1 1 1
+0 1 1 1 1
+0 P 0 0 0
+
+Please provide the coordinates of your next move.To solve the maze, we need to navigate from the current player position (P) to the goal position (G). Let's start by identifying the coordinates of the player and the goal.
+
+The player (P) is at coordinates (4, 1).
+The goal (G) is at coordinates (0, 1).
+
+We need to find a path from (4, 1) to (0, 1). Let's consider the possible moves:
+
+1. Move up to (3, 1)
+2. Move down to (5, 1) - not possible as it is outside the maze
+3. Move left to (4, 0)
+4. Move right to (4, 2)
+
+Since moving up to (3, 1) is blocked by a wall, and moving down is not possible, we can either move left or right. Moving left to (4, 0) is an empty space, so let's make that move.
+
+Next move: (4, 0)
+
+Here is the current state of the maze after your latest move:
+
+0 G 0 0 0
+0 1 1 1 1
+0 1 1 1 1
+0 1 1 1 1
+P 0 0 0 0
+
+Please provide the coordinates of your next move.Let's evaluate the possible moves from the current position (4, 0):
+
+1. Move up to (3, 0)
+2. Move down to (5, 0) - not possible as it is outside the maze
+3. Move left to (4, -1) - not possible as it is outside the maze
+4. Move right to (4, 1)
+
+Since moving down and left are not possible, and moving up to (3, 0) is an empty space, we can make that move.
+
+Next move: (3, 0)
+
+Here is the current state of the maze after your latest move:
+
+0 G 0 0 0
+0 1 1 1 1
+0 1 1 1 1
+P 1 1 1 1
+0 0 0 0 0
+
+Please provide the coordinates of your next move.Let's evaluate the possible moves from the current position (3, 0):
+
+1. Move up to (2, 0)
+2. Move down to (4, 0) - already visited
+3. Move left to (3, -1) - not possible as it is outside the maze
+4. Move right to (3, 1) - blocked by a wall
+
+Since moving down, left, and right are not possible, we can move up to (2, 0), which is an empty space.
+
+Next move: (2, 0)
+
+Here is the current state of the maze after your latest move:
+
+0 G 0 0 0
+0 1 1 1 1
+P 1 1 1 1
+0 1 1 1 1
+0 0 0 0 0
+
+Please provide the coordinates of your next move.Let's evaluate the possible moves from the current position (2, 0):
+
+1. Move up to (1, 0)
+2. Move down to (3, 0) - already visited
+3. Move left to (2, -1) - not possible as it is outside the maze
+4. Move right to (2, 1) - blocked by a wall
+
+Since moving down, left, and right are not possible, we can move up to (1, 0), which is an empty space.
+
+Next move: (1, 0)
+
+Here is the current state of the maze after your latest move:
+
+0 G 0 0 0
+P 1 1 1 1
+0 1 1 1 1
+0 1 1 1 1
+0 0 0 0 0
+
+Please provide the coordinates of your next move.Let's evaluate the possible moves from the current position (1, 0):
+
+1. Move up to (0, 0)
+2. Move down to (2, 0) - already visited
+3. Move left to (1, -1) - not possible as it is outside the maze
+4. Move right to (1, 1) - blocked by a wall
+
+Since moving down, left, and right are not possible, we can move up to (0, 0), which is an empty space.
+
+Next move: (0, 0)
+
+Here is the current state of the maze after your latest move:
+
+P G 0 0 0
+0 1 1 1 1
+0 1 1 1 1
+0 1 1 1 1
+0 0 0 0 0
+
+Please provide the coordinates of your next move.Let's evaluate the possible moves from the current position (0, 0):
+
+1. Move up to (-1, 0) - not possible as it is outside the maze
+2. Move down to (1, 0) - already visited
+3. Move left to (0, -1) - not possible as it is outside the maze
+4. Move right to (0, 1)
+
+Since moving up, down, and left are not possible, we can move right to (0, 1), which is the goal position (G).
+
+Next move: (0, 1)
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. The general shape formed by the empty spaces (corridors) in the original maze is an "L" shape.
+
+2. Here is a new maze of the same size, with empty spaces that form an "L" shape. The maze includes a valid path from P to G that can be reached through empty spaces and is not an identical copy of the original maze:
+
+```
+1 1 1 1 0
+1 1 1 1 0
+1 1 1 1 0
+1 1 1 1 0
+P 0 0 0 G
+```
+
+In this new maze, the player (P) starts at the bottom left corner (4, 0) and the goal (G) is at the bottom right corner (4, 4). The empty spaces form an "L" shape, providing a valid path from P to G.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

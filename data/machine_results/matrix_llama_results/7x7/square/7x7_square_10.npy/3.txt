@@ -1,0 +1,61 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 G 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 1 1 1 0
+1 0 1 1 1 1 P
+1 0 1 1 1 1 0
+1 0 0 0 0 0 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the situation and provide the coordinates of my next move. 
+
+To begin solving the maze, let's identify the current player position 'P' and the goal position 'G'. From the given maze, we can see that the player is currently at coordinates (3, 5), since the top left corner is (0,0) and we count the rows and columns starting from 0. The goal position 'G' is located at (0, 1).
+
+My strategy will be to analyze the immediate surroundings of the current position and identify the valid moves (up, down, left, right) that lead to an empty space ('0'). I will prioritize moves that appear to reduce the distance between the current position and the goal position 'G'.
+
+Let's analyze the immediate surroundings of the current position (3, 5):
+
+- Up: position (2, 5) is a wall ('1'), so this move is not valid.
+- Down: position (4, 5) is a '1', so this move is not valid.
+- Left: position (3, 4) is a '1', so this move is not valid.
+- Right: position (3, 6) is an empty space ('0'), making this a valid move.
+
+Based on the analysis, I will move to the right. Since I am currently at (3, 5), moving right will put me at coordinates (3, 6).
+
+Therefore, the coordinates of my next move are (3, 6).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces (corridors) in the original maze is an "Inverted U" shape or an "Arch" shape, where the empty spaces form a curved path from one side of the maze to the other, with a central narrow section, and wider sections at the top and bottom.
+
+(2) Here is a new maze of the same size, with empty spaces that form the same "Inverted U" shape:
+
+
+1 G 1 1 1 0 0
+1 0 1 1 1 0 1
+1 0 1 1 1 0 1
+1 0 0 0 0 0 P
+1 0 1 1 1 0 1
+1 0 1 1 1 0 1
+1 1 1 1 1 1 1
+
+In this new maze, the empty spaces form a similar "Inverted U" shape, with the same narrow central section and wider sections at the top and bottom. However, the exact layout of the maze is different from the original. A valid path from P to G can still be found through the empty spaces.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

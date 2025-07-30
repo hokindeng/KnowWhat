@@ -1,0 +1,108 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 0 0 0 0 G 1
+1 1 1 1 0 1 1
+1 1 1 P 1 1 1
+1 1 0 1 1 1 1
+1 0 0 0 0 0 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.To solve the maze, we need to navigate from the current player position 'P' to the goal position 'G'. Let's first identify the coordinates of 'P' and 'G':
+
+- 'P' is located at (2, 3).
+- 'G' is located at (0, 5).
+
+We can move to any adjacent empty space ('0'), including diagonals. Let's examine the possible moves from the current position (2, 3):
+
+1. Up-Left: (1, 2) - Wall
+2. Up: (1, 3) - Wall
+3. Up-Right: (1, 4) - Empty
+4. Left: (2, 2) - Wall
+5. Right: (2, 4) - Wall
+6. Down-Left: (3, 2) - Empty
+7. Down: (3, 3) - Wall
+8. Down-Right: (3, 4) - Wall
+
+From the above options, the valid moves are:
+- Up-Right to (1, 4)
+- Down-Left to (3, 2)
+
+Let's choose the move that brings us closer to the goal. Moving Up-Right to (1, 4) seems promising as it gets us closer to the goal position (0, 5).
+
+Therefore, the next move is to (1, 4).
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 G 1
+1 1 1 1 P 1 1
+1 1 1 0 1 1 1
+1 1 0 1 1 1 1
+1 0 0 0 0 0 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.The current player position 'P' is now at (1, 4), and the goal 'G' is at (0, 5). Let's examine the possible moves from the current position (1, 4):
+
+1. Up-Left: (0, 3) - Empty
+2. Up: (0, 4) - Empty
+3. Up-Right: (0, 5) - Goal
+4. Left: (1, 3) - Wall
+5. Right: (1, 5) - Wall
+6. Down-Left: (2, 3) - Empty
+7. Down: (2, 4) - Wall
+8. Down-Right: (2, 5) - Wall
+
+The valid moves are:
+- Up-Left to (0, 3)
+- Up to (0, 4)
+- Up-Right to (0, 5) (Goal)
+- Down-Left to (2, 3)
+
+Since moving Up-Right to (0, 5) will take us directly to the goal, this is the optimal move.
+
+Therefore, the next move is to (0, 5).
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+To address the task, let's first identify the general shape formed by the empty spaces (corridors) in the original maze. The empty spaces in the original maze form a shape that resembles a "zigzag" or "staircase" pattern, moving diagonally from the bottom left to the top right.
+
+### (1) Name of the General Shape:
+The general shape formed by the empty spaces is a "zigzag" pattern.
+
+### (2) New Maze with the Same Shape:
+Here is a new maze of the same size (7x7) with a "zigzag" pattern of empty spaces, ensuring a valid path from 'P' to 'G':
+
+```
+1 1 1 1 1 0 1
+1 1 1 1 0 0 1
+1 1 1 0 1 1 1
+1 1 0 1 1 1 1
+1 0 1 1 1 1 1
+P 0 0 0 0 0 1
+1 1 1 1 1 1 G
+```
+
+In this new maze:
+- 'P' is at (5, 0).
+- 'G' is at (6, 6).
+
+The empty spaces form a zigzag pattern, providing a path from 'P' to 'G'.
+
+RECOGNIZE: SUCCESS
+
+GENERATE: FAIL

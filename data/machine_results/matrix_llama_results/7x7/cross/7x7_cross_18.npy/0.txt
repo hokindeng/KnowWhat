@@ -1,0 +1,83 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 0 1 G
+1 1 1 1 1 0 1
+1 1 1 1 0 1 P
+
+Please provide the coordinates of your next move.Since I can move to any empty space that is adjacent to my current position, I'll choose a move that brings me closer to the goal. Given the maze, I will move diagonally up and right to the empty space adjacent to my current position.
+
+My current position is at (6, 5), and I'll move to (5, 5).
+
+New coordinates: (5, 5)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 0 1 G
+1 1 1 1 1 P 1
+1 1 1 1 0 1 0
+
+Please provide the coordinates of your next move.With the updated maze, I'll move diagonally up and right again to the empty space adjacent to my current position. This will bring me closer to the goal.
+
+My current position is at (5, 5), but there is a wall at (4, 5) and (5, 4) and the rest of the positions adjacent to (5,5) are out of bounds or not adjacent to the current position, so I will move diagonally up and right from my current position (5, 5) is the empty space at (4, 4).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 P 1 G
+1 1 1 1 1 0 1
+1 1 1 1 0 1 0
+
+Please provide the coordinates of your next move.Now that I'm at (4, 4), I see that I'm getting closer to the goal! I will move right to the empty space adjacent to my current position, which is the goal itself.
+
+My current position is at (4, 4), and I'll move right to (4, 5), no, that is a wall so I move right to (4, 6).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as an "L-shape" or a " corner path". This is because the empty spaces form a continuous path that resembles the shape of the letter L, allowing the player to navigate from the starting point P to the goal G.
+
+Here is a new maze of the same size, with empty spaces that form the same L-shape:
+
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 0 0 1
+1 1 1 1 0 1 G
+1 1 1 0 0 1 P
+
+This new maze meets the criteria, as it:
+
+* Has the same size as the original maze (7x7)
+* Includes a valid path from P to G that can be reached through empty spaces
+* Is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as an L-shape.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

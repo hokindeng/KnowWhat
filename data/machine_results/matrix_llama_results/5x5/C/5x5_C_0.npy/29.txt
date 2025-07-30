@@ -1,0 +1,229 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Let's analyze the maze and plan the next move. 
+
+Currently, the player position is at the coordinates (0,2). To find a path to the goal position 'G' at (3,0), I would recommend moving left to the empty space at coordinates (0,1), as moving right is blocked by a wall and moving down is also blocked by walls.
+
+The coordinates of my next move would be (0,1).
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.With the player position now at (0,1), the goal is to continue moving towards the goal position 'G'. Since moving right and down are blocked by walls, and moving left is not possible since it's outside the maze, I recommend moving up to the empty space at coordinates (0,0).
+
+The coordinates of my next move would be (0,0).
+
+Here is the current state of the maze after your latest move:
+
+P 0 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.With the player position now at (0,0), I have to find a way to move downwards towards the goal 'G'. Since the direct downward path is blocked by walls, I need to find an alternative route. For now, I'll move right to the empty space at coordinates (0,1), and then reassess the situation.
+
+The coordinates of my next move would be (0,1), but I'll plan the subsequent moves to try to move downwards.
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Back to this position. Since moving right and down are blocked, I need to continue moving right in the hope of finding a gap to move down. I'll move right to the empty space at coordinates (0,2), and then reassess the situation.
+
+The coordinates of my next move would be (0,2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Now I'll move right to the empty space at coordinates (0,3), trying to find an opportunity to move downwards.
+
+The coordinates of my next move would be (0,3).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 P 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Now that I've reached the rightmost empty space, I have to move down. Unfortunately, there's no direct way down from here due to the wall below. I have to backtrack to the left, searching for an opening. I'll move left to the empty space at coordinates (0,2).
+
+The coordinates of my next move would be (0,2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I've backtracked to (0,2). Since moving down and right are blocked, I need to move further to the left. I'll move left to the empty space at coordinates (0,1).
+
+The coordinates of my next move would be (0,1).
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Now I've moved to (0,1). To progress, I need to move down, but the path is still blocked. I need to continue moving left. I'll move left to the empty space at coordinates (0,0).
+
+The coordinates of my next move would be (0,0).
+
+Here is the current state of the maze after your latest move:
+
+P 0 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Back to the starting point. Since moving right and down from (0,0) doesn't help, and moving left is outside the maze, I need to reassess. Let's look at the whole maze again. Ah, I notice the empty spaces at the bottom of the maze. Since the goal 'G' is also at the bottom, I might be able to reach it if I can get to those empty spaces. However, to do that, I would need to get around the wall blocking my way down. Unfortunately, that means I'll have to try the other side of the wall. I'll move right to the empty space at coordinates (0,1).
+
+The coordinates of my next move would be (0,1).
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Since I need to get to the other side of the wall to potentially find a path to the empty spaces at the bottom, I'll keep moving right. I'll move right to the empty space at coordinates (0,2).
+
+The coordinates of my next move would be (0,2)
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Continuing my plan to get to the other side, I'll move right to the empty space at coordinates (0,3).
+
+The coordinates of my next move would be (0,3).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 P 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I've reached the rightmost empty space again. However, my plan was to get to the other side, which seems to be a mistake, as there's no clear path to the goal from here. I need to change my strategy. I'll backtrack to the leftmost empty space and reconsider my approach. I'll move left to the empty space at coordinates (0,0).
+
+However, before I move all the way to (0,0), I can try moving down when possible while moving left. Let's try moving left for now. I'll move left to the empty space at coordinates (0,2).
+
+The coordinates of my next move would be (0,2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Now I'll move left to the empty space at coordinates (0,1).
+
+The coordinates of my next move would be (0,1).
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Now I'll move left to the empty space at coordinates (0,0).
+
+The coordinates of my next move would be (0,0).
+
+Here is the current state of the maze after your latest move:
+
+P 0 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm back at the starting point. Since moving right and up don't help, and moving left is outside the maze, I need to find a way to move down. Unfortunately, the direct path is blocked by walls. I'll have to wait for an opportunity to move down. However, I notice that the goal 'G' is at the bottom left of the maze, and there are empty spaces to its right. If I can get to those empty spaces, I might be able to reach the goal. But for now, I need to get around the wall blocking my way. I'll move right to the empty space at coordinates (0,1) and then reassess.
+
+The coordinates of my next move would be (0,1).
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Since I need to get to the empty spaces at the bottom right of the maze, and moving right from (0,1) doesn't help, I'll try moving right further and then look for a way to move down. However, moving right doesn't seem to provide a clear path downwards. I'll move right to the empty space at coordinates (0,2) and reassess.
+
+The coordinates of my next move would be (0,2)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as an "L-shape".
+
+Here is a new maze with the same size, where the empty spaces form the same L-shape:
+
+
+0 0 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 0 0 0 1
+P 1 1 1 1
+
+
+In this new maze, the empty spaces also form an L-shape, but the positions of the walls and the start/end points are different from the original maze.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

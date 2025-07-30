@@ -1,0 +1,113 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 4), (1, 1), (1, 2), (1, 3), (1, 4), (2, 1), (2, 2), (2, 3), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4), (4, 4)
+Empty: (0, 0), (0, 1), (0, 3), (1, 0), (2, 0), (4, 0), (4, 1), (4, 2), (4, 3)
+Player position: (0, 2)
+Goal: (3, 0)
+
+Please provide the coordinates of your next move.Let me analyze the maze and determine the best next move.
+
+From the given information, I can visualize the maze like this:
+
+(0,0) (0,1) (0,2)P (0,3) (0,4)#
+(1,0)        #     #     #     #
+(2,0)        #     #     #     #
+(3,0)G       #     #     #     #
+(4,0) (4,1) (4,2) (4,3) (4,4)#
+
+Where:
+- P is my current position at (0,2)
+- G is the goal at (3,0)
+- # represents walls
+- Empty spaces are available for movement
+
+To reach the goal at (3,0), I need to move downward through the available path. Looking at the empty spaces, I can see there's a path along the left side of the maze.
+
+From my current position at (0,2), I should move left to (0,1) as my next move. This will help me get closer to the path that leads to the goal.
+
+Therefore, my next move is to: (0, 1)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 4), (1, 1), (1, 2), (1, 3), (1, 4), (2, 1), (2, 2), (2, 3), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4), (4, 4)
+Empty: (0, 0), (0, 2), (0, 3), (1, 0), (2, 0), (4, 0), (4, 1), (4, 2), (4, 3)
+Player position: (0, 1)
+Goal: (3, 0)
+
+Please provide the coordinates of your next move.From my current position at (0,1), I need to continue moving towards the path that will lead me to the goal at (3,0).
+
+Looking at the available empty spaces, I can see that I need to move left to (0,0), which will then allow me to move down through the empty spaces along the left side of the maze to reach the goal.
+
+Therefore, my next move is to: (0, 0)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 4), (1, 1), (1, 2), (1, 3), (1, 4), (2, 1), (2, 2), (2, 3), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4), (4, 4)
+Empty: (0, 1), (0, 2), (0, 3), (1, 0), (2, 0), (4, 0), (4, 1), (4, 2), (4, 3)
+Player position: (0, 0)
+Goal: (3, 0)
+
+Please provide the coordinates of your next move.From my current position at (0,0), I can see that there's a clear path down along the left side of the maze that will lead me to the goal at (3,0).
+
+Looking at the empty spaces, I can move down to (1,0), which is the next step towards the goal.
+
+Therefore, my next move is to: (1, 0)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 4), (1, 1), (1, 2), (1, 3), (1, 4), (2, 1), (2, 2), (2, 3), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4), (4, 4)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (2, 0), (4, 0), (4, 1), (4, 2), (4, 3)
+Player position: (1, 0)
+Goal: (3, 0)
+
+Please provide the coordinates of your next move.From my current position at (1,0), I can continue moving down along the left side of the maze towards the goal at (3,0).
+
+Looking at the empty spaces, I can see that (2,0) is available, which is the next logical step towards reaching the goal.
+
+Therefore, my next move is to: (2, 0)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 4), (1, 1), (1, 2), (1, 3), (1, 4), (2, 1), (2, 2), (2, 3), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4), (4, 4)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (1, 0), (4, 0), (4, 1), (4, 2), (4, 3)
+Player position: (2, 0)
+Goal: (3, 0)
+
+Please provide the coordinates of your next move.From my current position at (2,0), I can see that the goal is just one step away at (3,0).
+
+Since (3,0) is the goal position and it's directly below my current position, I'll move down to reach it.
+
+Therefore, my next move is to: (3, 0)
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1) In the original maze, the empty spaces form an "L" shape, with one corridor running vertically along the left side and another corridor running horizontally along the bottom of the maze.
+
+2) Here's a new 5x5 maze with empty spaces forming an "L" shape, but with a different arrangement than the original:
+
+Walls: (0, 1), (0, 2), (0, 3), (0, 4), (1, 1), (1, 2), (1, 3), (1, 4), (2, 1), (2, 2), (2, 3), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4)
+Empty: (0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Player position: (0, 0)
+Goal: (4, 4)
+
+In this new maze:
+- The vertical part of the "L" runs along the left side (column 0)
+- The horizontal part runs along the bottom (row 4)
+- The player starts at the top of the vertical corridor
+- The goal is at the end of the horizontal corridor
+- The path is still continuous and solvable
+- The "L" shape is maintained but the maze is different from the original
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

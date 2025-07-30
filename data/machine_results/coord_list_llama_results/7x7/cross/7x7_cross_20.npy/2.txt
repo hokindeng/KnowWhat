@@ -1,0 +1,59 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (2, 4), (3, 5), (4, 6)
+Player position: (4, 4)
+Goal: (2, 6)
+
+Please provide the coordinates of your next move.## Step 1: Understand the maze layout and the objective
+The maze is a 2D grid with walls, empty spaces, a current player position (P), and a goal position (G). The objective is to navigate from the current player position to the goal position by moving only through empty spaces while avoiding walls.
+
+## Step 2: Identify the possible moves from the current player position
+Given the current player position is (4, 4), we need to identify the adjacent empty spaces where the player can move. The possible moves are up, down, left, right, or any diagonal.
+
+## Step 3: Analyze the maze to find the nearest empty space to the goal
+Since the goal is at (2, 6), we should try to move towards that direction. Looking at the maze, the nearest empty space to the goal that is also adjacent to the current player position is (4, 6).
+
+## Step 4: Determine the next move
+Based on the analysis, the next move should be to the empty space at (4, 6), which is diagonally up and to the right of the current player position.
+
+The final answer is: $\boxed{(4, 6)}$
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces in the original maze
+The original maze has empty spaces at (2, 4), (3, 5), and (4, 6). These points form a diagonal line from the bottom left to the top right of the maze, but considering the constraints of the maze and the movement rules, it's more accurate to describe the shape as a "diagonal corridor" or simply a diagonal line.
+
+## Step 2: Design a new maze with the same shape for the empty spaces
+To create a new maze with the same shape for the empty spaces, we will maintain a diagonal line of empty spaces but adjust their positions and add new ones to ensure a valid path from P to G while avoiding walls.
+
+## Step 3: Determine the new positions for the empty spaces
+Given the size of the maze (7x7), we can create a diagonal line of empty spaces from the top left to the bottom right. However, to ensure a valid path and to avoid making it too straightforward, we will adjust the positions slightly.
+
+## Step 4: Encode the new maze
+The new maze will have the following characteristics:
+- Walls will be placed to block direct paths and create a challenge.
+- Empty spaces will form a diagonal line but with adjustments to ensure a navigable path.
+- The player position (P) and the goal position (G) will be placed at opposite ends of the diagonal line.
+
+New maze:
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 5), (1, 6), (2, 0), (2, 1), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5)
+Empty: (1, 4), (2, 5), (3, 4), (4, 5), (5, 4), (6, 5)
+Player position: (6, 6)
+Goal: (1, 1)
+
+The final answer is: $\boxed{Diagonal}$
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

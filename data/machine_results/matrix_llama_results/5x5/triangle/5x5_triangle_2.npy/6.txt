@@ -1,0 +1,71 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 0 0 0
+0 1 1 0 1
+G 1 P 1 1
+0 0 1 1 1
+0 1 1 1 1
+
+Please provide the coordinates of your next move.## Step 1: Identify the current player position (P) and the goal position (G)
+The goal position is at coordinates (2,0) and the current player position is at coordinates (2,2).
+
+## Step 2: Analyze the possible moves from the current position (P)
+Given the current player position at (2,2), the possible moves are up, down, left, right, and diagonals. However, we must only move to empty spaces while avoiding walls.
+
+## Step 3: Evaluate the viable moves from the current position
+Moving up to (1,2) is not possible because it's a wall. Moving down to (3,2) is possible because it's an empty space. Moving left to (2,1) is not possible because it's a wall. Moving right to (2,3) is not possible because it's a wall. Moving diagonally up-left to (1,1) is not possible because it's a wall. Moving diagonally up-right to (1,3) is possible because it's an empty space, but the wall at (1,2) blocks direct diagonal movement in the actual maze structure. Moving diagonally down-left to (3,1) is possible because it's an empty space. Moving diagonally down-right to (3,3) is not possible because it's a wall.
+
+## Step 4: Select the most appropriate move towards the goal position (G)
+Given that the goal position is at (2,0), moving diagonally down-left to (3,1) does not directly advance towards the goal in the most efficient manner. However, it's a viable move compared to others blocked by walls. The most logical step, however, considering the direct path to the goal is blocked by a wall at (2,1), would be to find an alternative route that minimizes the distance and obstacles. The impulsive choice would be to move down to (3,2) which provides a more straightforward path and keeps options open for a future move towards the goal.
+
+## Step 5: Determine the best immediate move to make
+Considering the analysis, moving down to (3,2) appears to be the most reasonable choice. It moves away from the goal slightly but offers the possibility of navigating around the walls more easily than other options.
+
+The final answer is: $\boxed{\left( 3, \  2\right)}$
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces in the original maze
+After analyzing the original maze, it appears that the general shape formed by the empty spaces is a zigzag or a winding path.
+
+## Step 2: Create a new maze of the same size, with empty spaces that form the same shape
+To create a new maze with the same shape, we need to maintain a zigzag or winding path while rearranging the walls.
+
+## Step 3: Ensure the new maze meets all the criteria
+We need to verify that the new maze has the same size as the original, includes a valid path from P to G, is not an identical copy of the original, and maintains a zigzag or winding path shape.
+
+## Step 4: Design the new maze
+Given the constraints and requirements, we can now design the new maze.
+
+0 1 0 0 0
+0 1 0 1 0
+G 0 P 1 1
+0 1 0 1 0
+0 0 1 0 1
+
+## Step 5: Validate the new maze
+The new maze is the same size as the original, contains a valid path from P to G through empty spaces, and forms a zigzag or winding path shape.
+
+The final answer is:  $\boxed{0 1 0 0 0
+0 1 0 1 0
+G 0 P 1 1
+0 1 0 1 0
+0 0 1 0 1}$
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

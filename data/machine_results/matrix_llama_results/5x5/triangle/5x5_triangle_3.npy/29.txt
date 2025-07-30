@@ -1,0 +1,213 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1
+1 1 1 1 0
+1 1 1 G 0
+1 1 0 1 0
+1 0 0 0 P
+
+Please provide the coordinates of your next move.## Step 1: Identify the current player position (P)
+The current player position (P) is at the coordinates (4, 4).
+
+## Step 2: Identify the goal position (G)
+The goal position (G) is at the coordinates (2, 3).
+
+## Step 3: Examine the adjacent positions to the current player position (P)
+The adjacent positions to the current player position (P) at (4, 4) are:
+- (4, 3) which is an empty space
+- (4, 5) which is out of bounds
+- (3, 4) which is an empty space
+- (5, 4) which is out of bounds
+- (3, 3) which is an empty space
+- (3, 5) which is out of bounds
+- (5, 3) which is out of bounds
+- (5, 5) which is out of bounds
+
+## Step 4: Choose the best adjacent position for the next move
+Based on the goal of moving closer to the goal position (G) and considering only empty spaces, the best adjacent position for the next move would be (4, 3) because it directly leads towards the goal but moving upwards instead of diagonally to maintain as much direct movement towards the goal as possible while clearing a path.
+
+The final answer is: $\boxed{\left( 4, \  3\right)}$
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 1 1 1 0
+1 1 1 G 0
+1 1 0 1 0
+1 0 0 P 0
+
+Please provide the coordinates of your next move.## Step 1: Identify the current player position (P)
+The current player position (P) is at the coordinates (4, 2).
+
+## Step 2: Identify the goal position (G)
+The goal position (G) is at the coordinates (2, 3).
+
+## Step 3: Examine the adjacent positions to the current player position (P)
+The adjacent positions to the current player position (P) at (4, 2) are:
+- (4, 1) which is an empty space
+- (4, 3) which is an empty space
+- (3, 2) which is an empty space
+- (5, 2) which is out of bounds
+- (3, 1) which is a wall
+- (3, 3) which is a wall
+- (5, 1) which is out of bounds
+- (5, 3) which is out of bounds
+
+## Step 4: Choose the best adjacent position for the next move
+Based on the goal of moving closer to the goal position (G) and considering only empty spaces, the best adjacent position for the next move would be (3, 2) because it moves closer to the goal while avoiding movement directly adjacent to walls.
+
+The final answer is: $\boxed{\left( 3, \  2\right)}$
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 1 1 1 0
+1 1 1 G 0
+1 1 P 1 0
+1 0 0 0 0
+
+Please provide the coordinates of your next move.## Step 1: Identify the current player position (P)
+The current player position (P) is at the coordinates (3, 2).
+
+## Step 2: Identify the goal position (G)
+The goal position (G) is at the coordinates (2, 3).
+
+## Step 3: Examine the adjacent positions to the current player position (P)
+The adjacent positions to the current player position (P) at (3, 2) are:
+- (3, 1) which is a wall
+- (3, 3) which is a wall
+- (2, 2) which is a wall
+- (4, 2) which is an empty space
+- (2, 1) which is a wall
+- (2, 3) which is the goal but blocked by a wall
+- (4, 1) which is a wall
+- (4, 3) which is an empty space
+
+## Step 4: Choose the best adjacent position for the next move
+Based on the goal of moving closer to the goal position (G) and considering only empty spaces, the best adjacent position for the next move would be (3, is not viable, so) (4, 3). We would like to go up, but we can't. Going down moves us away from our target. We will move right to free up future movements that will get us closer to our goal or prepare to climb.
+
+The final answer is: $\boxed{\left( 4, \  3\right)}$
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 1 1 1 0
+1 1 1 G 0
+1 1 0 1 0
+1 0 0 P 0
+
+Please provide the coordinates of your next move.## Step 1: Identify the current player position (P)
+The current player position (P) is at the coordinates (4, 3).
+
+## Step 2: Identify the goal position (G)
+The goal position (G) is at the coordinates (2, 3).
+
+## Step 3: Examine the adjacent positions to the current player position (P)
+The adjacent positions to the current player position (P) at (4, 3) are:
+- (4, 2) which is an empty space
+- (4, 4) which is an empty space
+- (3, 3) which is a wall
+- (5, 3) which is out of bounds
+- (3, 2) which is a wall
+- (3, 4) which is an empty space
+- (5, 2) which is out of bounds
+- (5, 4) which is out of bounds
+
+## Step 4: Choose the best adjacent position for the next move
+Based on the goal of moving closer to the goal position (G) and considering only empty spaces, the best adjacent position for the next move would be (3, 4) because it moves closer to the goal vertically and adjusts horizontally which might help get around the walls that are currently blocking our path to the goal.
+
+The final answer is: $\boxed{\left( 3, \  4\right)}$
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 1 1 1 0
+1 1 1 G 0
+1 1 0 1 P
+1 0 0 0 0
+
+Please provide the coordinates of your next move.## Step 1: Identify the current player position (P)
+The current player position (P) is at the coordinates (3, 4).
+
+## Step 2: Identify the goal position (G)
+The goal position (G) is at the coordinates (2, 3).
+
+## Step 3: Examine the adjacent positions to the current player position (P)
+The adjacent positions to the current player position (P) at (3, 4) are:
+- (3, 3) which is a wall
+- (3, 5) which is out of bounds
+- (2, 4) which is an empty space
+- (4, 4) which is an empty space
+- (2, 3) which is the goal
+- (2, 5) which is out of bounds
+- (4, 3) which is a wall
+- (4, 5) which is out of bounds
+
+## Step 4: Choose the best adjacent position for the next move
+Based on the goal of moving closer to the goal position (G) and considering only empty spaces, the best adjacent position for the next move would be (2, 4) because it moves closer to the goal and positions us so we could move directly to the goal.
+
+The final answer is: $\boxed{\left( 2, \  4\right)}$
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 1 1 1 0
+1 1 1 G P
+1 1 0 1 0
+1 0 0 0 0
+
+Please provide the coordinates of your next move.## Step 1: Identify the current player position (P)
+The current player position (P) is at the coordinates (2, 4).
+
+## Step 2: Identify the goal position (G)
+The goal position (G) is at the coordinates (2, 3).
+
+## Step 3: Examine the adjacent positions to the current player position (P)
+The adjacent positions to the current player position (P) at (2, 4) are:
+- (2, 3) which is the goal
+
+## Step 4: Choose the best adjacent position for the next move
+Based on the goal of moving closer to the goal position (G) and considering only empty spaces or the goal, the best adjacent position for the next move would be (2, 3) because it is the goal.
+
+The final answer is: $\boxed{\left( 2, \  3\right)}$
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces (corridors) in the original maze
+The general shape formed by the empty spaces in the original maze is an "L" shape.
+
+## Step 2: Generate a new maze of the same size with empty spaces that form the same shape
+Here is a new maze that meets the criteria:
+
+
+1 1 1 1 1
+1 0 0 1 1
+1 0 G 1 1
+1 1 0 0 0
+1 1 1 P 1
+
+
+The final answer is: 
+$oxed{1 1 1 1 1
+1 0 0 1 1
+1 0 G 1 1
+1 1 0 0 0
+1 1 1 P 1}$
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

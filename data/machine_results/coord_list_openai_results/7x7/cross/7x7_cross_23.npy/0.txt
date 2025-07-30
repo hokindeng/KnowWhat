@@ -1,0 +1,50 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (3, 0), (3, 1), (3, 3), (3, 5), (3, 6), (4, 0), (4, 1), (4, 2), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 3), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (3, 2), (4, 3), (5, 4)
+Player position: (5, 2)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.To solve the maze, we need to navigate from the current player position (5, 2) to the goal position (3, 4) by moving through the empty spaces. The available empty spaces are (3, 2), (4, 3), and (5, 4).
+
+From the current position (5, 2), the possible moves are:
+- Move to (5, 4) (right)
+- Move to (4, 3) (up and left)
+
+The move to (5, 4) is a direct horizontal move to an empty space, which seems like a good first step.
+
+Let's move to (5, 4).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. **General Shape of the Empty Spaces (Corridors):**
+
+The empty spaces in the original maze form a shape that resembles a "Z" or zigzag pattern. The path starts at (5, 2), moves right to (5, 4), then diagonally up-left to (4, 3), and finally up-right to (3, 4).
+
+2. **New Maze with the Same Shape:**
+
+To create a new maze with the same "Z" shape, we need to maintain the same general pattern of movement while changing the specific positions of the walls and empty spaces. Here's a new maze configuration:
+
+- **Walls:** (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 3), (3, 5), (3, 6), (4, 0), (4, 1), (4, 2), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 3), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+
+- **Empty:** (3, 4), (4, 3), (5, 2)
+
+- **Player position:** (5, 4)
+
+- **Goal:** (3, 2)
+
+In this new configuration, the player starts at (5, 4) and can move left to (5, 2), then diagonally up-right to (4, 3), and finally up-left to reach the goal at (3, 2), maintaining the "Z" shape.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

@@ -1,0 +1,194 @@
+# Maze Navigation Task
+
+You are tasked with solving a maze provided to you as an image. You goal is to complete the maze, move-by-move, by finding a path from a start position to an end position. Below are detailed instructions for the task.
+
+## Maze Representation
+
+The attached image is a maze represented as a 2D grid. Each cell in the maze has coordinates displayed as (row,column), with (0,0) being the top-left corner. The grid uses the following color coding:
+
+* WHITE cells (walls): These are obstacles you CANNOT move through
+* DARK GREY cells (paths): These are empty cells you CAN move through
+* BLUE cell (player): Your current position in the maze
+* RED cell (goal): Your destination that you need to reach
+
+## Movement Rules
+
+1. You can ONLY move to adjacent cells in four directions: UP, DOWN, LEFT, or RIGHT
+2. Diagonal movement is NOT allowed
+3. You can ONLY move through empty (DARK GREY) cells
+4. You CANNOT move through walls (WHITE cells)
+5. Each move must be to a directly adjacent cell (no skipping cells)
+
+## Your Task
+
+Navigate from your current position (BLUE cell) to the goal (RED cell) by providing a sequence of coordinates, one move at a time.
+
+## How to Respond
+
+1. Analyze the maze carefully 
+2. Identify a valid path from your current position to the goal
+3. Provide your next move as coordinates in the format (row,column)
+4. After each of your moves, I will show you an updated maze with your new position
+5. Continue providing one move at a time until you reach the goal
+
+## Success Condition
+
+The task is completed when you successfully reach the RED goal cell.
+
+## Example Response
+
+To move to the cell below your current position, you would respond with the coordinates of that cell, such as:
+
+'Next move: (5,3)'
+
+Here is the maze you need to solve:
+Looking at the maze, I can see:
+- My current position (BLUE cell): (5,6)
+- The goal (RED cell): (1,6)
+- I need to find a path through the dark grey cells
+
+From my current position at (5,6), I can see that:
+- UP (4,6) is a white wall - cannot move there
+- DOWN (6,6) is a white wall - cannot move there  
+- LEFT (5,5) is a dark grey path - I can move there
+- RIGHT would be out of bounds
+
+My only valid move is to go LEFT.
+
+Next move: (5,5)
+
+Here is the current state of the maze after your latest move:
+
+Good, I successfully moved to (5,5). Now I need to continue finding a path to the goal at (1,6).
+
+From my current position at (5,5), I can see:
+- UP (4,5) is a white wall - cannot move there
+- DOWN (6,5) is a white wall - cannot move there
+- LEFT (5,4) is a dark grey path - I can move there
+- RIGHT (5,6) is where I just came from
+
+I'll continue moving LEFT to explore the path.
+
+Next move: (5,4)
+
+Here is the current state of the maze after your latest move:
+
+I'm now at (5,4). Looking at my options:
+- UP (4,4) is a white wall - cannot move there
+- DOWN (6,4) is a white wall - cannot move there
+- LEFT (5,3) is a dark grey path - I can move there
+- RIGHT (5,5) is where I came from
+
+I'll continue moving LEFT along the path.
+
+Next move: (5,3)
+
+Here is the current state of the maze after your latest move:
+
+I'm now at (5,3). Checking my surroundings:
+- UP (4,3) is a white wall - cannot move there
+- DOWN (6,3) is a white wall - cannot move there
+- LEFT (5,2) is a dark grey path - I can move there
+- RIGHT (5,4) is where I came from
+
+Continuing LEFT along the path.
+
+Next move: (5,2)
+
+Here is the current state of the maze after your latest move:
+
+I'm at (5,2). Looking at my options:
+- UP (4,2) is a dark grey path - I can move there
+- DOWN (6,2) is a white wall - cannot move there
+- LEFT (5,1) is a white wall - cannot move there
+- RIGHT (5,3) is where I came from
+
+I need to go UP to make progress toward the goal.
+
+Next move: (4,2)
+
+Here is the current state of the maze after your latest move:
+
+I'm at (4,2). Checking my options:
+- UP (3,2) is a dark grey path - I can move there
+- DOWN (5,2) is where I came from
+- LEFT (4,1) is a white wall - cannot move there
+- RIGHT (4,3) is a white wall - cannot move there
+
+I'll continue moving UP toward the goal.
+
+Next move: (3,2)
+
+Here is the current state of the maze after your latest move:
+
+I'm at (3,2). Checking my surroundings:
+- UP (2,2) is a dark grey path - I can move there
+- DOWN (4,2) is where I came from
+- LEFT (3,1) is a white wall - cannot move there
+- RIGHT (3,3) is a white wall - cannot move there
+
+Continuing UP to get closer to the goal.
+
+Next move: (2,2)
+
+Here is the current state of the maze after your latest move:
+
+I'm at (2,2). Looking at my options:
+- UP (1,2) is a dark grey path - I can move there
+- DOWN (3,2) is where I came from
+- LEFT (2,1) is a white wall - cannot move there
+- RIGHT (2,3) is a white wall - cannot move there
+
+Moving UP to continue toward the goal.
+
+Next move: (1,2)
+
+Here is the current state of the maze after your latest move:
+
+I'm at (1,2). Checking my options:
+- UP (0,2) is a white wall - cannot move there
+- DOWN (2,2) is where I came from
+- LEFT (1,1) is a white wall - cannot move there
+- RIGHT (1,3) is a dark grey path - I can move there
+
+I need to move RIGHT to continue toward the goal at (1,6).
+
+Next move: (1,3)
+
+Here is the current state of the maze after your latest move:
+
+I'm at (1,3). Looking at my options:
+- UP (0,3) is a white wall - cannot move there
+- DOWN (2,3) is a white wall - cannot move there
+- LEFT (1,2) is where I came from
+- RIGHT (1,4) is a dark grey path - I can move there
+
+Continuing RIGHT toward the goal.
+
+Next move: (1,4)
+
+Here is the current state of the maze after your latest move:
+
+I'm at (1,4). Checking my options:
+- UP (0,4) is a white wall - cannot move there
+- DOWN (2,4) is a white wall - cannot move there
+- LEFT (1,3) is where I came from
+- RIGHT (1,5) is a dark grey path - I can move there
+
+Moving RIGHT to get closer to the goal.
+
+Next move: (1,5)
+
+Here is the current state of the maze after your latest move:
+
+Perfect! I'm at (1,5) and I can see the goal (RED cell) is directly to my right at (1,6).
+
+Looking at my options:
+- UP (0,5) is a white wall - cannot move there
+- DOWN (2,5) is a white wall - cannot move there
+- LEFT (1,4) is where I came from
+- RIGHT (1,6) is the RED goal cell - I can move there!
+
+Next move: (1,6)
+
+SOLVE: SUCCESS

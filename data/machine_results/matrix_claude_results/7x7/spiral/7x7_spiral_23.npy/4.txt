@@ -1,0 +1,71 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 0 0 0 1 0 1
+1 0 1 0 1 P 1
+1 0 1 0 1 0 1
+1 0 1 1 1 0 1
+1 0 0 0 G 0 1
+
+Please provide the coordinates of your next move.Let me analyze the maze and determine the best next move.
+
+Current observations:
+1. The player (P) is at position (3,5)
+2. The goal (G) is at position (5,4)
+3. We need to move towards the goal while avoiding walls
+4. There is a clear path to the goal by going left and down
+
+For the next move, I recommend moving left to position (3,4).
+
+My next move coordinates are: (3,4)
+
+This move will:
+1. Keep us on a valid path
+2. Move us closer to the goal
+3. Avoid walls
+4. Allow us to continue downward towards the goal in subsequent moves
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. Looking at the empty spaces (corridors) in the original maze, they form a general "U" shape, with two vertical paths connected by a horizontal path at the bottom.
+
+2. Here's a new maze of the same size (7x7) that maintains a "U" shape pattern but with a different arrangement:
+
+1 1 1 1 1 1 1
+1 P 0 0 0 1 1
+1 1 1 0 1 1 1
+1 1 1 0 1 1 1
+1 1 1 0 1 1 1
+1 0 0 0 0 G 1
+1 1 1 1 1 1 1
+
+This new maze:
+- Has the same dimensions (7x7)
+- Contains a valid path from P to G through empty spaces
+- Forms a "U" shape with its corridors
+- Is different from the original maze
+- Uses the same encoding (1 for walls, 0 for empty spaces, P for player, G for goal)
+
+The U-shape is formed by:
+- A vertical path on the left side (starting from P)
+- A horizontal path at the bottom
+- A vertical path on the right side (ending at G)
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

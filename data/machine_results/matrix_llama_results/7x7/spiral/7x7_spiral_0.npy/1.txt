@@ -1,0 +1,109 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 0 0 0 0 1
+0 1 1 1 1 1 1
+0 1 0 0 0 0 1
+P 1 0 1 1 0 1
+0 1 1 1 1 0 1
+0 0 0 G 0 0 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the possible moves. The current player position 'P' is located at (3,0), where (3) is the row number and (0) is the column number (using 0-based indexing).
+
+To find the next move, I need to look at the adjacent cells of the current position. 
+
+Looking up (row-1, column), I see a wall (1), so I cannot move up.
+
+Looking down (row+1, column), I see an empty space (0), which is a valid move.
+
+Looking left (row, column-1) is not possible since we are already at the leftmost column.
+
+Looking right (row, column+1), I see a wall (1), so I cannot move right.
+
+I choose to move down to the empty space. 
+
+My next move will be to position (4,0).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0 0 1
+0 1 1 1 1 1 1
+0 1 0 0 0 0 1
+0 1 0 1 1 0 1
+P 1 1 1 1 0 1
+0 0 0 G 0 0 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Now that I've moved to position (4,0), I will analyze the adjacent cells again.
+
+Looking up (row-1, column), I see an empty space that I came from, which is a valid move, but I don't want to go back.
+
+Looking down (row+1, column), I see an empty space (0), which is a valid move.
+
+Looking left (row, column-1) is not possible since we are already at the leftmost column.
+
+Looking right (row, column+1), I see a wall (1), so I cannot move right.
+
+I choose to move down to the empty space. 
+
+My next move will be to position (5,0).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0 0 1
+0 1 1 1 1 1 1
+0 1 0 0 0 0 1
+0 1 0 1 1 0 1
+0 1 1 1 1 0 1
+P 0 0 G 0 0 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Now that I've moved to position (5,0), I will analyze the adjacent cells again.
+
+Looking up (row-1, column), I see an empty space that I came from, which is a valid move, but I don't want to go back.
+
+Looking down (row+1, column), I see a wall (1), so I cannot move down.
+
+Looking left (row, column-1) is not possible since we are already at the leftmost column.
+
+Looking right (row, column+1), I see an empty space (0), which is a valid move and brings me closer to the goal (G).
+
+I choose to move right to the empty space. 
+
+My next move will be to position (5,1), and then I will consider my next options, potentially moving closer to the goal (G) at (5,3).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as:
+
+(1) a winding stair or zigzag shape with some straight sections.
+
+Here's a new maze with the same size, a valid path from P to G, and a similar zigzag shape formed by its empty spaces:
+
+0 1 1 0 0 0 1
+0 1 0 1 1 1 1
+0 1 0 0 0 1 1
+P 1 1 0 1 0 1
+0 1 0 0 1 0 1
+0 0 0 1 0 G 1
+1 1 1 1 1 1 1
+
+This new maze has the same size as the original and features a similar zigzag or winding stair shape formed by its empty spaces, while providing a unique and solvable path from P to G.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

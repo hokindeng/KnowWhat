@@ -1,0 +1,63 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 0 1 G 1
+1 1 1 1 0 1 1
+1 1 1 P 1 0 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the surroundings of the current player position 'P' located at coordinates (2,3).
+
+After analyzing the maze, I have decided on the next move. My next move will be to the position directly above the current position, at coordinates (2,2) -> (1,3) is a wall, and the current position is (2,3), however (2,2) is also a wall, however I can see (3,2) is not a valid move, so it seems like the only viable option would be to move right to (2,4) nope that's also a wall, however moving left isn't an option since there's a wall that way as well, moving diagonally up-left is not an option... Since (2,2) is not valid I will have to look at (2,4) no... wait I rethought it I'm going up to the left a little and over  -> no that's still a wall, however if I drop down one and over one I am below the (x, y) coordinate of the current (2,3) position and since, it was one of only a couple, so with that said, I move P to the coordinates located (one space below it): 
+  new position (3,3)
+Next step would bring a new maze to solve for the next step would look like: 
+
+However for the time being:
+
+
+Next P POS would look something like
+
+1 1 1 0 1 G 1
+1 1 1 1 0 1 1
+1 1 1 1 1 0 1
+1 1 1 P 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces in the original maze appears to be a tunnel or a narrow diagonal corridor.
+
+(2) Here is a new maze that meets the criteria:
+
+
+1 1 1 1 1 G 1
+1 0 0 1 0 1 1
+1 1 0 1 0 1 1
+1 1 P 0 1 1 1
+1 1 0 1 1 1 1
+1 0 0 1 1 1 1
+1 1 1 1 1 1 1
+
+This new maze has the same size as the original, a valid path from P to G through empty spaces, and forms a general shape of a narrow diagonal corridor or tunnel, similar to the original maze. Note that the new maze is not an identical copy of the original, but the shape formed by the empty spaces is recognizable as a tunnel or a narrow diagonal corridor.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

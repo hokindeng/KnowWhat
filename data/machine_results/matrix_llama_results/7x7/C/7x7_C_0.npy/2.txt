@@ -1,0 +1,170 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 0 P 0 0 1 1
+1 0 1 1 1 1 1
+1 0 1 1 1 1 1
+1 0 0 G 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will make my next move to the position right of the current position 'P'. My new coordinates will be (1,3).
+
+Please let me know if this move is valid and update the maze accordingly. 
+
+Here is the updated maze reflecting my intended move:
+
+
+
+1 1 1 1 1 1 1
+1 0 0 P 0 1 1
+1 0 1 1 1 1 1
+1 0 1 1 1 1 1
+1 0 0 G 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please confirm my move and I'll proceed with the next step.
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 P 0 1 1
+1 0 1 1 1 1 1
+1 0 1 1 1 1 1
+1 0 0 G 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Now that I'm at position (1,3), I want to move down to the position below me, which should be an empty space. My new coordinates will be (2,3).
+
+However, I notice that position (2,3) is a wall, represented by '1', so I will not make that move. Instead, I will move to the position below my current position that is not a wall. Since my current position is (1,3) I can attempt to move down to (2,3) and I see a wall, but position (2,2) and (2,1) and (2,0) and (2,4) also contain a wall. I also notice a wall at (1,4). So I can only move left back to my original position (1,2) which I already know I can move from or stay in the current position (1,3). It seems it is beneficial to first move left to position (1,2).
+
+My new coordinates will be (1,2).
+
+Here is the updated maze reflecting my intended move:
+
+
+1 1 1 1 1 1 1
+1 0 P 0 0 1 1
+1 0 1 1 1 1 1
+1 0 1 1 1 1 1
+1 0 0 G 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please confirm my move.
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 P 0 0 1 1
+1 0 1 1 1 1 1
+1 0 1 1 1 1 1
+1 0 0 G 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Now that I'm back at position (1,2), I can try to move down to position (2,2), but I notice that position (2,2) is a wall. However, I can move to position (1,1) and then I may be able to go down multiple spaces to the row of the goal 'G' if I avoid the wall at (4,2).
+
+My new coordinates will be (1,1).
+
+Here is the updated maze reflecting my intended move:
+
+
+1 1 1 1 1 1 1
+1 P 0 0 0 1 1
+1 0 1 1 1 1 1
+1 0 1 1 1 1 1
+1 0 0 G 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please confirm my move.
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 P 0 0 0 1 1
+1 0 1 1 1 1 1
+1 0 1 1 1 1 1
+1 0 0 G 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Now that I'm at position (1,1), I will move down to position (2,1) but position (2,1) contains a wall. I notice position (3,1) and (4,1) do not contain a wall. Since the goal is located further down at (4,3), I will move down multiple times and start by moving to position (2 is a wall, 3,1) then (4,1) eventually. Therefore, I will make my next move to position (2 is a wall, so move down again to) (3,1).
+
+My new coordinates will be (3,1).
+
+Here is the updated maze reflecting my intended move:
+
+
+1 1 1 1 1 1 1
+1 P will change back to 0 0 0 0 1 1
+1 0 1 1 1 1 1
+1 P will change into this location 1 1 1 1
+1 0 0 G 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+So here is the updated board as I have described changed it which would be more properly represented in code.
+
+
+1 1 1 1 1 1 1
+1 0 0 0 0 1 1
+1 0 1 1 1 1 1
+1 P 1 1 1 1 1
+1 0 0 G 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please confirm my move.
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze:
+
+
+1 1 1 1 1 1 1
+1 0 P 0 0 1 1
+1 0 1 1 1 1 1
+1 0 1 1 1 1 1
+1 0 0 G 0 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+
+(1) The general shape formed by the empty spaces is an "L" shape or a corner shape.
+
+
+(2) Here is a new maze of the same size, with empty spaces that form the same shape:
+
+
+1 1 1 1 1 1 1
+1 1 1 0 0 P 1
+1 1 1 0 1 1 1
+1 0 0 0 1 1 1
+1 0 G 1 1 0 1
+1 1 1 1 0 0 1
+1 1 1 1 1 1 1
+
+
+In this new maze, the empty spaces form an "L" shape, similar to the original maze. Note that this maze is not an identical copy of the original maze, and there is a valid path from P to G that can be reached through the empty spaces.
+
+RECOGNIZE: FAIL
+
+GENERATE: SUCCESS

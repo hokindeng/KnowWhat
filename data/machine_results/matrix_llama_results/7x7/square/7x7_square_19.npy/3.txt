@@ -1,0 +1,107 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+0 0 P 1 1 1 1
+0 1 0 1 1 1 1
+0 0 G 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.I'll navigate through the maze step by step. To make my next move, I first need to identify my current position and the possible empty spaces around me where I can move. My current position is at 'P', and it looks like I can move either up, left, or down based on the initial state of the maze.
+
+Given the maze:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+0 0 P 1 1 1 1
+0 1 0 1 1 1 1
+0 0 G 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+My current position (P) is at coordinates (2, 2). 
+
+I can move:
+- Up to (1, 2) but it's a wall, so it's not a valid move.
+- Left to (2, 1) which is an empty space, so it's a valid move.
+- Down to (3, 2) which is an empty space, so it's a valid move.
+- Right to (2, 3) but it's a wall, so it's not a valid move.
+
+Since I need to reach the goal 'G' located at (4, 2), my optimal move would be towards it, so moving down is the most direct step towards the goal.
+
+Therefore, my next move is to (3, 2). However, since you asked for the next move after considering the maze's and my own description, it seems there was an oversight in calculating the column coordinate for the move. Given the structure of the maze provided and my current position being (2,2), moving left would indeed be going to (2,1) and moving down would indeed be the correct direction, but considering standard index starting at 0, and the description, the initial correct step according to the maze layout provided is down to (3,2), assuming P's starting point is indeed the reference for the 'move to' request.
+
+Therefore, correcting for clarity based on the layout and instructions given, I move to coordinates that would represent the position down from my current one, which I initially stated correctly as moving to (3, 2), considering the explanations about valid moves and the immediate goal towards approaching 'G'.
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+0 0 0 1 1 1 1
+0 1 P 1 1 1 1
+0 0 G 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.I've moved down to (3, 2), and the maze has been updated to reflect my new position.
+
+Based on the updated maze:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+0 0 0 1 1 1 1
+0 1 P 1 1 1 1
+0 0 G 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+My current position (P) is at coordinates (3, 2).
+
+I can move:
+- Up to (2, 2) which is an empty space, but that's backwards.
+- Left to (3, 1) which is a wall, so it's not a valid move.
+- Down to (4, 2) which is an empty space and closer to the goal 'G', so it's the best move.
+- Right to (3, 3) which is a wall, so it's not a valid move.
+
+Since the goal 'G' is at (4, 2), my next move should be down to coordinates (4, 2), but as that would place me on 'G' directly, the logic of movement dictates this step correctly places me where 'G' is, achieving the goal. Therefore, to abide by the move instruction literally, moving to (4,2) directly achieves the goal. 
+
+However, considering the instruction and acknowledging the specification for clarity and adherence to the instruction's format without presuming the solution directly but indicating the step to achieve it correctly within the guidelines:
+
+My next move is to (4, 2).
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. The general shape formed by the empty spaces in the maze is a "Vertical Corridor".
+
+2. Here's a new maze with the same size and shape:
+
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 0 0 0 1 1 1
+1 0 P 0 1 1 1
+1 0 0 G 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+
+This new maze maintains the vertical corridor shape formed by the empty spaces, provides a valid path from P to G, and is not an identical copy of the original maze.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

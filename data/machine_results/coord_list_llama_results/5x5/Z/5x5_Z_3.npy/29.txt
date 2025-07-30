@@ -1,0 +1,82 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (2, 0), (2, 1), (2, 2), (2, 4), (3, 0), (3, 1), (3, 3), (3, 4), (4, 0)
+Empty: (1, 1), (1, 2), (1, 3), (1, 4), (3, 2), (4, 1), (4, 2), (4, 3)
+Player position: (4, 4)
+Goal: (2, 3)
+
+Please provide the coordinates of your next move.To solve this maze, we will use a breadth-first search (BFS) algorithm. BFS is suitable for finding the shortest path in an unweighted graph or matrix, which is the case here since all movements (up, down, left, right, or diagonals) are considered equal.
+
+Given the current player position is (4,4) and the goal is (2,3), we will start by exploring all possible moves from the current position and then proceed step by step until we reach the goal.
+
+### Step 1: Identify Possible Moves from Current Position
+
+From (4,4), considering the maze layout and the rules that we can move up, down, left, right, or diagonally to any empty space, the possible moves are limited by the walls and the current position. Since the goal is to reach (2,3), we prioritize moves that bring us closer to the goal.
+
+### Step 2: Analyze the Maze Layout
+
+Looking at the maze, the direct path to the goal is blocked by walls, so we need to navigate around them. The empty spaces provide a path, but we need to find the shortest route that avoids walls.
+
+### Step 3: Determine the Next Move
+
+Given the constraints and the goal, a logical next move from (4,4) would be to move towards the goal while avoiding walls. Since moving directly up is blocked by walls, and considering diagonal moves are allowed, a good starting move would be to move diagonally up-left if possible, or find the closest empty space that brings us closer to the goal.
+
+### Step 4: Choose the Next Move
+
+Considering the empty spaces and the goal's position, moving diagonally or directly up towards the goal seems like the best initial strategy. However, given the specific layout and the need to avoid walls, the exact next move needs to be chosen based on the available empty spaces that are closest to the goal and not blocked by walls.
+
+### Step 5: Execute the Next Move
+
+Given the constraints and the goal, the next move should aim to bring the player closer to (2,3) while navigating through the empty spaces and avoiding the walls.
+
+### Solution
+
+Given the initial setup and the rules for movement, the best next move from (4,4) considering the goal (2,3) and the need to navigate through empty spaces while avoiding walls would logically be to move up-left if possible, or to the closest empty space that aligns with the goal's direction.
+
+However, without explicitly calculating each step in this response due to the complexity of the maze and the movement rules, the precise next move would depend on the exact layout of empty spaces and walls around the current position and the goal.
+
+For an accurate next move, considering the empty spaces provided and aiming to move closer to the goal while avoiding walls, a move that aligns with reaching the goal efficiently would be preferred. Given the empty spaces and the goal, a logical approach would be to move towards the empty spaces that lead closer to the goal, considering diagonal moves as well.
+
+Given the specific maze layout and the rules, the next move should ideally be towards (3,3) or any other empty space that is closer to the goal and not blocked by walls, considering the diagonal movement option.
+
+### Final Answer
+
+The final answer is: $\boxed{(3,3)}$
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+### (1) General Shape of the Path
+
+The general shape formed by the empty spaces (corridors) in the original maze resembles a "Zigzag" or more specifically, a "Staircase" pattern, given the way the empty spaces are arranged in a stepped manner.
+
+### (2) New Maze with the Same Shape
+
+Here is a new maze of the same size (5x5), with empty spaces that form a similar "Staircase" pattern. This maze includes a valid path from P to G that can be reached through empty spaces and is not an identical copy of the original maze.
+
+#### Walls:
+(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 4), (2, 0), (2, 2), (2, 4), (3, 0), (3, 2), (3, 4), (4, 0), (4, 2)
+
+#### Empty:
+(1, 1), (1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 3), (4, 1), (4, 3), (4, 4)
+
+#### Player Position:
+(4, 4)
+
+#### Goal:
+(2, 3)
+
+This new maze maintains the "Staircase" pattern of empty spaces, providing a path from the player's position to the goal while avoiding walls.
+
+RECOGNIZE: SUCCESS
+
+GENERATE: FAIL

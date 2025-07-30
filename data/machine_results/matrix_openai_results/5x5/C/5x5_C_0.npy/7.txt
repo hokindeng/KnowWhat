@@ -1,0 +1,86 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.To solve the maze, we need to navigate from the current player position (P) to the goal position (G) by moving through empty spaces (0) and avoiding walls (1). Let's start by identifying the current position of the player and the goal:
+
+Current player position (P): (0, 2)
+Goal position (G): (3, 0)
+
+We will use a step-by-step approach to find the path. Here is the initial maze for reference:
+
+```
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+```
+
+From the current position (0, 2), the possible moves are:
+- Up: Not possible (out of bounds)
+- Down: (1, 2) (blocked by a wall)
+- Left: (0, 1) (empty space)
+- Right: (0, 3) (empty space)
+
+Let's move to the right to (0, 3).
+
+Next move: (0, 3)
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 P 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.From the current position (0, 3), the possible moves are:
+- Up: Not possible (out of bounds)
+- Down: (1, 3) (blocked by a wall)
+- Left: (0, 2) (empty space)
+- Right: Not possible (blocked by a wall)
+
+The only valid move is to go left to (0, 2), but since we came from there, we need to explore other options. Let's consider moving down from (0, 3) to (1, 3) even though it is blocked by a wall. This means we need to backtrack and find another path.
+
+Let's move left to (0, 2) and then down to (1, 2).
+
+Next move: (1, 2)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. The general shape formed by the empty spaces (corridors) in the original maze can be described as a "Z-shape."
+
+2. Here is a new maze of the same size, with empty spaces that form a Z-shape. The maze includes a valid path from P to G that can be reached through empty spaces:
+
+```
+1 1 P 1 1
+1 0 0 0 1
+1 1 1 0 1
+G 0 0 0 1
+1 1 1 1 1
+```
+
+In this new maze, the empty spaces form a Z-shape, and there is a valid path from the player position (P) at (0, 2) to the goal position (G) at (3, 0).
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

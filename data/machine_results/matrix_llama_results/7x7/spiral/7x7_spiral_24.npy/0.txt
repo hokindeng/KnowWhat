@@ -1,0 +1,90 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 G 0 0 0 0
+1 1 1 1 1 1 0
+1 1 0 0 0 1 0
+1 1 0 1 1 1 0
+1 1 0 0 0 0 P
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the situation and provide the coordinates of my next move. 
+
+My current position is at the bottom-right part of the maze, indicated by 'P'. The goal position 'G' is located at the top-right part of the maze. Since I am at the bottom, my next move should be upwards to move closer to the goal.
+
+After examining the maze, I notice that the space directly above my current position is an empty space, which allows me to move up. 
+
+My next move is: (4, 6) to (3, 6)
+
+Please update the maze to reflect my new position.
+
+Here is the current state of the maze after your latest move:
+
+1 1 G 0 0 0 0
+1 1 1 1 1 1 0
+1 1 0 0 0 1 0
+1 1 0 1 1 1 P
+1 1 0 0 0 0 0
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the updated maze, I will analyze the situation and provide the coordinates of my next move. 
+
+I notice that my current position has walls on both the left and right sides, so I can only move up. Directly above my current position is an empty space.
+
+My next move is: (3, 6) to (2, 6)
+
+Please update the maze to reflect my new position.
+
+Here is the current state of the maze after your latest move:
+
+1 1 G 0 0 0 0
+1 1 1 1 1 1 0
+1 1 0 0 0 1 P
+1 1 0 1 1 1 0
+1 1 0 0 0 0 0
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the updated maze, I will analyze the situation and provide the coordinates of my next move.
+
+I see that the goal position 'G' is still far away, and my current position has a wall to the right, which prevents me from moving directly towards the goal. However, I have empty spaces to the left of my current position.
+
+My next move is: (2, 6) to (2, 5)
+
+Please update the maze to reflect my new position, however as this position has a wall please then provide it a second time after I correct the step.
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces in the original maze is a zigzag.
+
+(2) Here is a new maze with empty spaces that form a similar zigzag shape:
+
+
+1 1 G 1 1 1 1
+1 0 0 1 1 0 1
+1 1 0 1 0 0 1
+1 0 0 0 1 1 1
+1 1 0 0 0 0 P
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+This new maze has the same size as the original maze and includes a valid path from P to G through empty spaces. The corridors formed by the empty spaces create a zigzag shape, which is recognizable but not identical to the original maze.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

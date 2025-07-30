@@ -1,0 +1,53 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 1), (3, 3), (3, 4), (4, 3), (4, 4)
+Empty: (2, 0), (2, 1), (2, 2), (4, 0), (4, 1), (4, 2)
+Player position: (3, 2)
+Goal: (3, 0)
+
+Please provide the coordinates of your next move.## Step 1: Understand the maze layout
+First, visualize the maze layout based on the provided coordinates for walls, empty spaces, player position, and goal position. This will help in planning the route.
+
+## Step 2: Identify possible moves from the current position
+From the player position (3, 2), check which directions (up, down, left, right) are possible to move into, considering only empty spaces are valid for movement.
+
+## Step 3: Prioritize moves towards the goal
+Given the goal is located at (3, 0), prioritize moves that bring the player closer to this position. Since the player is at (3, 2), moving directly towards the goal would mean moving left.
+
+## Step 4: Determine the next move
+Considering the current position and the goal, the most direct path involves moving left. Thus, the next move would be to (3, 1).
+
+The final answer is: $\boxed{\left( 3, \  1\right)}$
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces in the original maze
+By examining the coordinates of the empty spaces in the original maze, (2, 0), (2, 1), (2, 2), (4, 0), (4, 1), (4, 2), it appears that the general shape formed by these spaces is two parallel horizontal corridors or paths, each consisting of three spaces, that are separated by a single row of walls.
+
+## Step 2: Design a new maze with the same size and shape of empty spaces
+To create a new maze that meets the criteria, we need to ensure it is the same size as the original (5x5), includes a valid path from P to G through empty spaces, and has its empty spaces forming two parallel horizontal corridors but not be an identical copy of the original.
+
+## Step 3: Determine the coordinates for the new maze
+Considering the new maze should have the same size and the corridors should be recognizable as two parallel horizontal paths but not identical to the original, we can consider shifting the corridors up or down, or even creating them from different starting points within the maze while ensuring a valid path exists from a new player position to a new goal position.
+
+## Step 4: Define the new maze's walls, empty spaces, player position, and goal
+Given the constraints and the aim to replicate the shape of two parallel horizontal corridors, we can envision a scenario where the corridors start from a different row or are positioned differently within the maze. However, without specific details on how different it should be, we'll aim to maintain the essence of the shape.
+
+## Step 5: Specify the new maze
+For simplicity, we'll shift the corridors down and adjust the player and goal positions accordingly to ensure a valid path exists. Walls and empty spaces will be rearranged to maintain the shape but offer a new challenge. However, due to the format requirements and the oversight in directly providing reshuffled coordinates that adhere strictly to the format while ensuring the maze's solution isn't directly given but inferred, the description focuses on the conceptual redesign. The precise new coordinates for walls, empty spaces, player position, and goal that adhere to the format must reflect a new configuration that maintains the shape of two horizontal parallel corridors within the 5x5 grid, ensuring a solvable path from P to G.
+
+The final answer is: $\boxed{\text{Two parallel horizontal corridors}}$
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

@@ -1,0 +1,57 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 G 1 1 1 1 1
+1 0 1 0 0 0 0
+1 0 1 0 1 1 0
+1 0 1 1 1 1 0
+1 0 P 0 0 0 0
+
+Please provide the coordinates of your next move.I'll navigate through the maze step by step. 
+
+First, I need to identify the current position of 'P', which is at coordinates (6, 1). Given the constraints of the maze and the rules for movement, my next move should be to an adjacent empty space.
+
+Since moving up is blocked by a wall and moving left is also blocked by the wall, my options are to move either right or down. Given the layout of the maze, the goal 'G' seems more accessible if I move right, but I can see that the path to the goal might require navigating around obstacles. However, moving right immediately doesn't seem to get me closer to the goal due to the wall directly above the 'P'. 
+
+Therefore, my initial strategy should be to explore the area by moving to a position that maximizes my future options. The most straightforward move to start exploring the maze effectively while keeping options open for reaching 'G' seems to be moving down.
+
+Since 'P' is at (6, 1), moving down would take me to (6, 2), assuming the maze uses 0-based indexing for its coordinates and that we consider the top-left corner to be (0, 0), moving down increases the y-coordinate.
+
+So, my next move should be to coordinates (6, 2).
+
+Please update the maze accordingly, and I'll make the next decision based on the updated maze.
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces in the original maze appears to be a loop or an irregular horseshoe shape. It allows for navigation from the 'P' to the 'G' through a continuous, albeit winding, path.
+
+(2) Here is a new maze that meets the specified criteria. The empty spaces form a similar irregular horseshoe or loop shape, ensuring a valid path from 'P' to 'G' without replicating the original maze exactly:
+
+1 1 1 1 1 1 1
+1 0 1 0 0 0 0
+1 G 1 1 1 1 0
+1 0 1 1 0 0 1
+1 0 0 1 1 0 1
+1 0 1 1 1 0 0
+1 P 1 0 0 1 1
+
+Note that this new maze has the same size, maintains a valid path from 'P' to 'G' through empty spaces, and while not an identical copy, retains the same general loop or horseshoe shape as the original.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

@@ -1,0 +1,100 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 0 0 0 0 0 0
+1 1 1 1 1 0 1
+1 1 1 1 0 1 1
+1 1 1 0 1 1 1
+1 1 P 1 1 1 1
+1 0 0 0 G 0 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Let me analyze the maze and determine the best next move.
+
+Current observations:
+1. The player (P) is at position (4,2)
+2. The goal (G) is at position (5,4)
+3. There are empty spaces (0) around the player position
+
+Looking at the available paths, I can see that to reach the goal, I need to move towards the bottom of the maze where there's a path of empty spaces.
+
+The best next move would be to move down and slightly right to position (5,2), which is one of the empty spaces (0) adjacent to the current position.
+
+I choose coordinates: (5,2)
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 1 1 1 1 0 1
+1 1 1 1 0 1 1
+1 1 1 0 1 1 1
+1 1 0 1 1 1 1
+1 0 P 0 G 0 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Now I'm at position (5,2) and need to reach the goal at (5,4).
+
+I can see there's a clear path of empty spaces (0) leading directly to the goal position on the same row.
+
+The most efficient move would be to move right to position (5,3), getting closer to the goal.
+
+I choose coordinates: (5,3)
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 1 1 1 1 0 1
+1 1 1 1 0 1 1
+1 1 1 0 1 1 1
+1 1 0 1 1 1 1
+1 0 0 P G 0 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Now I'm at position (5,3) and I'm right next to the goal at (5,4).
+
+The solution is clear - I can move directly to the goal position with one final move to the right.
+
+I choose coordinates: (5,4)
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Looking at the original maze, the empty spaces form a rough "U" shape, with the path starting from the top, going down one side, and coming back up the other side.
+
+Here's my answer:
+
+(1) The general shape formed by the empty spaces is a "U" shape.
+
+(2) Here's a new maze with the same U-shaped pattern but with slightly different wall placements:
+
+1 0 0 0 0 0 1
+1 1 1 1 0 1 1
+1 P 1 1 0 1 1
+1 0 1 1 0 1 1
+1 0 1 1 0 1 1
+1 0 0 0 G 0 1
+1 1 1 1 1 1 1
+
+In this new maze:
+- The U-shape is more symmetrical
+- The path still goes from top to bottom and across
+- P and G are still reachable through empty spaces
+- The overall dimensions are maintained (7x7)
+- The shape is clearly recognizable as a U
+- The walls and corridors are arranged differently from the original while maintaining the U pattern
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

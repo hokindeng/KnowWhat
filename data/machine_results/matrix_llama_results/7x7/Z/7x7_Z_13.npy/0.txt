@@ -1,0 +1,127 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 0 0 0 P 1
+1 1 1 1 0 1 1
+1 1 1 G 1 1 1
+1 1 0 0 0 0 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will make my next move to the empty space directly below the player's current position 'P'. The current coordinates of 'P' are (2,5). I will move down to coordinates (3,5).
+
+However, since the position directly below 'P' is a wall, I need to adjust my move. Given the layout, a viable move would be to the left of 'P' at coordinates (2,4). This space is empty, allowing for a valid move.
+
+My next move coordinates are: (2,4)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 0 0 P 0 1
+1 1 1 1 0 1 1
+1 1 1 G 1 1 1
+1 1 0 0 0 0 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Given the updated maze, my next move will be to the space to the left of 'P'. The coordinates of the current 'P' are (2,4), so I will move left to coordinates (2,3).
+
+My next move coordinates are: (2,3)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 0 P 0 0 1
+1 1 1 1 0 1 1
+1 1 1 G 1 1 1
+1 1 0 0 0 0 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.With the updated maze, my next move will be to the space to the left of 'P'. The coordinates of the current 'P' are (2,3), so I will move left to coordinates (2,2).
+
+My next move coordinates are: (2,2)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 P 0 0 0 1
+1 1 1 1 0 1 1
+1 1 1 G 1 1 1
+1 1 0 0 0 0 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.With the updated maze, my next move will be to the space below 'P'. The coordinates of the current 'P' are (2,2), so I will attempt to move down to coordinates (3,2).
+
+However, since there is a wall at (3,2), that move is not possible. My alternative move will be to move to the space to the right of 'P' at coordinates (2,3).
+
+My next move coordinates are: (2,3)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 0 P 0 0 1
+1 1 1 1 0 1 1
+1 1 1 G 1 1 1
+1 1 0 0 0 0 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.With the updated maze, I notice that I've moved back to a familiar position. Since I want to avoid loops, I'll try a different path. My next move will be to the space below the current position of 'P', but slightly to the right, as directly below is a wall. I will move down to the space at coordinates (3,4).
+
+However, I can move down to (3,3) or (3,4)  which are also viable path considering my goal, but the question only allow for submit one solution, I select the solution that gets closer or have the potential to pass closer to the goal(G). The solution is to move down to the space at coordinates (3,4), which will get me closer or with potential to be closer to the point marked with the goal(G).
+
+My next move coordinates are: (3,4)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 0 0 0 0 1
+1 1 1 1 P 1 1
+1 1 1 G 1 1 1
+1 1 0 0 0 0 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.With the updated maze, I notice that I'm closer to the goal 'G'. My next move will be to try to get even closer. I will move to the space above the current position of 'P', as there is an empty space available at coordinates (2 doesn't get me to the goal, and only let the P in the same distance), moving the P to the (4,3) get closer to the G, and also let the player pass through with subsequent good answer, if needed.
+
+
+
+My next move coordinates are: (4,3)
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as:
+
+(1) "A vertically-oriented zigzag or sigmoid shape"
+
+Here is a new maze of the same size, with empty spaces that form the same general shape:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 0 0 0 0 0 1
+1 1 1 1 1 0 1
+1 0 0 1 G 1 1
+1 1 0 0 0 0 1
+1 1 1 1 1 1 1
+
+In this new maze, the path from P (which would be placed at one of the empty spaces, e.g., (2,2)) to G is not identical to the original maze, but it follows a similar vertically-oriented zigzag or sigmoid shape.
+
+RECOGNIZE: SUCCESS
+
+GENERATE: FAIL

@@ -1,0 +1,106 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 0 0 0 0 1 1
+1 0 1 1 1 1 1
+1 P 1 1 1 1 1
+1 0 0 0 G 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.I'd be happy to help solve the maze.
+
+After analyzing the maze, I see that the current player position (P) is at (4, 1). My goal is to move towards the goal position (G).
+
+My next move would be to move down to the empty space below, which is at coordinates (5, 1).
+
+So, my next move is: (5, 1)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 0 0 0 0 1 1
+1 0 1 1 1 1 1
+1 0 1 1 1 1 1
+1 P 0 0 G 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.With the updated maze, I see that I'm now at (5, 1).
+
+My goal is to move towards the goal position (G). Since I'm already close, I'll move right to the empty space at (5, 2), and then I'll reassess my situation.
+
+So, my next move is: (5, 2)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 0 0 0 0 1 1
+1 0 1 1 1 1 1
+1 0 1 1 1 1 1
+1 0 P 0 G 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.With the updated maze, I see that I'm now at (5, 2).
+
+My next move would be to move right again, towards the goal position (G). There's an empty space at (5, 3), so I'll move there.
+
+So, my next move is: (5, 3)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 0 0 0 0 1 1
+1 0 1 1 1 1 1
+1 0 1 1 1 1 1
+1 0 0 P G 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.I'm getting close to the goal!
+
+With the updated maze, I see that I'm now at (5, 3).
+
+My next move would be to move right, to the goal position (G) itself! Since it's adjacent to my current position, I can move there directly.
+
+So, my next move is: (5, 4)
+
+(This should be the final move, and I should reach the goal!)
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Fun task!
+
+(1) The general shape formed by the empty spaces (corridors) is a simple "Path with a Bend" or, more specifically, an "L-Shape".
+
+(2) Here is a new maze of the same size, with empty spaces that form the same L-Shape:
+
+
+1 1 1 1 1 1 1
+1 1 1 0 0 0 1
+1 1 1 0 1 1 1
+1 1 1 0 1 1 1
+1 0 0 0 1 1 1
+1 P 0 0 G 1 1
+1 1 1 1 1 1 1
+
+This maze meets all the criteria: it has the same size as the original, includes a valid path from P to G, is not an identical copy, and has an L-Shape formed by its empty spaces.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

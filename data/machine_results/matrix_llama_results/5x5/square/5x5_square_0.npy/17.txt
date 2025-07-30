@@ -1,0 +1,85 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1
+1 1 1 1 1
+0 0 0 1 1
+G 1 P 1 1
+0 0 0 1 1
+
+Please provide the coordinates of your next move.Let's analyze the maze and plan the next move. Since we are currently at position 'P', which is at (3,2), and we want to reach the goal position 'G' at (3,0). We can move in any of the four directions (up, down, left, or right).
+
+However, since there is a wall directly to our left and right, our only options are to move up or down. Moving down would not get us closer to the goal position, so our best option is to move up to the empty space at (2,2).
+
+Therefore, the coordinates of my next move are (2,2).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 1 1 1 1
+0 0 P 1 1
+G 1 0 1 1
+0 0 0 1 1
+
+Please provide the coordinates of your next move.With the updated maze, I can see that I am now at position (2,2). I still need to move towards the goal position 'G' at (3,0).
+
+Since I am in the middle column and there is an empty space to my left at (2,1) and to my left and up, I can see the goal is accessible in that direction, I will move left.
+
+The coordinates of my next move are (2,1).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 1 1 1 1
+0 P 0 1 1
+G 1 0 1 1
+0 0 0 1 1
+
+Please provide the coordinates of your next move.With the updated maze, I can see that I am now at position (2,1). Since I've moved one step closer to the goal position 'G' at (3,0), my next move should also try to get closer to the goal.
+
+I can move up, down, left, or right, but I want to move towards the goal, so I will move left again to position (2,0), as this will put me directly above the goal and then on the next move I can move down to the goal position.
+
+The coordinates of my next move are (2,0).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 1 1 1 1
+P 0 0 1 1
+G 1 0 1 1
+0 0 0 1 1
+
+Please provide the coordinates of your next move.I'm now at position (2,0). To reach the goal position 'G' at (3,0), I just need to move down.
+
+The coordinates of my next move are (3,0). This will put me directly on the goal position, and I will have solved the maze.
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as an "L-shape" or a " corner shape". This is because the empty spaces form a distinctive 90-degree angle or corner shape that connects the start position (P) to the goal position (G).
+
+Here is a new maze that meets the criteria:
+
+1 1 1 1 1
+1 1 1 1 1
+1 1 0 0 0
+1 G P 1 1
+1 1 0 0 0
+
+In this new maze, the empty spaces form the same L-shape or corner shape as the original maze, connecting the start position (P) to the goal position (G) in a new and different configuration.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

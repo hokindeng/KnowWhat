@@ -1,0 +1,66 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 3), (2, 0), (2, 1), (2, 2), (2, 4), (3, 0), (3, 1), (3, 3), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (1, 4), (2, 3), (3, 2)
+Player position: (3, 4)
+Goal: (1, 2)
+
+Please provide the coordinates of your next move.I'll navigate through the maze step by step. 
+
+First, let's analyze the given maze information:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 3), (2, 0), (2, 1), (2, 2), (2, 4), (3, 0), (3, 1), (3, 3), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (1, 4), (2, 3), (3, 2)
+Player position: (3, 4)
+Goal: (1, 2)
+
+Since we can move in any of the 8 adjacent directions (up, down, left, right, or any diagonal), let's find the nearest available empty space to move towards the goal. 
+
+A potential next step would be to move diagonally up and left to (2, 3). This move will position us in a spot where we can potentially make progress towards the goal location in future steps.
+
+So, my next move would be to: (2, 3).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 3), (2, 0), (2, 1), (2, 2), (2, 4), (3, 0), (3, 1), (3, 3), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (1, 4), (3, 2), (3, 4)
+Player position: (2, 3)
+Goal: (1, 2)
+
+Please provide the coordinates of your next move.Let's analyze the updated maze:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 3), (2, 0), (2, 1), (2, 2), (2, 4), (3, 0), (3, 1), (3, 3), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (1, 4), (3, 2), (3, 4)
+Player position: (2, 3)
+Goal: (1, 2)
+
+Since the goal position is at (1, 2), which is diagonally up and left from the current player position (2, 3), we can move in that direction. However, we need to be cautious since there is a wall at (2, 2).
+
+A possible next step would be to move diagonally up and left to (1, 4) but since it would put us further away from the goal I will instead move Left to: (1, 3).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as an "L-shape".
+
+Here is a new maze with the same size, a valid path from P to G, and an L-shaped corridor:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (3, 0), (3, 1), (3, 3), (3, 4), (4, 0), (4, 1), (4, 2), (4, 4)
+Empty: (1, 3), (1, 4), (2, 2), (2, 3), (2, 4), (3, 2)
+Player position: (2, 4)
+Goal: (1, 3)
+
+Note that this new maze meets the criteria: it has the same size as the original, includes a valid path from P to G, is not an identical copy of the original, and features an L-shaped corridor.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

@@ -1,0 +1,381 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4)
+Player position: (5, 5)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze the maze and plan the next move.
+
+From the given coordinates, I can visualize that:
+1. I'm currently at position (5, 5)
+2. The goal is at (3, 4)
+3. I need to avoid all wall coordinates and can only move through empty spaces
+4. I can only move up, down, left, or right (no diagonal moves)
+
+Looking at my current position (5, 5), I can see that:
+- Moving up is blocked by a wall at (4, 5)
+- Moving right is blocked by a wall at (6, 5)
+- Moving down would be out of bounds
+- Moving left to (5, 4) is possible as it's in the list of empty spaces
+
+Therefore, I choose to move left to coordinate (5, 4).
+
+My next move: (5, 4)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 3), (5, 5)
+Player position: (5, 4)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (5, 4):
+- Moving up is blocked by a wall at (4, 4)
+- Moving right is blocked by a wall at (6, 4)
+- Moving down would lead back to where I came from (5, 5)
+- Moving left to (5, 3) is possible as it's in the list of empty spaces
+
+Since I need to get to (3, 4) and I'm currently blocked from moving up directly, I need to find another path. Moving left will help me progress towards the goal by allowing me to potentially find a path up to the goal position.
+
+Therefore, I choose to move left to coordinate (5, 3).
+
+My next move: (5, 3)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 4), (5, 5)
+Player position: (5, 3)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (5, 3):
+- Moving up is blocked by a wall at (4, 3)
+- Moving right is blocked by a wall at (6, 3)
+- Moving down would lead back to where I came from
+- Moving left to (5, 2) is possible as it's in the list of empty spaces
+
+I need to continue moving left and then try to find a path up to reach the goal at (3, 4). Moving left to (5, 2) will help me progress in that direction.
+
+Therefore, I choose to move left to coordinate (5, 2).
+
+My next move: (5, 2)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 3), (5, 4), (5, 5)
+Player position: (5, 2)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (5, 2):
+- Moving up is blocked by a wall at (4, 2)
+- Moving right is blocked by a wall at (6, 2)
+- Moving down would lead back to where I came from
+- Moving left to (5, 1) is possible as it's in the list of empty spaces
+
+I need to continue moving left and then find a path up to reach the goal at (3, 4). Moving left to (5, 1) will help me progress in that direction.
+
+Therefore, I choose to move left to coordinate (5, 1).
+
+My next move: (5, 1)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (5, 1)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (5, 1):
+- Moving up is blocked by a wall at (4, 1)
+- Moving right is blocked by a wall at (6, 1)
+- Moving down would lead back to where I came from
+- Moving left to (5, 0) is possible as it's in the list of empty spaces
+
+I need to continue moving left and then up to eventually reach the goal at (3, 4). Moving left to (5, 0) will help me progress in that direction.
+
+Therefore, I choose to move left to coordinate (5, 0).
+
+My next move: (5, 0)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (5, 0)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (5, 0):
+- Moving up to (4, 0) is possible as it's in the list of empty spaces
+- Moving right is blocked by a wall at (6, 0)
+- Moving down would lead back to where I came from
+- Moving left would be out of bounds
+
+Now that I've reached the leftmost position in my path, I can start moving up towards the goal. Moving up to (4, 0) is the next logical step in reaching the goal at (3, 4).
+
+Therefore, I choose to move up to coordinate (4, 0).
+
+My next move: (4, 0)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (4, 0)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (4, 0):
+- Moving up to (3, 0) is possible as it's in the list of empty spaces
+- Moving right is blocked by a wall at (4, 1)
+- Moving down would lead back to where I came from
+- Moving left would be out of bounds
+
+I need to continue moving up and then find a path to the right to reach the goal at (3, 4). Moving up to (3, 0) is the next logical step.
+
+Therefore, I choose to move up to coordinate (3, 0).
+
+My next move: (3, 0)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (3, 0)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (3, 0):
+- Moving up to (2, 0) is possible as it's in the list of empty spaces
+- Moving right is blocked by a wall at (3, 1)
+- Moving down would lead back to where I came from
+- Moving left would be out of bounds
+
+I need to continue moving up and then find a path to the right to reach the goal at (3, 4). Moving up to (2, 0) is the next logical step.
+
+Therefore, I choose to move up to coordinate (2, 0).
+
+My next move: (2, 0)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (2, 0)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (2, 0):
+- Moving up to (1, 0) is possible as it's in the list of empty spaces
+- Moving right is blocked by a wall at (2, 1)
+- Moving down would lead back to where I came from
+- Moving left would be out of bounds
+
+Since I need to eventually reach (3, 4), I'll need to get to a position where I can move right. The best path appears to be going up and then finding a path through the top of the maze. Moving up to (1, 0) is the next logical step.
+
+Therefore, I choose to move up to coordinate (1, 0).
+
+My next move: (1, 0)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (1, 0)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (1, 0):
+- Moving up to (0, 0) is possible as it's in the list of empty spaces
+- Moving right is blocked by a wall at (1, 1)
+- Moving down would lead back to where I came from
+- Moving left would be out of bounds
+
+Since I need to reach (3, 4) and I'm blocked by walls on the right, I need to go up and then find a path through the top of the maze. Moving up to (0, 0) will allow me to then move right through the open path at the top of the maze.
+
+Therefore, I choose to move up to coordinate (0, 0).
+
+My next move: (0, 0)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (0, 0)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (0, 0):
+- Moving up would be out of bounds
+- Moving right to (0, 1) is possible as it's in the list of empty spaces
+- Moving down would lead back to where I came from
+- Moving left would be out of bounds
+
+Now that I'm at the top of the maze, I can start moving right through the open path at the top. This will eventually allow me to find a path down to reach the goal at (3, 4).
+
+Therefore, I choose to move right to coordinate (0, 1).
+
+My next move: (0, 1)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (0, 1)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (0, 1):
+- Moving up would be out of bounds
+- Moving right to (0, 2) is possible as it's in the list of empty spaces
+- Moving down is blocked by a wall at (1, 1)
+- Moving left would lead back to where I came from
+
+I need to continue moving right along the top of the maze to eventually find a path down to the goal at (3, 4). Moving right to (0, 2) is the next logical step.
+
+Therefore, I choose to move right to coordinate (0, 2).
+
+My next move: (0, 2)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 3), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (0, 2)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (0, 2):
+- Moving up would be out of bounds
+- Moving right to (0, 3) is possible as it's in the list of empty spaces
+- Moving down is blocked by a wall at (1, 2)
+- Moving left would lead back to where I came from
+
+I need to continue moving right along the top of the maze to eventually find a path down to the goal at (3, 4). Moving right to (0, 3) is the next logical step.
+
+Therefore, I choose to move right to coordinate (0, 3).
+
+My next move: (0, 3)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 4), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (0, 3)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (0, 3):
+- Moving up would be out of bounds
+- Moving right to (0, 4) is possible as it's in the list of empty spaces
+- Moving down is blocked by a wall at (1, 3)
+- Moving left would lead back to where I came from
+
+I need to continue moving right along the top of the maze to eventually find a path down to the goal at (3, 4). Moving right to (0, 4) is the next logical step.
+
+Therefore, I choose to move right to coordinate (0, 4).
+
+My next move: (0, 4)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 5), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (0, 4)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (0, 4):
+- Moving up would be out of bounds
+- Moving right to (0, 5) is possible as it's in the list of empty spaces
+- Moving down is blocked by a wall at (1, 4)
+- Moving left would lead back to where I came from
+
+I need to continue moving right to reach a position where I can move down towards the goal at (3, 4). Moving right to (0, 5) is the next logical step.
+
+Therefore, I choose to move right to coordinate (0, 5).
+
+My next move: (0, 5)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 6), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 1), (2, 3), (2, 4), (2, 6), (3, 1), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 5), (2, 0), (2, 2), (2, 5), (3, 0), (3, 2), (3, 3), (3, 5), (4, 0), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+Player position: (0, 5)
+Goal: (3, 4)
+
+Please provide the coordinates of your next move.Let me analyze my current position and possible moves.
+
+From position (0, 5):
+- Moving up would be out of bounds
+- Moving right is blocked by a wall at (0, 6)
+- Moving down to (1, 5) is possible as it's in the list of empty spaces
+- Moving left would lead back to where I came from
+
+Now that I've reached the rightmost position possible along the top, and there's an open path down, I should start moving down. This will help me get closer to the goal at (3, 4).
+
+Therefore, I choose to move down to coordinate (1, 5).
+
+My next move: (1, 5)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Looking at the empty spaces in the original maze, I can observe that:
+
+1. The empty spaces form a rough "U" shape. There's a vertical corridor on the left side, a horizontal corridor at the top, and another vertical corridor on the right side, with some additional branches.
+
+2. Here's a new maze with a similar U-shaped pattern but with slightly different internal structure:
+
+Walls: (0, 6), (1, 2), (1, 3), (1, 4), (1, 6), (2, 2), (2, 3), (2, 4), (2, 6), (3, 2), (3, 6), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+
+Empty: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 0), (1, 1), (1, 5), (2, 0), (2, 1), (2, 5), (3, 0), (3, 1), (3, 3), (3, 4), (3, 5), (4, 0), (4, 1), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5)
+
+Player position: (5, 5)
+Goal: (3, 4)
+
+This new maze maintains:
+- The U-shaped corridor structure
+- A valid path from P to G
+- The same overall dimensions
+- Different internal path arrangements while keeping the general U shape
+- Similar entry and exit points
+
+The main differences from the original are:
+- Wider corridors in some sections
+- Fewer internal walls
+- Slightly different branching patterns
+- Modified but still functional path to the goal
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

@@ -1,0 +1,94 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (2, 0), (2, 2), (2, 3), (2, 4), (2, 5), (3, 0), (3, 2), (3, 4), (3, 5), (4, 0), (4, 2), (5, 0), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0)
+Empty: (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 1), (2, 6), (3, 1), (3, 3), (3, 6), (4, 1), (4, 4), (4, 5), (4, 6), (5, 1), (6, 1), (6, 2), (6, 3), (6, 4), (6, 6)
+Player position: (4, 3)
+Goal: (6, 5)
+
+Please provide the coordinates of your next move.To solve this maze, we'll use a breadth-first search (BFS) algorithm. However, since we're only asked for the next move and not the entire path, we can simplify the approach by examining the immediate neighbors of the current player position and choosing the one that moves closer to the goal or is most likely to lead to the goal based on the maze's layout.
+
+Given the player's current position is (4, 3) and the goal is (6, 5), we need to move towards the goal. The possible moves from (4, 3) are up, down, left, or right. However, since the goal is to the right and slightly down, we should prioritize moving right or down.
+
+Looking at the maze, moving down from (4, 3) to (5, 3) is not possible because (5, 3) is a wall. Therefore, the best immediate move is to the right, which is towards the goal and avoids walls.
+
+The next move should be to (4, 4), as it moves closer to the goal and is an empty space.
+
+The answer is: (4, 4)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (2, 0), (2, 2), (2, 3), (2, 4), (2, 5), (3, 0), (3, 2), (3, 4), (3, 5), (4, 0), (4, 2), (5, 0), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0)
+Empty: (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 1), (2, 6), (3, 1), (3, 3), (3, 6), (4, 1), (4, 3), (4, 5), (4, 6), (5, 1), (6, 1), (6, 2), (6, 3), (6, 4), (6, 6)
+Player position: (4, 4)
+Goal: (6, 5)
+
+Please provide the coordinates of your next move.Given the current state of the maze and the player's position at (4, 4), we need to continue moving towards the goal at (6, 5). Since the goal is to the right and slightly down, we should prioritize moving right or down.
+
+Looking at the maze, moving down from (4, 4) to (5, 4) is possible because (5, 4) is not a wall, but it is actually a wall according to the maze description. However, moving right from (4, 4) to (4, 5) is possible because (4, 5) is an empty space.
+
+The next move should be to (4, 5), as it moves closer to the goal and is an empty space.
+
+The answer is: (4, 5)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (2, 0), (2, 2), (2, 3), (2, 4), (2, 5), (3, 0), (3, 2), (3, 4), (3, 5), (4, 0), (4, 2), (5, 0), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0)
+Empty: (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 1), (2, 6), (3, 1), (3, 3), (3, 6), (4, 1), (4, 3), (4, 4), (4, 6), (5, 1), (6, 1), (6, 2), (6, 3), (6, 4), (6, 6)
+Player position: (4, 5)
+Goal: (6, 5)
+
+Please provide the coordinates of your next move.Given the current state of the maze and the player's position at (4, 5), we need to continue moving towards the goal at (6, 5). Since the goal is to the right, we should prioritize moving right.
+
+Looking at the maze, moving right from (4, 5) to (5, 5) is not possible because (5, 5) is a wall. However, moving down is not an option since we are already at the same y-coordinate as the goal. We need to find an alternative route.
+
+Moving up from (4, 5) to (4, 6) is possible because (4, 6) is an empty space. From there, we can try to move right again.
+
+The next move should be to (4, 6), as it moves us closer to the goal and avoids walls.
+
+The answer is: (4, 6)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (2, 0), (2, 2), (2, 3), (2, 4), (2, 5), (3, 0), (3, 2), (3, 4), (3, 5), (4, 0), (4, 2), (5, 0), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0)
+Empty: (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 1), (2, 6), (3, 1), (3, 3), (3, 6), (4, 1), (4, 3), (4, 4), (4, 5), (5, 1), (6, 1), (6, 2), (6, 3), (6, 4), (6, 6)
+Player position: (4, 6)
+Goal: (6, 5)
+
+Please provide the coordinates of your next move.Given the current state of the maze and the player's position at (4, 6), we need to continue moving towards the goal at (6, 5). Since the goal is to the right and slightly down, we should prioritize moving right.
+
+Looking at the maze, moving right from (4, 6) to (5, 6) is not possible because (5, 6) is a wall. However, moving down is not an option since we are already at the top of the maze in terms of y-coordinate. We need to find an alternative route.
+
+Moving down from (4, 6) to (5, 6) is not possible, but moving down to (5, 5) is not possible either because (5, 5) is a wall. However, moving down to (5, 4) is not possible because (5, 4) is a wall, but moving down to (5, 3) is not possible because (5, 3) is a wall, but moving down to (5, 2) is not possible because (5, 2) is a wall, but moving down to (5, 1) is possible because (5, 1) is an empty space.
+
+However, moving right from (4, 6) to (5, 6) is not possible, but moving right to (6, 6) is possible because (6, 6) is an empty space.
+
+The next move should be to (6, 6), as it moves us closer to the goal and avoids walls.
+
+The answer is: (6, 6)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces (corridors) in the original maze is a "Zigzag" or a "Winding Path".
+
+(2) Here is a new maze of the same size, with empty spaces that form a similar zigzag or winding path shape:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 2), (1, 4), (1, 6), (2, 0), (2, 3), (2, 5), (3, 0), (3, 2), (3, 4), (3, 6), (4, 0), (4, 3), (4, 5), (5, 0), (5, 2), (5, 4), (5, 6), (6, 0)
+Empty: (1, 1), (1, 3), (1, 5), (2, 1), (2, 2), (2, 4), (2, 6), (3, 1), (3, 3), (3, 5), (4, 1), (4, 2), (4, 4), (4, 6), (5, 1), (5, 3), (5, 5), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Player position: (1, 1)
+Goal: (6, 5)
+
+Note that this new maze has a similar zigzag or winding path shape, but it is not an identical copy of the original maze. The player can navigate from the starting position (1, 1) to the goal position (6, 5) through the empty spaces.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

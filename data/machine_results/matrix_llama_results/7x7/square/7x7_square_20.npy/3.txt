@@ -1,0 +1,87 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 0 0 0 0 1
+0 1 1 1 1 0 1
+G 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 P 0 0 0 0 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the situation and provide the coordinates of my next move.
+
+The current player position is at (5,1), marked as 'P'. My goal is to navigate to the goal position 'G' at (2,0).
+
+From my current position (5,1), I have the following possible moves:
+
+- Moving up is blocked by a wall.
+- Moving down is blocked by a wall.
+- Moving left is a valid move into an empty space at (5,0).
+- Moving right is a valid move into an empty space at (5,2).
+
+Considering the above options, I will move to the right to the empty space at (5,2). This is because this move allows me to stay close to the right wall while making progress, providing me with a higher chance of eventually moving upwards towards the goal 'G'.
+
+Therefore, my next move will be to (5,2).
+
+Please provide the updated maze so I can continue solving it.
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0 0 1
+0 1 1 1 1 0 1
+G 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 0 P 0 0 0 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.I'll analyze the updated maze and plan my next move.
+
+I'm currently at position (5,2). My goal is still to navigate to the goal position 'G' at (2,0).
+
+From my current position (5,2), I have the following possible moves:
+
+- Moving up is a valid move into an empty space at (4,2).
+- Moving down is blocked by a wall.
+- Moving left is a valid move into an empty space at (5,1).
+- Moving right is a valid move into an empty space at (5,3).
+
+Considering the above options, I will move up to the empty space at (4,2). This move allows me to make progress towards the goal while staying away from the right wall.
+
+Therefore, my next move will be to (4,2).
+
+Please provide the updated maze so I can continue solving it.
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces as a "U-shape".
+
+Here is a new maze with the same size, shape, and encoding as the original:
+
+0 1 1 1 1 0 0
+0 1 1 1 1 0 1
+G 0 0 0 0 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 0 0 0 0 P 1
+1 1 1 1 1 1 1
+
+In this new maze, the empty spaces form a U-shape that connects the starting position 'P' at (5,5) to the goal position 'G' at (2,0). Note that this is not an identical copy of the original maze, but rather a new maze with the same shape and characteristics.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

@@ -1,0 +1,78 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 P 0 1
+1 1 0 1 1
+1 G 1 1 1
+0 0 0 0 1
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the situation and provide the coordinates of my next move. 
+
+Current player position (P) is at coordinates (0,2), since the top-left corner is (0,0).
+
+The goal position (G) is at coordinates (2,1).
+
+Looking at the surrounding spaces of the current player position, the only viable move is to move down to the empty space. 
+
+The coordinates of my next move are (1,2). 
+
+Please update the maze to reflect my new position. I will be ready to analyze the updated maze for the next move.
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 1
+1 1 P 1 1
+1 G 1 1 1
+0 0 0 0 1
+1 1 1 1 1
+
+Please provide the coordinates of your next move.I'll analyze the updated maze.
+
+Current player position (P) is at coordinates (1,2).
+
+Since I want to move closer to the goal position (G), which is at coordinates (2,1), I need to move down and left.
+
+However, moving directly down would put me into a wall, and moving left would also put me into a wall.
+
+But I can move diagonally down-left to the empty space.
+
+The coordinates of my next move are (2,1), no, wait, that is the goal position itself, not a viable move. So I'll move to (2,2), no, that is also a wall. I can move diagonally down-left to the empty space above the goal position, at coordinates (1,1), no, that is not viable. I'll move to (2,0), that is viable.
+
+No, I will try to find a better path. Moving left isn't possible. So I move down to (2,2), no that isn't possible. So moving to (1,1) isn't viable. It can be to (2,0), not recommended as it may make it longer for the answer.
+
+It will move left at (1,1).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces as a "(distorted) Inverted L".
+
+
+Here's a new maze of the same size, with empty spaces that form the same "Inverted L" shape:
+
+
+0 1 0 1 0
+1 P 1 1 1
+0 0 0 G 1
+1 1 1 1 1
+0 1 0 1 1
+
+
+This new maze meets all the criteria, and the shape formed by the empty spaces is still recognizable as an "Inverted L".
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

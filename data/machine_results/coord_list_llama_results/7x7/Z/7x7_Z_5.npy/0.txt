@@ -1,0 +1,51 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (2, 6), (3, 0), (3, 1), (3, 2), (3, 3), (3, 5), (3, 6), (4, 0), (4, 1), (4, 2), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 2), (1, 3), (1, 4), (1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (5, 3), (5, 4), (5, 6)
+Player position: (5, 5)
+Goal: (1, 5)
+
+Please provide the coordinates of your next move.To solve this maze, we'll use a breadth-first search (BFS) algorithm. However, since the problem asks for a step-by-step solution and given the constraints of the format, I'll describe the approach and provide the first move.
+
+Given the player's position at (5, 5) and the goal at (1, 5), we aim to move towards the goal while avoiding walls and staying within the empty spaces.
+
+1. **Identify Possible Moves**: From (5, 5), we can potentially move up, down, left, right, or diagonally to any adjacent empty space.
+
+2. **Choose the Next Move**: Since our goal is to reach (1, 5), we should prioritize moving upwards or diagonally upwards to get closer to the goal. However, we must ensure the chosen move is to an empty space.
+
+Given the empty spaces and the goal's position, a logical first move from (5, 5) would be to move diagonally upwards towards the empty space that brings us closer to the goal without hitting a wall.
+
+**Next Move**: Considering the constraints and the goal, a suitable next move would be to (4, 4), as it moves us closer to the goal and is an empty space.
+
+Please update the maze with this new position, and I'll be happy to guide the next step based on the updated maze.
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+**1. General Shape of the Original Maze's Path:**
+The general shape formed by the empty spaces (corridors) in the original maze can be described as a "Zigzag" or more specifically, a "Staircase" shape, given the diagonal and horizontal movements required to navigate from the player's position to the goal.
+
+**2. New Maze with the Same Shape:**
+Here is a new maze of the same size (7x7), with empty spaces that form a similar "Staircase" shape. Note that this maze is not an identical copy of the original and includes a valid path from P to G.
+
+**Walls:** (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 5), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5)
+
+**Empty:** (1, 5), (2, 4), (3, 3), (4, 2), (5, 1), (6, 0), (1, 6), (2, 6), (3, 6), (4, 6), (5, 6), (6, 6)
+
+**Player Position:** (6, 6)
+**Goal:** (1, 5)
+
+This new maze maintains the "Staircase" shape of the original path while providing a distinct layout that requires a similar navigation strategy to reach the goal from the player's position.
+
+RECOGNIZE: SUCCESS
+
+GENERATE: FAIL

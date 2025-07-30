@@ -1,0 +1,176 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 P 0 0 0
+1 1 1 1 1 0 1
+1 1 1 1 0 1 1
+1 1 1 0 G 0 0
+
+Please provide the coordinates of your next move.To solve the maze, we need to find a path from the player's current position 'P' to the goal 'G'. The player's current position is at (3,3), and the goal is at (6,3). We can move to any adjacent empty space ('0').
+
+Let's analyze the possible moves from the current position (3,3):
+
+- Right to (3,4) is an empty space.
+- Down to (4,3) is a wall.
+- Diagonal down-right to (4,4) is a wall.
+- Diagonal down-left to (4,2) is a wall.
+- Left to (3,2) is a wall.
+- Up to (2,3) is a wall.
+- Diagonal up-right to (2,4) is a wall.
+- Diagonal up-left to (2,2) is a wall.
+
+The only valid move is to the right, to (3,4).
+
+Let's move to (3,4).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 0 P 0 0
+1 1 1 1 1 0 1
+1 1 1 1 0 1 1
+1 1 1 0 G 0 0
+
+Please provide the coordinates of your next move.From the current position (3,4), let's evaluate the possible moves:
+
+- Right to (3,5) is an empty space.
+- Down to (4,4) is a wall.
+- Diagonal down-right to (4,5) is an empty space.
+- Diagonal down-left to (4,3) is a wall.
+- Left to (3,3) is an empty space (where we came from).
+- Up to (2,4) is a wall.
+- Diagonal up-right to (2,5) is a wall.
+- Diagonal up-left to (2,3) is a wall.
+
+The valid moves are:
+- Right to (3,5)
+- Diagonal down-right to (4,5)
+- Left to (3,3) (backtracking)
+
+To progress towards the goal, let's move right to (3,5).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 0 0 P 0
+1 1 1 1 1 0 1
+1 1 1 1 0 1 1
+1 1 1 0 G 0 0
+
+Please provide the coordinates of your next move.From the current position (3,5), let's evaluate the possible moves:
+
+- Right to (3,6) is an empty space.
+- Down to (4,5) is an empty space.
+- Diagonal down-right to (4,6) is a wall.
+- Diagonal down-left to (4,4) is a wall.
+- Left to (3,4) is an empty space (where we came from).
+- Up to (2,5) is a wall.
+- Diagonal up-right to (2,6) is a wall.
+- Diagonal up-left to (2,4) is a wall.
+
+The valid moves are:
+- Right to (3,6)
+- Down to (4,5)
+- Left to (3,4) (backtracking)
+
+To continue progressing towards the goal, let's move down to (4,5).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 0 0 0 0
+1 1 1 1 1 P 1
+1 1 1 1 0 1 1
+1 1 1 0 G 0 0
+
+Please provide the coordinates of your next move.From the current position (4,5), let's evaluate the possible moves:
+
+- Right to (4,6) is a wall.
+- Down to (5,5) is a wall.
+- Diagonal down-right to (5,6) is a wall.
+- Diagonal down-left to (5,4) is an empty space.
+- Left to (4,4) is a wall.
+- Up to (3,5) is an empty space (where we came from).
+- Diagonal up-right to (3,6) is an empty space.
+- Diagonal up-left to (3,4) is an empty space.
+
+The valid moves are:
+- Diagonal down-left to (5,4)
+- Up to (3,5) (backtracking)
+- Diagonal up-right to (3,6)
+- Diagonal up-left to (3,4) (backtracking)
+
+To continue progressing towards the goal, let's move diagonally down-left to (5,4).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 0 0 0 0
+1 1 1 1 1 0 1
+1 1 1 1 P 1 1
+1 1 1 0 G 0 0
+
+Please provide the coordinates of your next move.From the current position (5,4), let's evaluate the possible moves:
+
+- Right to (5,5) is a wall.
+- Down to (6,4) is the goal 'G'.
+- Diagonal down-right to (6,5) is an empty space.
+- Diagonal down-left to (6,3) is an empty space.
+- Left to (5,3) is a wall.
+- Up to (4,4) is a wall.
+- Diagonal up-right to (4,5) is an empty space (where we came from).
+- Diagonal up-left to (4,3) is a wall.
+
+The valid moves are:
+- Down to (6,4) (goal)
+- Diagonal down-right to (6,5)
+- Diagonal down-left to (6,3)
+- Up to (4,5) (backtracking)
+
+To reach the goal, let's move down to (6,4).
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces (corridors) in the original maze resembles a "zigzag" pattern. The path moves right, then down, then left, and finally down again to reach the goal.
+
+(2) Here is a new maze of the same size, with empty spaces forming a similar "zigzag" shape:
+
+```
+1 1 1 1 1 1 1
+1 1 1 1 0 0 0
+1 1 1 1 1 1 0
+1 1 1 1 1 1 0
+1 1 1 1 1 1 0
+1 1 1 1 1 1 0
+P 0 0 0 0 0 G
+```
+
+In this new maze, the path starts at the bottom left, moves right, then up, then right again, forming a zigzag pattern similar to the original maze.
+
+RECOGNIZE: SUCCESS
+
+GENERATE: FAIL

@@ -1,0 +1,194 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+0 0 0 0 0 P 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+G 0 0 0 0 0 1
+
+Please provide the coordinates of your next move.To solve the maze, we need to navigate from the current player position 'P' to the goal position 'G'. The player is currently at position (1,5). The goal is at position (6,0). We can move up, down, left, or right to adjacent empty spaces ('0').
+
+Let's find a path:
+
+1. Start at (1,5).
+2. Move down to (2,5).
+3. Move down to (3,5).
+4. Move down to (4,5).
+5. Move down to (5,5).
+6. Move down to (6,5).
+7. Move left to (6,4).
+8. Move left to (6,3).
+9. Move left to (6,2).
+10. Move left to (6,1).
+11. Move left to (6,0) (goal position).
+
+Let's make the first move:
+
+Move from (1,5) to (2,5).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+0 0 0 0 0 0 1
+0 1 1 1 1 P 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+G 0 0 0 0 0 1
+
+Please provide the coordinates of your next move.The player is currently at position (2,5). Let's continue moving towards the goal:
+
+Move from (2,5) to (3,5).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+0 0 0 0 0 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 P 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+G 0 0 0 0 0 1
+
+Please provide the coordinates of your next move.The player is currently at position (3,5). Let's continue moving towards the goal:
+
+Move from (3,5) to (4,5).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+0 0 0 0 0 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 P 1
+0 1 1 1 1 0 1
+G 0 0 0 0 0 1
+
+Please provide the coordinates of your next move.The player is currently at position (4,5). Let's continue moving towards the goal:
+
+Move from (4,5) to (5,5).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+0 0 0 0 0 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 P 1
+G 0 0 0 0 0 1
+
+Please provide the coordinates of your next move.The player is currently at position (5,5). Let's continue moving towards the goal:
+
+Move from (5,5) to (6,5).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+0 0 0 0 0 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+G 0 0 0 0 P 1
+
+Please provide the coordinates of your next move.The player is currently at position (6,5). Let's continue moving towards the goal:
+
+Move from (6,5) to (6,4).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+0 0 0 0 0 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+G 0 0 0 P 0 1
+
+Please provide the coordinates of your next move.The player is currently at position (6,4). Let's continue moving towards the goal:
+
+Move from (6,4) to (6,3).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+0 0 0 0 0 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+G 0 0 P 0 0 1
+
+Please provide the coordinates of your next move.The player is currently at position (6,3). Let's continue moving towards the goal:
+
+Move from (6,3) to (6,2).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+0 0 0 0 0 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+G 0 P 0 0 0 1
+
+Please provide the coordinates of your next move.The player is currently at position (6,2). Let's continue moving towards the goal:
+
+Move from (6,2) to (6,1).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+0 0 0 0 0 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+G P 0 0 0 0 1
+
+Please provide the coordinates of your next move.The player is currently at position (6,1). The goal is at position (6,0), which is directly to the left. 
+
+Move from (6,1) to (6,0) to reach the goal.
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. The general shape formed by the empty spaces (corridors) in the original maze resembles the letter "L". The path goes straight down and then turns left.
+
+2. Here is a new maze of the same size, with empty spaces forming the same "L" shape:
+
+```
+1 1 1 1 1 1 1
+1 1 1 1 1 P 1
+1 1 1 1 1 0 1
+1 1 1 1 1 0 1
+1 1 1 1 1 0 1
+1 1 1 1 1 0 1
+1 0 0 0 0 0 G
+```
+
+In this new maze:
+- The player starts at position (1,5).
+- The goal is at position (6,6).
+- The path follows a similar "L" shape, going down and then turning right.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

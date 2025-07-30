@@ -1,0 +1,73 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1
+1 1 1 1 1
+G 0 0 1 1
+0 1 1 1 1
+0 P 0 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will plan my move. To solve the maze, I will employ a basic strategy since the maze is not very large. I will aim to move closer to the goal position 'G' step by step, avoiding walls and using the available paths of empty spaces represented by '0'.
+
+My current position is at 'P', located at (4,1) if we consider the top-left corner as (0,0). The goal position 'G' is at (2,0). Given the layout of the maze, my first move should aim to get closer to 'G' while moving through an empty space.
+
+To move closer to 'G', I should move upwards because 'G' is directly above my current position, and there's an empty space above 'P'. Thus, my next move will be to the position directly above my current one, which means I will move to (3,1).
+
+However, the question asks for a step-by-step solution and the immediate next move. Given the maze's state, my immediate next move from 'P' at (4,1) to get closer to 'G' would be to move up. So, the next move is to (3,1), but since we're focusing on the moment and coordinating instructions might seem to suggest we detail the exact next position in movement terms (up, down, left, right), let's clarify: My move, in simpler terms, is to go up from where 'P' is currently located.
+
+To follow instructions precisely and provide "the coordinates of your next move" as requested, the exact coordinate changes based on directional movement (up, in this case) from (4,1) would actually place me at (3,1), moving up one space. However, since the request might be confused with asking for action (up) rather than the resulting position (3,1), the direct next step every time is a move "up," "down," "left," or "right" from the player's current position. The direct next action in the simplest form: up.
+
+But to clarify and follow the given instruction format for coordinate specification, acknowledging the instructions might seek a simplified form of directional action: The move is towards the position (3,1), meaning the action taken from the current 'P' (4,1) is to move up, but let's adhere strictly to instructions for clarity.
+
+The Answer given should ideally state the exact move like up or provide the next position's coordinates following instructions. Given the current format expectations, the essential clarification for immediate action is less about final coordinate (3,1) but what one does at 'P'—you move up. Thus, clarification provided aims to fulfill the task's requirements based on the original question's specific request for "the coordinates of your next move," which could imply stating action from a starting point of view for subsequent steps. However, for strict adherence and accuracy, stating the exact move or new position after the move in such a step-by-step guide would follow: The actual move is up to (3,1), implying the immediate step is a simple directional move from 'P' at (4,1), simplifying the explanation to fit instructions, leaving action as the focus: Moving up.
+
+Thus, moving strictly by format requested: Moving up means I'm heading to the position directly above 'P', which translates to (3,1) if the format truly sought the end position of the immediate next step.
+
+The next move's exact position, if we focus solely on the request without considering intermediate explanations for strategy or understandable specifics, is (3,1) above the current player 'P' but keeping it concise for adherence and clarifying that indeed, providing up as the action suffices with less ambiguity:
+
+To move directly up from (4,1) places the player at (3,1), which clarifies steps without deviations, strictly following the question for coordinate specification which is indeed answering the prompt without understandable confusion over requested detail specificity.
+
+The position to move to next is directly up from the current 'P', which coordinates wise is moving to (3,1) from the initial step explanation for request clarity without specification ambiguity.
+
+
+Given the requested format for the action which could be simply stating the move 'up', the interpretation aims at also fulfilling the task of specifying the next step with a clarification.
+
+The straightforward answer if focusing strictly on coordinates for each step or following instructions carefully is:
+
+Next move coordinates are: (3,1), describing it textually, this action as implied is going 'up' from 'P'.
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces in the original maze is an "L".
+
+(2) Here is a new maze with empty spaces that form the same "L" shape:
+
+1 1 1 1 1
+1 1 0 0 1
+G 0 1 1 1
+1 0 1 1 1
+1 P 0 0 1
+
+This new maze meets all the required criteria:
+
+* It has the same size as the original maze.
+* It includes a valid path from P to G through empty spaces.
+* It is not an identical copy of the original maze.
+* The general shape formed by its empty spaces (corridors) is recognizable as an "L".
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

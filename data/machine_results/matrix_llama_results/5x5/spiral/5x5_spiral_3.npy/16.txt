@@ -1,0 +1,107 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 0 P 0
+0 1 1 1 1
+0 1 0 G 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.Let's analyze the maze. The current player position is at coordinates (0,3). 
+
+After examining the maze, I see that a valid next move would be to the empty space above the current player position. 
+
+Therefore, my next move would be to coordinates (0,2) doesn't seem valid since I'm not at (0,3) initially (looking at the first row) so instead, my next move is to (0,4) No, still bad My correct move is to stay at y=0. Coordinates: (0,0) No, wrong still move right -> (0,4) no move left -> (0,2) valid move left from starting pos
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 0
+0 1 1 1 1
+0 1 0 G 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.I'm now at coordinates (0,2). A valid next move would be to move down. 
+
+So, my next move would be to coordinates (1,2) nope 1 is the wall can't do that so my move is (0,1).
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 0
+0 1 1 1 1
+0 1 0 G 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.I'm now at coordinates (0,1). Since I want to reach the goal position, a valid next move would be to move down is still blocked by the wall.
+
+My next move would be to move left. Since I'm already at the second column, my next move would be to coordinates (0,0).
+
+Here is the current state of the maze after your latest move:
+
+P 0 0 0 0
+0 1 1 1 1
+0 1 0 G 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.I'm now at coordinates (0,0). A valid next move would be to move down, since that's closer to the goal. 
+
+So, my next move would be to coordinates (1,0).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+P 1 1 1 1
+0 1 0 G 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.I'm now at coordinates (1,0). The wall blocks me from moving right. I should move down to find a path to the goal.
+
+My next move would be to coordinates (2,0).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+0 1 1 1 1
+P 1 0 G 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.I'm now at coordinates (2,0). Since the goal is within reach, I can now move to the right to get closer.
+
+My next move would be to coordinates (2,1) is blocked by a 1 (wall), move further right then ->  (2,3) has a G. Don't move to G directly. Since there's a 0 at (2,2), better move to the 0 space before G then. 
+
+ Move right: coordinates (2,2)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces in the original maze is a "rectangle" or " frame", but more specifically since the G is almost at the corner -an "L-shape".
+
+(2) Here is a new maze with the same size and shape (L-shaped corridors):
+
+0 0 0 0 P
+0 1 1 1 1
+0 1 0 0 G
+0 1 0 1 1
+0 0 0 0 0
+
+This maze has the same size as the original, and its empty spaces form a similar L-shape. It includes a valid path from P to G and is not an identical copy of the original maze.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

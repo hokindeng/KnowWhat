@@ -1,0 +1,101 @@
+ROBUST GLMM ANALYSIS - DETAILED RESULTS
+
+
+============================================================
+RESULTS FOR: SOLVE_GLMM
+============================================================
+Method used: sklearn_logistic
+
+MODEL SUMMARY:
+                Mixed Linear Model Regression Results
+======================================================================
+Model:                  MixedLM     Dependent Variable:     success   
+No. Observations:       17982       Method:                 REML      
+No. Groups:             10          Scale:                  0.1754    
+Min. group size:        1791        Log-Likelihood:         -9915.4793
+Max. group size:        1800        Converged:              No        
+Mean group size:        1798.2                                        
+----------------------------------------------------------------------
+                           Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------
+Intercept                   0.900    0.095   9.474 0.000  0.714  1.087
+C(base_model)[T.gpt]        0.213    0.134   1.590 0.112 -0.050  0.476
+C(base_model)[T.llama]     -0.200    0.134  -1.495 0.135 -0.463  0.062
+C(encoding_type)[T.matrix] -0.301    0.109  -2.750 0.006 -0.515 -0.086
+C(encoding_type)[T.vision]  0.020    0.145   0.139 0.889 -0.263  0.304
+C(maze_size)[T.7x7]        -0.036    0.006  -5.836 0.000 -0.049 -0.024
+C(maze_shape)[T.Z]         -0.146    0.011 -13.533 0.000 -0.168 -0.125
+C(maze_shape)[T.cross]     -0.295    0.011 -27.282 0.000 -0.316 -0.274
+C(maze_shape)[T.spiral]    -0.337    0.011 -31.149 0.000 -0.359 -0.316
+C(maze_shape)[T.square]    -0.051    0.011  -4.686 0.000 -0.072 -0.029
+C(maze_shape)[T.triangle]  -0.137    0.011 -12.701 0.000 -0.159 -0.116
+Group Var                   0.024    0.055                            
+======================================================================
+
+
+
+============================================================
+RESULTS FOR: RECOGNIZE_GLMM
+============================================================
+Method used: sklearn_logistic
+
+MODEL SUMMARY:
+                Mixed Linear Model Regression Results
+=====================================================================
+Model:                  MixedLM     Dependent Variable:     success  
+No. Observations:       17979       Method:                 REML     
+No. Groups:             10          Scale:                  0.0482   
+Min. group size:        1791        Log-Likelihood:         1679.9137
+Max. group size:        1800        Converged:              No       
+Mean group size:        1797.9                                       
+---------------------------------------------------------------------
+                           Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+---------------------------------------------------------------------
+Intercept                   0.018    0.096  0.191 0.849 -0.171  0.207
+C(base_model)[T.gpt]        0.100    0.136  0.734 0.463 -0.167  0.367
+C(base_model)[T.llama]      0.002    0.136  0.014 0.989 -0.265  0.269
+C(encoding_type)[T.matrix] -0.041    0.111 -0.368 0.713 -0.259  0.177
+C(encoding_type)[T.vision] -0.069    0.147 -0.472 0.637 -0.358  0.219
+C(maze_size)[T.7x7]         0.024    0.003  7.220 0.000  0.017  0.030
+C(maze_shape)[T.Z]          0.329    0.006 57.959 0.000  0.318  0.340
+C(maze_shape)[T.cross]      0.000    0.006  0.059 0.953 -0.011  0.011
+C(maze_shape)[T.spiral]     0.019    0.006  3.350 0.001  0.008  0.030
+C(maze_shape)[T.square]    -0.019    0.006 -3.409 0.001 -0.030 -0.008
+C(maze_shape)[T.triangle]  -0.020    0.006 -3.588 0.000 -0.031 -0.009
+Group Var                   0.025                                    
+=====================================================================
+
+
+
+============================================================
+RESULTS FOR: GENERATE_GLMM
+============================================================
+Method used: sklearn_logistic
+
+MODEL SUMMARY:
+                Mixed Linear Model Regression Results
+======================================================================
+Model:                 MixedLM      Dependent Variable:      success  
+No. Observations:      17979        Method:                  REML     
+No. Groups:            10           Scale:                   0.0352   
+Min. group size:       1791         Log-Likelihood:          4503.6022
+Max. group size:       1800         Converged:               No       
+Mean group size:       1797.9                                         
+----------------------------------------------------------------------
+                           Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------
+Intercept                   0.055    0.083   0.662 0.508 -0.108  0.218
+C(base_model)[T.gpt]       -0.009    0.117  -0.077 0.939 -0.239  0.221
+C(base_model)[T.llama]     -0.051    0.117  -0.436 0.663 -0.281  0.179
+C(encoding_type)[T.matrix]  0.086    0.096   0.893 0.372 -0.102  0.274
+C(encoding_type)[T.vision] -0.022    0.127  -0.176 0.861 -0.271  0.226
+C(maze_size)[T.7x7]        -0.040    0.003 -14.167 0.000 -0.045 -0.034
+C(maze_shape)[T.Z]         -0.008    0.005  -1.582 0.114 -0.017  0.002
+C(maze_shape)[T.cross]     -0.029    0.005  -5.984 0.000 -0.038 -0.020
+C(maze_shape)[T.spiral]    -0.004    0.005  -0.832 0.405 -0.014  0.005
+C(maze_shape)[T.square]    -0.016    0.005  -3.302 0.001 -0.025 -0.007
+C(maze_shape)[T.triangle]  -0.021    0.005  -4.335 0.000 -0.031 -0.012
+Group Var                   0.018                                     
+======================================================================
+
+

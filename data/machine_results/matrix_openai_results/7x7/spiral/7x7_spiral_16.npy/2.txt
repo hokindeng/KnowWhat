@@ -1,0 +1,224 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 P 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.To solve the maze, we need to navigate from the current player position 'P' to the goal position 'G'. Let's first identify the coordinates of 'P' and 'G':
+
+- 'P' is at (0, 1)
+- 'G' is at (5, 5)
+
+We can move in the directions: up, down, left, or right, but only through empty spaces ('0').
+
+Starting from (0, 1), let's find a path to (5, 5):
+
+1. From (0, 1), move down to (1, 1).
+
+So, the next move is to (1, 1).
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 P 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.From the current position (1, 1), we can continue navigating towards the goal (5, 5). The possible moves from (1, 1) are:
+
+- Down to (2, 1)
+- Right to (1, 2) (but this is a wall, so it's not possible)
+- Up to (0, 1) (but we just came from there)
+- Left to (1, 0) (but this is a wall)
+
+The only viable move is down to (2, 1).
+
+So, the next move is to (2, 1).
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 P 1 0 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.From the current position (2, 1), we can continue navigating towards the goal (5, 5). The possible moves from (2, 1) are:
+
+- Down to (3, 1)
+- Right to (2, 2) (but this is a wall, so it's not possible)
+- Up to (1, 1) (but we just came from there)
+- Left to (2, 0) (but this is a wall)
+
+The only viable move is down to (3, 1).
+
+So, the next move is to (3, 1).
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 P 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.From the current position (3, 1), we can continue navigating towards the goal (5, 5). The possible moves from (3, 1) are:
+
+- Down to (4, 1)
+- Right to (3, 2) (but this is a wall, so it's not possible)
+- Up to (2, 1) (but we just came from there)
+- Left to (3, 0) (but this is a wall)
+
+The only viable move is down to (4, 1).
+
+So, the next move is to (4, 1).
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 0
+1 P 1 1 1 1 1
+1 0 0 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.From the current position (4, 1), we can continue navigating towards the goal (5, 5). The possible moves from (4, 1) are:
+
+- Down to (5, 1)
+- Right to (4, 2) (but this is a wall, so it's not possible)
+- Up to (3, 1) (but we just came from there)
+- Left to (4, 0) (but this is a wall)
+
+The only viable move is down to (5, 1).
+
+So, the next move is to (5, 1).
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 P 0 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.From the current position (5, 1), we can continue navigating towards the goal (5, 5). The possible moves from (5, 1) are:
+
+- Right to (5, 2)
+- Up to (4, 1) (but we just came from there)
+- Left to (5, 0) (but this is a wall)
+
+The viable move is to the right to (5, 2).
+
+So, the next move is to (5, 2).
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 P 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.From the current position (5, 2), we can continue navigating towards the goal (5, 5). The possible moves from (5, 2) are:
+
+- Right to (5, 3)
+- Up to (4, 2) (but this is a wall)
+- Left to (5, 1) (but we just came from there)
+
+The viable move is to the right to (5, 3).
+
+So, the next move is to (5, 3).
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 P 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.From the current position (5, 3), we can continue navigating towards the goal (5, 5). The possible moves from (5, 3) are:
+
+- Right to (5, 4)
+- Up to (4, 3) (but this is a wall)
+- Left to (5, 2) (but we just came from there)
+
+The viable move is to the right to (5, 4).
+
+So, the next move is to (5, 4).
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 P G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.From the current position (5, 4), we can move directly to the goal (5, 5). The possible moves from (5, 4) are:
+
+- Right to (5, 5), which is the goal position 'G'.
+- Up to (4, 4) (but this is a wall)
+- Left to (5, 3) (but we just came from there)
+
+The viable move is to the right to (5, 5).
+
+So, the next move is to (5, 5).
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces (corridors) in the original maze resembles a "zigzag" pattern. The path moves downwards with a series of turns, creating a zigzagging corridor from the start to the goal.
+
+(2) Here is a new maze of the same size, with empty spaces that form a similar zigzag shape:
+
+```
+1 1 1 1 1 0 0
+P 0 0 0 1 0 1
+1 1 1 0 1 0 1
+1 1 1 0 1 0 1
+1 1 1 0 1 0 1
+1 1 1 0 0 0 G
+1 1 1 1 1 1 1
+```
+
+In this new maze:
+- The player starts at (1, 0) and the goal is at (5, 6).
+- The path zigzags downwards through the empty spaces, maintaining the general zigzag shape.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

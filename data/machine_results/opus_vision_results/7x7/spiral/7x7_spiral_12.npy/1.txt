@@ -1,0 +1,318 @@
+# Maze Navigation Task
+
+You are tasked with solving a maze provided to you as an image. You goal is to complete the maze, move-by-move, by finding a path from a start position to an end position. Below are detailed instructions for the task.
+
+## Maze Representation
+
+The attached image is a maze represented as a 2D grid. Each cell in the maze has coordinates displayed as (row,column), with (0,0) being the top-left corner. The grid uses the following color coding:
+
+* WHITE cells (walls): These are obstacles you CANNOT move through
+* DARK GREY cells (paths): These are empty cells you CAN move through
+* BLUE cell (player): Your current position in the maze
+* RED cell (goal): Your destination that you need to reach
+
+## Movement Rules
+
+1. You can ONLY move to adjacent cells in four directions: UP, DOWN, LEFT, or RIGHT
+2. Diagonal movement is NOT allowed
+3. You can ONLY move through empty (DARK GREY) cells
+4. You CANNOT move through walls (WHITE cells)
+5. Each move must be to a directly adjacent cell (no skipping cells)
+
+## Your Task
+
+Navigate from your current position (BLUE cell) to the goal (RED cell) by providing a sequence of coordinates, one move at a time.
+
+## How to Respond
+
+1. Analyze the maze carefully 
+2. Identify a valid path from your current position to the goal
+3. Provide your next move as coordinates in the format (row,column)
+4. After each of your moves, I will show you an updated maze with your new position
+5. Continue providing one move at a time until you reach the goal
+
+## Success Condition
+
+The task is completed when you successfully reach the RED goal cell.
+
+## Example Response
+
+To move to the cell below your current position, you would respond with the coordinates of that cell, such as:
+
+'Next move: (5,3)'
+
+Here is the maze you need to solve:
+Looking at the maze, I can see:
+- My current position (BLUE): (3,4)
+- The goal (RED): (3,6)
+
+From my current position at (3,4), I need to check the adjacent cells:
+- UP: (2,4) - This is a dark grey path cell, I can move here
+- DOWN: (4,4) - This is a dark grey path cell, I can move here
+- LEFT: (3,3) - This is a white wall, I cannot move here
+- RIGHT: (3,5) - This is a white wall, I cannot move here
+
+Since I need to reach (3,6) which is to the right, and I can't move directly right due to the wall at (3,5), I'll need to find an alternate path. I'll start by moving up to explore that route.
+
+Next move: (2,4)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at position (2,4). Looking at my adjacent cells:
+- UP: (1,4) - This is a white wall, I cannot move here
+- DOWN: (3,4) - This is a dark grey path cell (where I came from), I can move here
+- LEFT: (2,3) - This is a white wall, I cannot move here
+- RIGHT: (2,5) - This is a white wall, I cannot move here
+
+This appears to be a dead end. I need to go back down and try a different route.
+
+Next move: (3,4)
+
+Here is the current state of the maze after your latest move:
+
+I'm back at (3,4). Since going up led to a dead end, I'll now try going down to explore the other path.
+
+From my current position at (3,4), checking adjacent cells:
+- UP: (2,4) - Dark grey path (but that was a dead end)
+- DOWN: (4,4) - This is a dark grey path cell, I can move here
+- LEFT: (3,3) - White wall, cannot move
+- RIGHT: (3,5) - White wall, cannot move
+
+Next move: (4,4)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (4,4). Let me check my adjacent cells:
+- UP: (3,4) - Dark grey path (where I came from)
+- DOWN: (5,4) - This is a white wall, I cannot move here
+- LEFT: (4,3) - This is a dark grey path cell, I can move here
+- RIGHT: (4,5) - This is a white wall, I cannot move here
+
+I'll move left to continue exploring.
+
+Next move: (4,3)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (4,3). Let me check my adjacent cells:
+- UP: (3,3) - This is a white wall, I cannot move here
+- DOWN: (5,3) - This is a white wall, I cannot move here
+- LEFT: (4,2) - This is a dark grey path cell, I can move here
+- RIGHT: (4,4) - Dark grey path (where I came from)
+
+I'll continue moving left to explore further.
+
+Next move: (4,2)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (4,2). Let me check my adjacent cells:
+- UP: (3,2) - This is a dark grey path cell, I can move here
+- DOWN: (5,2) - This is a dark grey path cell, I can move here
+- LEFT: (4,1) - This is a white wall, I cannot move here
+- RIGHT: (4,3) - Dark grey path (where I came from)
+
+Since the goal is at row 3 (same row as (3,6)), I'll move up to get to the same row level.
+
+Next move: (3,2)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (3,2), on the same row as the goal at (3,6). Let me check my adjacent cells:
+- UP: (2,2) - This is a dark grey path cell, I can move here
+- DOWN: (4,2) - Dark grey path (where I came from)
+- LEFT: (3,1) - This is a white wall, I cannot move here
+- RIGHT: (3,3) - This is a white wall, I cannot move here
+
+I can't move directly right toward the goal, so I'll go up to find another route.
+
+Next move: (2,2)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (2,2). Let me check my adjacent cells:
+- UP: (1,2) - This is a dark grey path cell, I can move here
+- DOWN: (3,2) - Dark grey path (where I came from)
+- LEFT: (2,1) - This is a white wall, I cannot move here
+- RIGHT: (2,3) - This is a white wall, I cannot move here
+
+I'll continue moving up to explore the path.
+
+Next move: (1,2)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (1,2). Let me check my adjacent cells:
+- UP: (0,2) - This is a dark grey path cell, I can move here
+- DOWN: (2,2) - Dark grey path (where I came from)
+- LEFT: (1,1) - This is a white wall, I cannot move here
+- RIGHT: (1,3) - This is a white wall, I cannot move here
+
+I'll move up to continue exploring the top row.
+
+Next move: (0,2)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (0,2). Let me check my adjacent cells:
+- UP: No cell (edge of maze)
+- DOWN: (1,2) - Dark grey path (where I came from)
+- LEFT: (0,1) - This is a white wall, I cannot move here
+- RIGHT: (0,3) - This is a dark grey path cell, I can move here
+
+Great! I can move right along the top row to get closer to the goal.
+
+Next move: (0,3)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (0,3). Let me check my adjacent cells:
+- UP: No cell (edge of maze)
+- DOWN: (1,3) - This is a white wall, I cannot move here
+- LEFT: (0,2) - Dark grey path (where I came from)
+- RIGHT: (0,4) - This is a dark grey path cell, I can move here
+
+I'll continue moving right along the top row.
+
+Next move: (0,4)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (0,4). Let me check my adjacent cells:
+- UP: No cell (edge of maze)
+- DOWN: (1,4) - This is a white wall, I cannot move here
+- LEFT: (0,3) - Dark grey path (where I came from)
+- RIGHT: (0,5) - This is a dark grey path cell, I can move here
+
+I'll continue moving right.
+
+Next move: (0,5)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (0,5). Let me check my adjacent cells:
+- UP: No cell (edge of maze)
+- DOWN: (1,5) - This is a white wall, I cannot move here
+- LEFT: (0,4) - Dark grey path (where I came from)
+- RIGHT: (0,6) - This is a dark grey path cell, I can move here
+
+I'll continue moving right to reach column 6, where the goal is located.
+
+Next move: (0,6)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (0,6), in the same column as the goal at (3,6). Let me check my adjacent cells:
+- UP: No cell (edge of maze)
+- DOWN: (1,6) - This is a dark grey path cell, I can move here
+- LEFT: (0,5) - Dark grey path (where I came from)
+- RIGHT: No cell (edge of maze)
+
+Perfect! I can now move down towards the goal.
+
+Next move: (1,6)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (1,6). Let me check my adjacent cells:
+- UP: (0,6) - Dark grey path (where I came from)
+- DOWN: (2,6) - This is a dark grey path cell, I can move here
+- LEFT: (1,5) - This is a white wall, I cannot move here
+- RIGHT: No cell (edge of maze)
+
+I'll continue moving down toward the goal.
+
+Next move: (2,6)
+
+Here is the current state of the maze after your latest move:
+
+Now I'm at (2,6). Let me check my adjacent cells:
+- UP: (1,6) - Dark grey path (where I came from)
+- DOWN: (3,6) - This is the RED goal cell!
+- LEFT: (2,5) - This is a white wall, I cannot move here
+- RIGHT: No cell (edge of maze)
+
+Excellent! The goal is directly below me. I can reach it with one more move!
+
+Next move: (3,6)
+
+SOLVE: SUCCESS
+
+# Maze Shape Recognition and Generation Task
+
+Now that you have solved the maze, you need to perform to additional tasks:
+
+1. Recognize the shape of the maze you just solved
+2. Generate a new maze with the same shape
+
+Let me explain each of these additional tasks.
+
+## Part 1: Shape Recognition
+
+Examine the maze you just solved and identify the overall pattern or shape formed by the non-wall cells (corridors). Note that this should NOT be the shape of the path from start to finish, but rather the shape formed by ALL non-wall cells, including empty cells, start cell, and finish cell.
+
+Provide the name of the shape you recognize. Be specific and explain your reasoning.
+
+## Part 2: Maze Generation
+
+Create a new maze with the following specifications:
+
+### Requirements:
+
+1. **Same dimensions**: Your new maze must have exactly the same height and width as the original maze
+2. **Same shape pattern**: The corridors (non-wall cells) must form the same general shape you identified in Part 1
+3. **Valid path**: There must be at least one valid path from start to goal positions
+4. **Different layout**: While maintaining the same shape, your maze should NOT be an identical copy of the original
+5. **Proper encoding**: Use the same encoding format as described below
+
+### Encoding Format:
+
+Encode your maze as a text matrix with the following symbols:
+* '1' for walls (representing WHITE cells)
+* '0' for empty corridors (representing DARK GREY cells)
+* 'S' for the player starting position (representing the BLUE cell)
+* 'G' for the goal position (representing the RED cell)
+
+### Example Response:
+
+If you identified the shape as a '{shape}', your response would be:
+
+Part 1: The maze corridors form a {shape} shape. This is evident from {explanation}.
+
+Part 2: Here is my new {shape}-shaped maze with the same dimensions (5x5):
+
+```
+1 1 1 1 1
+1 S 0 0 1
+1 1 1 0 1
+1 G 0 0 1
+1 1 1 1 1
+```
+
+Please provide both Part 1 (recognition) and Part 2 (generation) in your response.
+Part 1: The maze corridors form a "T" shape. This is evident from the horizontal line of corridors across the top row (0,2 through 0,6) intersecting with a vertical line of corridors down the right side (0,6 through 3,6), creating a clear T-shaped pattern of accessible cells.
+
+Part 2: Here is my new T-shaped maze with the same dimensions (7x7):
+
+```
+1 1 0 0 0 0 0
+1 1 0 1 1 1 S
+1 1 0 1 1 1 0
+1 1 0 1 1 1 G
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+```
+
+In this new maze:
+- The horizontal part of the T is along row 0, columns 2-6
+- The vertical part of the T is along column 6, rows 0-3
+- The start (S) and goal (G) positions are placed along the vertical part
+- The layout is different from the original but maintains the T shape
+- There is a valid path from S to G
+- The dimensions are identical (7x7)
+- The overall T shape pattern is preserved while creating a different solving experience
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

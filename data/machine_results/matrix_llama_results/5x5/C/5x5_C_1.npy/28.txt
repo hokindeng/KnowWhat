@@ -1,0 +1,47 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1
+1 0 0 G 1
+1 0 1 1 1
+1 P 1 1 1
+1 0 0 0 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will plan my move. To navigate from the current player position 'P' to the goal position 'G', my first move will be upwards since moving downwards or to the sides is blocked by walls, and I can only move through empty spaces.
+
+My current position is at (3,1), where the first number represents the row (starting from 0 at the top) and the second number represents the column (starting from 0 at the left).
+
+To move upwards, I will change my row by subtracting 1, which gives me a new position of (2,1). However, since I can only move to empty spaces, I will need to move one step further upwards to row (1,1) is a wall, but I can move directly from my current position to the left isn't a viable first move given the initial constraints, my correct initial move is to move up, but due to the nature of the response required, I need to provide the immediate step I can take which moves me to an empty space that is closer to the goal directly if possible. The immediate move I can take without direct access to the goal direction at this moment is moving upwards is my thought, but given the rules, my best immediate move is vertically which also brings me to the wall closer but since I have an empty space at (3,0), my immediate move can actually be to that empty space from 'P'.
+
+My move is: (3,0)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces in the original maze is a "T".
+
+(2) Here is a new maze with empty spaces that form the same shape:
+
+1 1 1 1 1
+1 P 0 0 G
+1 1 0 1 1
+1 0 0 1 1
+1 1 1 1 1
+
+In this new maze, the empty spaces also form a "T" shape, and there is a valid path from the player position 'P' to the goal position 'G' through the empty spaces. The maze is not an identical copy of the original and meets all the required criteria.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

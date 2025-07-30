@@ -1,0 +1,160 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 0 0 P
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.Let's analyze the maze. The current player position 'P' is at coordinates (0, 4) and the goal position 'G' is at coordinates (2, 1).
+
+To start solving the maze, we can move the player to the left, since there's an empty space. 
+
+My next move will be to coordinates (0, 3).
+
+Please update the maze accordingly.
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 P 0
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.With the player now at coordinates (0, 3), our next step should be to move downwards, since there is an empty space.
+
+My next move will be to coordinates (1, 3), however, that position has a wall (1). I will choose a different move. A possible move is to go further to the left.
+
+My next move will be to coordinates (0, 2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 0
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.With the player now at coordinates (0, 2), I will continue moving to the left. 
+
+My next move will be to coordinates (0, 1).
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 0
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.With the player now at coordinates (0, 1), the next move should be downwards, because moving up is outside the maze boundaries, moving to the left is also outside the maze boundaries, and moving to the right has been already explored and will lead to a dead-end.
+
+My next move will be to coordinates (1, 1), however, that position has a wall (1). Since I'm at a dead-end at this column, I will have to backtrack, so a good next move is to go right.
+
+My next move will be to coordinates (0, 2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 0
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.I'm back at coordinates (0, 2) again!
+
+Since moving left has already been explored and moving up will put me outside the maze, I will try moving downwards this time.
+
+My next move will be to coordinates (1, 2), however, that position has a wall (1). I will have to find another path.
+
+Let me re-evaluate the maze. Since the goal 'G' is at coordinates (2, 1), and there's a clear path from the right side of the maze, I can move the player to the right and try to reach the goal from there.
+
+My next move will be to coordinates (0, 3).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 P 0
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.With the player now at coordinates (0, 3), our next step should be to move to the right and reach the clear path that can take us to the goal 'G'.
+
+My next move will be to coordinates (0, 4).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 P
+1 1 1 1 0
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.Now that we're at coordinates (0, 4), the next step is to move downwards towards the clear path that can take us to the goal 'G'.
+
+My next move will be to coordinates (1, 4).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+1 1 1 1 P
+0 G 0 1 0
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.We're making progress! Now that we're at coordinates (1, 4), our next move should be to move downwards again, towards the goal 'G'.
+
+My next move will be to coordinates (2, 4).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+1 1 1 1 0
+0 G 0 1 P
+0 1 1 1 0
+0 0 0 0 0
+
+Please provide the coordinates of your next move.Now that we're at coordinates (2, 4), I notice that the goal 'G' is at coordinates (2, 1). Our next move should be to move to the left, to get closer to the goal.
+
+My next move will be to coordinates (2, 3).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+After analyzing the original maze, I can conclude that:
+
+(1) The general shape formed by the empty spaces (corridors) is a **"U-shape"** or a **"Hook-shape"**. The empty spaces form a curved path that allows the player to reach the goal 'G' from the starting position 'P'.
+
+(2) Here is a new maze of the same size, with empty spaces that form the same U-shape or Hook-shape:
+
+0 0 0 P 0
+0 1 1 1 1
+0 1 0 G 0
+0 1 1 1 0
+0 0 0 0 0
+
+This new maze meets the criteria:
+
+* Same size as the original (5x5)
+* Includes a valid path from 'P' to 'G' through empty spaces
+* Not an identical copy of the original maze
+* The general shape formed by its empty spaces is recognizable as a U-shape or Hook-shape.
+
+RECOGNIZE: FAIL
+
+GENERATE: SUCCESS

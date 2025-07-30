@@ -1,0 +1,87 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 P 0 0 G 1 1
+1 0 1 1 0 1 1
+1 0 1 1 0 1 1
+1 0 0 0 0 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will make my next move to the right of the current player position (P).
+
+My current position is at (2, 1), where the row index is 2 and the column index is 1 (0-indexed). I will move to the empty space at (2, 2).
+
+So, my next move coordinates are: (2, 2)
+
+Please update the maze and provide the new state.
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 0 P 0 G 1 1
+1 0 1 1 0 1 1
+1 0 1 1 0 1 1
+1 0 0 0 0 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.With the updated maze, I will make my next move to the right of the current player position (P).
+
+My current position is at (2, 2), where the row index is 2 and the column index is 2 (0-indexed). I will move to the empty space at (2, 3).
+
+So, my next move coordinates are: (2, 3)
+
+Please update the maze and provide the new state.
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 0 0 P G 1 1
+1 0 1 1 0 1 1
+1 0 1 1 0 1 1
+1 0 0 0 0 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.I'm close to the goal!
+
+My current position is at (2, 3), where the row index is 2 and the column index is 3 (0-indexed). I will move to the goal position at (2, 4).
+
+So, my next move coordinates are: (2, 4)
+
+This should be the final move. Let me know if I've reached the goal successfully!
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces as a "zig-zag" or a " winding path" but more specifically, I can see that it forms an "L-shape" or a "bent corridor".
+
+Here's a new maze with the same size, encoding, and general shape (L-shape or bent corridor):
+
+1 1 1 1 1 1 1
+1 1 1 0 1 1 1
+1 P 0 0 0 1 1
+1 0 1 1 0 1 1
+1 0 1 1 0 0 G
+1 1 1 1 1 0 1
+1 1 1 1 1 1 1
+
+In this new maze, the empty spaces form an L-shape or a bent corridor, similar to the original maze. The path from P to G can be navigated through the empty spaces. The maze is not an identical copy of the original and has the same size and encoding.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

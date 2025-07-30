@@ -1,0 +1,53 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 0 1 1
+1 0 1 0 1
+G 0 0 0 P
+1 1 1 1 1
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will make my next move to the position that is right and down from my current position. Since I can move diagonally, I will aim to get closer to the goal position (G). My current position is at the bottom right of the third row (counting from 0). Therefore, my next move will be to the coordinates (3, 3).
+
+However, I realize that providing coordinates based on the description might lead to confusion because of varying interpretations of row and column indexing (0-based vs. 1-based). Instead, to clarify my move without ambiguity:
+
+I will move to the position directly to the left of my current position, which should be an empty space ('0'). Therefore, if we consider the player's current position as the reference point without considering it as part of the coordinate system but as a visual guide:
+
+My move in terms of the change in the x-coordinate would be -1 (moving left) and staying in the same row (no change in y-coordinate if we were to refer rows in a conventional sense).
+
+To make this clear, referring to the standard 2D grid conventions, where the top-left is (0,0), my current position is on the third row (y=2) and the fourth column (x=3). I want to move to the third row (y=2) and the third column (x=2).
+
+So, my move would be to the position (2, 2).
+
+Let me clarify that this explanation is overly detailed to ensure clarity in the format requested. Normally, one would simply state the new position based on an agreed coordinate system.
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. The general shape formed by the empty spaces (corridors) in the original maze can be described as resembling a diagonal path or a slash (/) shape, somewhat meandering but generally allowing diagonal movement from the goal position (G) to the player position (P).
+
+2. A new maze of the same size that incorporates the same general shape formed by empty spaces (a diagonal path) is presented below:
+
+1 1 1 0 1
+1 G 1 0 1
+1 0 0 0 1
+1 0 1 P 1
+1 1 1 1 1
+
+This new maze maintains the same size as the original, includes a valid diagonal path from P to G, and is not an identical copy of the original. The corridors (empty spaces) form a diagonal shape that facilitates movement from the goal (G) to the player (P) in a diagonal manner.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

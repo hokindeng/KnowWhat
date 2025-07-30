@@ -1,0 +1,64 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 0 0 0
+0 1 1 0 1
+G 1 P 1 1
+0 0 1 1 1
+0 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the situation and provide the coordinates of my next move.
+
+The current player position is at (2, 2), marked by 'P'. The goal position is at (2, 0), marked by 'G'. 
+
+I will move diagonally up and left to position (2, 1). However, this is not possible since there is a wall (1) at position (2, 1). So, I need to try an alternative.
+
+My next move would be to position (1, 2) which is an empty space ('0'). However, that is also not possible because there is a wall at (1, 2).
+
+So, my next move is to position (3, 2) which is an empty space marked ('0') below the current position 'P'. However, I notice that moving to (3, 2) would make it harder to get to 'G', so it's not a good choice.
+
+Considering the position of the walls and the goal 'G', I'll move to (2, 3) or the space to the right of the current position 'P' but unfortunately, it's also a wall (1). Another alternative is to move diagonally down and right or up and right but again, these spaces are also walls.
+
+Finally, a possible move would be (1, 3) but it's blocked by a wall or position (3, 1) or space down and left but also blocked by a wall (1).
+
+However, moving diagonally up-left to position (1,1) is an available option because it is empty and closest to 'G'. Therefore:
+
+My next move is to position (1,1).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as:
+
+(1) The general shape formed by the empty spaces is a "Cross" shape.
+
+Here's a new maze of the same size, with empty spaces that form the same "Cross" shape:
+
+0 1 0 1 0
+0 0 0 0 1
+G 1 P 1 0
+0 1 1 0 1
+0 0 1 1 0
+
+Note that this new maze meets the criteria:
+
+* It has the same size as the original maze (5x5)
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as a "Cross" shape
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

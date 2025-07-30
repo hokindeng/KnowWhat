@@ -1,0 +1,66 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1
+1 1 G 1 0
+1 1 1 0 1
+1 1 0 1 P
+1 1 1 1 1
+
+Please provide the coordinates of your next move.Let's analyze the maze. The current player position is at the bottom (P), and the goal position is at the top (G).
+
+The first step would be to move the player to an adjacent empty space. Considering the possible moves (up, down, left, right, or any diagonal), I would like to move the player up and to the left, but since the player is at the bottom edge, moving up is the only viable option.
+
+The current player position is (3, 3). I would like to move up to the position (2, 3).
+
+My next move is to (2, 3).
+
+Please update the maze to reflect the new position.
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 1 G 1 0
+1 1 1 P 1
+1 1 0 1 0
+1 1 1 1 1
+
+Please provide the coordinates of your next move.With the updated maze, I can see that I have moved the player to the position (2, 3).
+
+To continue moving towards the goal (G), I would like to move the player to an adjacent empty space that is closer to the goal. Considering the possible moves, I can move the player up and to the left to position (1, 2), but since there is a wall at position (2, 2), I will move up and slightly to the right instead is not possible. However I will move to (1, 3) also not being possible. I'll move to (2, 2) is also not possible. I will move up and to the left, but since this position also has a wall I will actually move to the left of the current space.
+
+
+My next move is to (2, 2).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces as a "zig-zag".
+
+Here is a new maze with the same size, and a valid path from P to G that can be reached through empty spaces, forming a zig-zag shape:
+
+
+1 1 1 1 1
+1 0 G 1 1
+1 1 0 1 1
+1 0 1 P 0
+1 1 1 1 1
+
+
+This new maze is not an identical copy of the original maze, but the general shape formed by its empty spaces is still a zig-zag.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

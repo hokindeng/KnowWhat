@@ -1,0 +1,266 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 P 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the situation and provide the coordinates of my next move. 
+
+I am currently at the position 'P' which is at coordinates (4,3). To find the goal position 'G', I need to navigate through the empty spaces while avoiding walls. Looking at the maze, the first step would be to move right from my current position to the adjacent empty space. 
+
+Therefore, the coordinates of my next move would be (4,4).
+
+Next move: (4,4)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 P 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.With the updated maze, I can see that I've successfully moved to the position (4,4). For my next move, I want to move further right to the adjacent empty space. 
+
+The coordinates of my next move would be (4,5).
+
+Next move: (4,5)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 P 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.I've successfully moved to the position (4,5). To continue towards the goal 'G', I notice that the path to the goal is open if I move down and then left. However, my immediate next move will be to move down to the adjacent empty space is not possible because the space below me is a wall (1). 
+
+Instead, I can try moving right to the adjacent empty space. 
+
+The coordinates of my next move would be (4,6).
+
+Next move: (4,6)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 P
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.I've successfully moved to the position (4,6). My next goal is to try to find a path down, but since the wall below me is blocking the way, I need to find an alternative route. Moving further right is not an option since I'm already at the rightmost wall. 
+
+Instead, I notice that the path to the goal is still available if I move up and then left. I'll start by moving up to the adjacent empty space. 
+
+However, my most immediate next move will be to move up but from my current position (4,6) there is a wall above me at position (3,6), and I can't move up that way. Since moving right is also blocked by a wall, my next move is to move left.
+
+The coordinates of my next move would be (4,5).
+
+Next move: (4,5)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 P 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.I've successfully moved to the position (4,5). As previously planned, my goal is to move up, but I still have the wall at position (3,5) blocking my way. My next move is again to move left to the adjacent empty space. 
+
+The coordinates of my next move would be (4,4).
+
+Next move: (4,4)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 P 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.I've successfully moved to the position (4,4). To continue towards the goal, I need to keep moving up, but the wall above me at position (3,4) is still blocking the way. Since my path to the right is clear, I'll continue to move left while searching for an opening upwards.
+
+However, I notice that I've reached the leftmost wall adjacent to my current column. If I move further left, I'll be stuck against the wall, but my previous column has an opening that allows me to start moving up. Therefore, my next move will be to move left and then back up to the position I passed earlier.
+
+The coordinates of my next move would be (4,3).
+
+Next move: (4,3)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 P 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.I've successfully moved to the position (4,3). Since my path to the right is blocked by walls and there is an opening to move up at position (3,3), my next move would be to move up.
+
+The coordinates of my next move would be (3,3).
+
+
+
+Next move: (3,3)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 P 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.I've successfully moved to the position (3,3). With the updated maze, I can continue to navigate towards the goal. Since moving up from my current position is not possible due to the wall, and moving right will lead me to a dead end, I will try moving down to access the clear path below.
+
+The coordinates of my next move would be (4,3).
+
+Next move: (4,3)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 P 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.I've successfully moved to the position (4,3). My next move will be to move left to get closer to the goal 'G'.
+
+
+However, there is a wall to my left, I'll move right in the next few steps and go around the wall from below it.
+
+ The coordinates of my next move would be (4,4).
+
+Next move: (4,4)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 P 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.I've successfully moved to the position (4,4). With the updated maze, my next goal is to continue to navigate around the wall. To do this, I need to move right to access the clear path below the wall.
+
+
+The coordinates of my next move would be (4,5).
+
+Next move: (4,5)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 P 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.I've successfully moved to the position (4,5). Since moving right from my current position won't lead me any closer to the goal 'G', I'll move right and then down to go around the wall from below it.
+
+
+However, moving down from my current position will lead me straight into a wall. My only remaining option is to move right and I notice that I can move right.
+
+
+The coordinates of my next move would be (4,6).
+
+
+Next move: (4,6)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 P
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+
+Please provide the coordinates of your next move.I've successfully moved to the position (4,6). Moving right from my current position isn't possible as I'll hit the wall.
+
+
+Moving up also isn't possible for the same reason. I must move down or move left.
+
+
+However, I can move down and start moving left once down below the wall.
+
+
+Since the direct path down is blocked by the wall I'll move left to access the clear path down. 
+
+
+However since moving left will put me further from the access path around the wall to get to G then moving down. Now that my position is no longer being blocked from going down I can move down as a result of the my wall being on the left and move around that instead to head to G.
+My moves down would be better spent towards going around the wall down since moving 6 down and four right will give a faster and easier route to get to the end goal
+thus moving 6 down 4 right is alot faster. This next move request will be alot different since now that I was able to move right without been exclusively blocked I can begin my new optimal and faster new created path beginning by moving down
+
+
+To try move left now that the down is sooner would conflict with finding and becoming an aggressively searching 
+The coordinates of my next move would be (5,6).
+
+
+Next move: (5,6)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as a " Zig-Zag or Staircase" shape, but a more fitting description of the path would be that it forms an "L-shape" since it consists of predominantly 2 straight paths forming the vertical and horizontal parts of the letter "L".
+
+
+Here is a new maze with the same size as the original, with empty spaces that form the same L-shape:
+
+
+1 1 1 1 1 1 1
+1 0 0 0 0 1 1
+1 0 1 1 0 1 0
+1 0 0 0 0 1 0
+1 1 1 1 0 0 0
+1 0 0 0 0 1 1
+1 0 0 P 0 0 G 0
+
+
+Note that this new maze is not an identical copy of the original and has a valid path from P to G that can be reached through empty spaces. The general shape formed by its empty spaces is still recognizable as an L-shape.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

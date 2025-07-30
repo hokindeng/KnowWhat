@@ -1,0 +1,100 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+G 0 0 1 0 1 1
+0 1 0 1 0 1 1
+0 1 0 1 0 1 1
+P 1 1 1 0 1 1
+0 0 0 0 0 1 1
+
+Please provide the coordinates of your next move.Let me analyze the maze and determine the best next move.
+
+Current observations:
+1. Player position (P) is at (5,0)
+2. Goal position (G) is at (2,0)
+3. We need to move upward to reach the goal
+4. There is a clear path up along the leftmost column
+
+Given this analysis, the best next move would be to move up one position from (5,0) to (4,0).
+
+I choose coordinates: (4,0)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+G 0 0 1 0 1 1
+0 1 0 1 0 1 1
+P 1 0 1 0 1 1
+0 1 1 1 0 1 1
+0 0 0 0 0 1 1
+
+Please provide the coordinates of your next move.I'll continue moving upward along the leftmost column since it provides a clear path to the goal.
+
+Current position: (4,0)
+Goal position: (2,0)
+
+The best next move is to continue moving up to (3,0).
+
+I choose coordinates: (3,0)
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+G 0 0 1 0 1 1
+P 1 0 1 0 1 1
+0 1 0 1 0 1 1
+0 1 1 1 0 1 1
+0 0 0 0 0 1 1
+
+Please provide the coordinates of your next move.I'm now just one step away from the goal.
+
+Current position: (3,0)
+Goal position: (2,0)
+
+The best next move is to move up one final time to reach the goal at (2,0).
+
+I choose coordinates: (2,0)
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Looking at the original maze, the empty spaces form a rough "U" shape, with two vertical corridors connected by a horizontal path at the bottom.
+
+Here's my new maze design with the same U-shape pattern:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+G 0 1 1 1 0 1
+0 1 1 1 1 0 1
+0 1 1 1 1 0 1
+P 0 0 0 0 0 1
+1 1 1 1 1 1 1
+
+In this new maze:
+1. The U-shape is maintained but slightly modified
+2. The left vertical corridor remains for the starting position
+3. The right vertical corridor is moved one column to the left
+4. The bottom horizontal path connects the two vertical corridors
+5. The maze maintains the same dimensions (7x7)
+6. There is still a valid path from P to G
+7. The pattern is different from the original but maintains the U-shape characteristic
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

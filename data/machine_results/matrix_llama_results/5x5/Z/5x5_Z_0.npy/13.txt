@@ -1,0 +1,149 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 0 P 0
+1 1 1 0 1
+1 1 0 1 1
+1 0 1 1 1
+0 G 0 0 0
+
+Please provide the coordinates of your next move.Based on the given maze, I will plan my move. I am currently at position P, which is (0,3). My goal is to reach G, which is (4,1). I will analyze the available options for my next move.
+
+The adjacent positions to my current position P (0,3) are:
+
+- Up: Not possible since I'm at the top edge.
+- Down: (1,3) is empty (0), so this is a valid option.
+- Left: (0,2) is empty (0), so this is a valid option.
+- Right: (0,4) is empty (0), so this is a valid option.
+- Diagonals: Only (1,2) and (1,4) are potentially valid, but (1,2) is a wall (1), and (1,4) is a wall (1).
+
+Considering my options, I'll choose to move down to position (1,3) because it brings me closer to the goal without hitting any walls.
+
+My next move is to (1,3).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+1 1 1 P 1
+1 1 0 1 1
+1 0 1 1 1
+0 G 0 0 0
+
+Please provide the coordinates of your next move.Now that I'm at position (1,3), I need to plan my next move. 
+
+The adjacent positions to my current position (1,3) are:
+
+- Up: (0,3) is the space I just left.
+- Down: (2,3) is not a valid option since it's a wall (1).
+- Left: (1,2) is not a valid option since it's a wall (1).
+- Right: (1,4) is not a valid option since it's a wall (1).
+- Diagonals: Only (2,2) and (0,2) are potentially valid, but (2,2) is a wall (1), and (0,2) is not the best option as it would move me back.
+
+However, I notice that I can move diagonally to (2,2) is not valid, but (2,4) isn't a valid move either as it is also a wall. The only plausible move is to move left up  to (0,2)  in order to actually make some progress toward the goal in further turns.
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 0
+1 1 1 0 1
+1 1 0 1 1
+1 0 1 1 1
+0 G 0 0 0
+
+Please provide the coordinates of your next move.Now that I'm at position (0,2), I have several options for my next move. 
+
+- Down: (1,2) is not a valid option since it's a wall (1).
+- Right: (0,3) is a valid option as it's an empty space (0).
+- Left: (0,1) is a valid option as it's an empty space (0).
+- Up: Not possible since I'm at the top edge.
+- Diagonals: Only (1,1) is not valid since it is a wall, (1,3) is a valid option.
+
+Considering my goal, I'll choose to move right to position (0,3) doesn't give me much progress toward the goal in the long run and I've had the P at this location before. Instead I should move down to position (1,3), in order to make progress towards the goal.
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 0
+1 1 1 P 1
+1 1 0 1 1
+1 0 1 1 1
+0 G 0 0 0
+
+Please provide the coordinates of your next move.It seems I'm back at a familiar position (1,3). Since I've been here before, I know I need to try something different to make progress. 
+
+This time, I'll try moving diagonally up to the left to position (0,2), however that doesn't pan out as a long-term progress in achieving the goal as the last 6 moves show. A better option is moving left then down.
+
+For now I will move left to position (1,2), is not a valid option, since it's a wall, so I need to make a few moves so that I can move over to the left and head down. I will move up then left, first move is up to position (0,3).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 P 0
+1 1 1 0 1
+1 1 0 1 1
+1 0 1 1 1
+0 G 0 0 0
+
+Please provide the coordinates of your next move.Now that I'm at position (0,3), I need to continue with my plan to move left. 
+
+My next move is to position (0,2). This move will allow me to potentially move down in a subsequent turn and get closer to the goal.
+
+My next move is to (0,2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 0
+1 1 1 0 1
+1 1 0 1 1
+1 0 1 1 1
+0 G 0 0 0
+
+Please provide the coordinates of your next move.Now that I'm at position (0,2), I have a clear path to move down to the goal.
+
+My next move is to position (1,2), but since it's a wall (1), that is not possible. 
+
+Instead, I will move down to position isn't an option, left to (0,1) is. 
+
+My next move is to (0,1), then in subsequent moves move down.
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 0
+1 1 1 0 1
+1 1 0 1 1
+1 0 1 1 1
+0 G 0 0 0
+
+Please provide the coordinates of your next move.Now that I'm at position (0,1), I'm one step closer to moving down. 
+
+Since I can move down now without running into a wall immediately, that's what I'll do. My next move is to position (1,1), however since (1,1) is a wall, then (2,1) is a wall then move to (3,1) then finally move (4,1) which is the goal (G). That sounds easy. But the only way to actually get to that square is going around the edges and get to that square via the left side of maze's bottom portion.
+
+I'll move down to position (4 isn't a possibility 3 is a better more accurate move however isn't good, only move that does work is:) My next move is to (1,0), no since that square is out of bounds what would be best is to do move (1,1), however as stated in this response is a wall, I will find an alternative move.
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as an "L-shape" or "L-path".
+
+Here is a new maze of the same size, with empty spaces that form the same L-shape:
+
+0 P 1 1 0
+1 0 1 1 1
+1 0 0 0 1
+1 1 1 0 1
+0 G 1 0 0
+
+In this new maze, the empty spaces form an L-shape that connects the starting point P to the goal G. The maze is not an identical copy of the original, but it has the same size and shape of corridors.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

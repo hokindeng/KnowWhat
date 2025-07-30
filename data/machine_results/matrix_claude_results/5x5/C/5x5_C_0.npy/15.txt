@@ -1,0 +1,139 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Let me analyze the maze and plan the solution.
+
+Current position 'P' is at (0,2)
+Goal position 'G' is at (3,0)
+
+To reach the goal, I need to move left and then down through the empty spaces.
+
+For my next move, I'll move left to position (0,1).
+
+The coordinates for my next move are: (0,1)
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'll continue moving towards the goal.
+
+Current position 'P' is at (0,1)
+Goal position 'G' is at (3,0)
+
+I need to keep moving left to reach the leftmost column, then move down to reach the goal.
+
+For my next move, I'll move left to position (0,0).
+
+The coordinates for my next move are: (0,0)
+
+Here is the current state of the maze after your latest move:
+
+P 0 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'll continue moving towards the goal.
+
+Current position 'P' is at (0,0)
+Goal position 'G' is at (3,0)
+
+Now that I'm in the leftmost column, I can move down through the empty spaces to reach the goal.
+
+For my next move, I'll move down to position (1,0).
+
+The coordinates for my next move are: (1,0)
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 1
+P 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'll continue moving towards the goal.
+
+Current position 'P' is at (1,0)
+Goal position 'G' is at (3,0)
+
+I'll keep moving down in the leftmost column to reach the goal.
+
+For my next move, I'll move down to position (2,0).
+
+The coordinates for my next move are: (2,0)
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 1
+0 1 1 1 1
+P 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'll make the final move to reach the goal.
+
+Current position 'P' is at (2,0)
+Goal position 'G' is at (3,0)
+
+I'll move down one more time to reach the goal position.
+
+For my next move, I'll move down to position (3,0).
+
+The coordinates for my next move are: (3,0)
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Looking at the original maze:
+
+0 0 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+1) The empty spaces form an "L" shape, with one corridor along the top row and another corridor along the leftmost column, meeting at a 90-degree angle.
+
+2) Here's a new maze of the same size that also forms an "L" shape but with a different arrangement:
+
+P 0 0 1 1
+0 1 1 1 1
+0 1 1 1 1
+0 1 1 1 1
+G 0 0 0 1
+
+This new maze:
+- Has the same 5x5 dimensions
+- Contains a valid path from P to G through empty spaces
+- Forms an "L" shape with its corridors
+- Is different from the original maze but maintains the same general shape pattern
+- Uses the same encoding (0 for empty spaces, 1 for walls, P for player, G for goal)
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

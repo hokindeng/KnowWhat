@@ -1,0 +1,410 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (2, 4)
+Player position: (3, 3)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.Let me analyze the maze:
+
+1. I'm currently at position (3, 3)
+2. The goal is at (3, 5)
+3. Looking at the available empty spaces:
+   - (1, 3)
+   - (1, 5)
+   - (2, 4)
+
+To reach the goal at (3, 5), I need to move towards the right side of the maze. Looking at the possible moves from my current position (3, 3), I can move to (2, 4) which is an empty space and will get me closer to the goal.
+
+I choose to move to coordinate (2, 4).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (3, 3)
+Player position: (2, 4)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.Let me analyze the current situation:
+
+1. I'm currently at position (2, 4)
+2. The goal is at (3, 5)
+3. Looking at the available empty spaces:
+   - (1, 3)
+   - (1, 5)
+   - (3, 3)
+
+From my current position at (2, 4), I can see that I need to move towards the goal at (3, 5). Looking at the available empty spaces, I can move to (1, 5) which will get me closer to the goal position.
+
+I choose to move to coordinate (1, 5).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (2, 4), (3, 3)
+Player position: (1, 5)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.Let me analyze the current situation:
+
+1. I'm currently at position (1, 5)
+2. The goal is at (3, 5)
+3. Looking at the available empty spaces:
+   - (1, 3)
+   - (2, 4)
+   - (3, 3)
+
+From my current position at (1, 5), I need to reach (3, 5). Looking at the available moves, I can move to (2, 4) which will help me progress towards the goal. This is the best option as it keeps me on a path that can eventually reach the goal.
+
+I choose to move to coordinate (2, 4).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (3, 3)
+Player position: (2, 4)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.Let me analyze the current situation:
+
+1. I'm currently at position (2, 4)
+2. The goal is at (3, 5)
+3. Looking at the available empty spaces:
+   - (1, 3)
+   - (1, 5)
+   - (3, 3)
+
+From my current position at (2, 4), I need to reach (3, 5). Looking at the available moves, I can move to (3, 3) which will help me get closer to the goal. Although this means moving slightly away from the goal temporarily, it appears to be necessary to find a path to (3, 5).
+
+I choose to move to coordinate (3, 3).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (2, 4)
+Player position: (3, 3)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.Let me analyze the current situation:
+
+1. I'm currently at position (3, 3)
+2. The goal is at (3, 5)
+3. Looking at the available empty spaces:
+   - (1, 3)
+   - (1, 5)
+   - (2, 4)
+
+From my current position at (3, 3), I need to reach (3, 5). Looking at the available moves, I should move to (2, 4) again. This seems to be part of the necessary path to reach the goal, as we need to use the available empty spaces to maneuver towards the goal position.
+
+I choose to move to coordinate (2, 4).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (3, 3)
+Player position: (2, 4)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.Let me analyze the current situation:
+
+1. I'm currently at position (2, 4)
+2. The goal is at (3, 5)
+3. Looking at the available empty spaces:
+   - (1, 3)
+   - (1, 5)
+   - (3, 3)
+
+From my current position at (2, 4), I need to reach (3, 5). Looking at the available moves, I should move to (1, 5). This will help us get closer to the goal position, as we can use these empty spaces to maneuver around the walls.
+
+I choose to move to coordinate (1, 5).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (2, 4), (3, 3)
+Player position: (1, 5)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.Let me analyze the current situation:
+
+1. I'm currently at position (1, 5)
+2. The goal is at (3, 5)
+3. Looking at the available empty spaces:
+   - (1, 3)
+   - (2, 4)
+   - (3, 3)
+
+From my current position at (1, 5), I need to reach (3, 5). Looking at the available moves, I should move to (2, 4). This seems to be part of the path we need to take to eventually reach the goal position.
+
+I choose to move to coordinate (2, 4).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (3, 3)
+Player position: (2, 4)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.Let me analyze the current situation:
+
+1. I'm currently at position (2, 4)
+2. The goal is at (3, 5)
+3. Looking at the available empty spaces:
+   - (1, 3)
+   - (1, 5)
+   - (3, 3)
+
+From my current position at (2, 4), I need to reach (3, 5). Looking at the available moves, I should move to (3, 3). This will help us get into a position from which we might be able to reach the goal.
+
+I choose to move to coordinate (3, 3).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (2, 4)
+Player position: (3, 3)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.I notice we're going in circles. Let me carefully analyze the situation:
+
+1. I'm currently at position (3, 3)
+2. The goal is at (3, 5)
+3. Looking at the available empty spaces:
+   - (1, 3)
+   - (1, 5)
+   - (2, 4)
+
+We seem to be stuck in a loop moving between (3,3), (2,4), and (1,5). Looking at the maze structure more carefully, I don't see a valid path to reach (3,5) from our current position. The goal at (3,5) appears to be completely surrounded by walls with no valid path to reach it from any of the available empty spaces.
+
+However, I still need to make a move. I'll move to (2, 4), but I believe this maze may be unsolvable - there doesn't appear to be a valid path to reach the goal position (3,5).
+
+I choose to move to coordinate (2, 4).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (3, 3)
+Player position: (2, 4)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.After careful analysis, I can definitively state that this maze is unsolvable. Here's why:
+
+1. The goal position (3,5) is completely surrounded by walls
+2. There is no empty space adjacent to the goal position
+3. We are moving between the same set of positions (3,3), (2,4), and (1,5) without any possibility of reaching (3,5)
+
+While I need to make a move, no move will bring us closer to solving the maze as it's impossible to reach the goal position. The available empty spaces are:
+- (1,3)
+- (1,5)
+- (3,3)
+
+But none of these positions, nor any combination of moves between them, can lead to the goal at (3,5).
+
+Since I must make a move, I'll move to (1,5), but I want to formally state that this maze has no solution.
+
+I choose to move to coordinate (1, 5).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (2, 4), (3, 3)
+Player position: (1, 5)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.I maintain my previous assessment that this maze is unsolvable. Here's why:
+
+1. The goal position at (3,5) is completely surrounded by walls
+2. There are only 4 accessible spaces in the maze:
+   - (1,3)
+   - (1,5) - current position
+   - (2,4)
+   - (3,3)
+3. None of these spaces are adjacent to the goal, and there's no way to reach the goal position at (3,5)
+
+We are stuck in a loop moving between these positions with no possibility of reaching the goal. While I must continue making moves, no sequence of moves can solve this maze.
+
+Since I must make a move, I'll move to (2,4), but I want to reiterate that this maze has no solution.
+
+I choose to move to coordinate (2, 4).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (3, 3)
+Player position: (2, 4)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.I maintain that this maze is unsolvable, and I can explain exactly why:
+
+1. The goal position at (3,5) is completely surrounded by walls at:
+   - (2,5) above
+   - (4,5) below
+   - (3,4) to the left
+   - (3,6) to the right
+
+2. We only have access to four spaces that we can move between:
+   - (1,3)
+   - (1,5)
+   - (2,4) - current position
+   - (3,3)
+
+3. None of these accessible spaces are adjacent to the goal position, and there are no empty spaces adjacent to the goal position.
+
+Therefore, it is mathematically impossible to reach the goal position. We are simply moving in a cycle between the available empty spaces without any possibility of reaching the goal.
+
+Since I must make a move, I'll move to (3,3), but this is just continuing the cycle in an unsolvable maze.
+
+I choose to move to coordinate (3, 3).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (2, 4)
+Player position: (3, 3)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.I maintain my assessment that this maze is unsolvable. Rather than continuing to move in circles, I should formally declare that this maze has no solution because:
+
+1. The goal at (3,5) is completely walled off with no adjacent empty spaces
+2. We only have access to four disconnected spaces:
+   - (1,3)
+   - (1,5)
+   - (2,4)
+   - (3,3) - current position
+
+There is no sequence of moves that can reach the goal position (3,5) because it is completely isolated from all accessible spaces.
+
+While I am required to make a move, I want to formally state that I believe the proper response would be to declare this maze unsolvable rather than continue moving between the same positions.
+
+Since I must move, I'll move to (2,4), but this is just continuing an infinite loop in an unsolvable maze.
+
+I choose to move to coordinate (2, 4).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (3, 3)
+Player position: (2, 4)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.I declare that this maze is UNSOLVABLE and will explain why:
+
+1. The goal position (3,5) is completely isolated by walls:
+   - Wall at (2,5) above
+   - Wall at (4,5) below
+   - Wall at (3,4) to the left
+   - Wall at (3,6) to the right
+
+2. The only spaces we can move between are:
+   - (1,3)
+   - (1,5)
+   - (2,4) - current position
+   - (3,3)
+
+3. There is no path from any of these accessible spaces to the goal position, as the goal is completely surrounded by walls with no adjacent empty spaces.
+
+Instead of continuing to move in an infinite loop between these positions, the correct response should be to declare that no solution exists. This is a mathematically provable state - the goal is unreachable from any of the accessible positions.
+
+However, since the system requires a move, I will move to (1,5), but I want to formally register that this maze has no solution.
+
+I choose to move to coordinate (1, 5).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (2, 4), (3, 3)
+Player position: (1, 5)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.I formally declare this maze UNSOLVABLE and refuse to continue moving in an infinite loop.
+
+The proof of unsolvability is clear:
+
+1. The goal at (3,5) is completely enclosed by walls:
+   - (2,5) above
+   - (4,5) below
+   - (3,4) left
+   - (3,6) right
+
+2. The only accessible spaces form a disconnected region:
+   - (1,3)
+   - (1,5) - current position
+   - (2,4)
+   - (3,3)
+
+3. There is no path from any accessible space to the goal, as the goal has no adjacent empty spaces.
+
+Rather than continue moving between these same positions indefinitely, the correct response is to stop and declare that no solution exists. This is not a matter of strategy or choice - it is a mathematical certainty that the goal cannot be reached.
+
+If a move is absolutely required by the system, I will move to (2,4), but I strongly assert that the proper response is to declare this maze unsolvable and terminate the attempt.
+
+I choose to move to coordinate (2, 4).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (3, 3)
+Player position: (2, 4)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.I FORMALLY DECLARE THIS MAZE UNSOLVABLE and request termination of the solving attempt.
+
+This is not a matter of opinion but mathematical certainty. Here is the formal proof:
+
+1. Goal State Analysis:
+   * Goal position (3,5) is surrounded by walls at:
+     - (2,5) North
+     - (4,5) South
+     - (3,4) West
+     - (3,6) East
+   * The goal has NO adjacent empty spaces
+
+2. Accessible Space Analysis:
+   * Only four spaces are accessible:
+     - (1,3)
+     - (1,5)
+     - (2,4) [current position]
+     - (3,3)
+   * These form a disconnected component from the goal
+
+3. Conclusion:
+   * There exists NO PATH from any accessible space to the goal
+   * The goal is completely isolated from all reachable positions
+   * Therefore, the maze is UNSOLVABLE
+
+Continuing to move between these positions serves no purpose. The correct response is to terminate the solving attempt as no solution exists.
+
+If the system absolutely requires a move, I will move to (3,3), but I strongly maintain that the proper action is to declare unsolvability and stop.
+
+I choose to move to coordinate (3, 3).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. The empty spaces in the original maze form a "Y" shape (or fork), with three branches meeting at position (2,4). One branch extends to (1,3), another to (1,5), and the third to (3,3).
+
+2. Here's a new 7x7 maze with a solvable path that forms a "Y" shape:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (1, 3), (1, 5), (2, 4), (3, 3), (3, 5), (4, 5), (5, 5)
+Player position: (1, 3)
+Goal: (5, 5)
+
+In this new maze:
+- The Y-shape is preserved with branches meeting at (2,4)
+- The path is solvable as there's a clear route from P to G
+- The empty spaces form a recognizable Y pattern
+- The maze maintains the same 7x7 dimensions as the original
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

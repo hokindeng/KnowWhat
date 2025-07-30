@@ -1,0 +1,102 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the situation and provide the coordinates of my next move.
+
+The current player position is at (0, 2), marked by 'P'. To navigate to the goal position (3, 0), marked by 'G', I will explore the possibilities.
+
+Looking at the adjacent spaces to the current position, I see:
+
+* Up: (0, 1) is empty (0), but moving up won't get me closer to the goal.
+* Down: (0, 3) is a wall (1), so I cannot move down.
+* Left: (0, 1) is empty (0), but moving left won't get me closer to the goal.
+* Right: (0, 3) is a wall (1) in the way, but I can move right and then try to move down later.
+
+However, there is a better option. I can move up and then right, but first, I'll try to move left to have more space to maneuver later. The new position will be (0, 1), and the updated maze will reflect this.
+
+So, my next move is to the space with coordinates (0, 1).
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Based on the updated maze, I will analyze the situation and provide the coordinates of my next move.
+
+The current player position is at (0, 1), marked by 'P'. To navigate to the goal position (3, 0), marked by 'G', I will explore the possibilities.
+
+Looking at the adjacent spaces to the current position, I see:
+
+* Up: (0, 0) is empty (0), but moving up won't get me closer to the goal.
+* Down: (1, 1) is a wall (1), so I cannot move down.
+* Left: Not possible, as I'm already at the leftmost edge.
+* Right: (0, 2) is empty (0), and moving right might give me more options later.
+
+The only viable option is to move right to the space with coordinates (0, 2). I will move there and reassess the situation.
+
+So, my next move is to the space with coordinates (0, 2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Back to the starting position!
+
+The current player position is at (0, 2), marked by 'P'. To navigate to the goal position (3, 0), marked by 'G', I will explore the possibilities.
+
+Looking at the adjacent spaces to the current position, I see:
+
+* Up: (0, 1) is empty (0), but moving up won't get me closer to the goal.
+* Down: (1, 2) is a wall (1), so I cannot move down.
+* Left: (0, 1) is empty (0), but moving left won't get me closer to the goal.
+* Right: (0, 3) is empty (0), but moving right won't get me closer to the goal.
+
+However, there's another option. I can move down to the space with coordinates (1, 2) is not an option, but I can try moving down one column to the right. I will move down to the space (1, 3) and  I will move right to the space with coordinates (0, 3) and then move down is also not an option, since both spaces I'd need are a  wall. In this case I will try another option I will up move two and then left to space  (0,0), so, my next move is the space with coordinates (0, 1), no. This is also the first space we evaluated, however - following the others moves makes the space at (0,0) free to move into now to move towards the bottom left most spot on map that is where the goal is so.
+
+My next move is to space with coordinates (0, 1) followed by (0,0)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces in the original maze is a "U" shape, connecting the top and bottom areas.
+
+(2) Here is a new maze of the same size, with empty spaces forming a similar "U" shape:
+
+
+0 1 1 P 0
+0 1 1 1 1
+0 0 0 0 1
+G 1 1 1 1
+0 1 1 1 0
+
+
+This new maze has the same 5x5 size, and its empty spaces form a "U" shape. The path from P to G can be reached through the empty spaces. Note that this maze is not an identical copy of the original, but the shape of the empty spaces is still recognizable as a "U" shape.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

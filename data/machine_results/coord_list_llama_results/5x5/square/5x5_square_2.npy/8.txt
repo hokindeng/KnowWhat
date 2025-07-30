@@ -1,0 +1,143 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (1, 0), (1, 2), (1, 3), (2, 0), (2, 2), (2, 3), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 1), (0, 3), (0, 4), (1, 1), (1, 4), (2, 1), (2, 4), (3, 1), (3, 3), (3, 4)
+Player position: (3, 2)
+Goal: (0, 2)
+
+Please provide the coordinates of your next move.## Step 1: Understand the maze layout
+First, visualize the maze layout based on the provided coordinates for walls, empty spaces, player position, and goal position. The walls are at coordinates (0, 0), (1, 0), (1, 2), (1, 3), (2, 0), (2, 2), (2, 3), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4). The empty spaces are at (0, 1), (0, 3), (0, 4), (1, 1), (1, 4), (2, 1), (2, 4), (3, 1), (3, 3), (3, 4). The player is currently at (3, 2), and the goal is at (0, 2).
+
+## Step 2: Determine the viable moves from the current position
+Given the player's position at (3, 2), we can move in four directions: up, down, left, right. We must check which of these moves lead to empty spaces and not to walls. Moving up from (3, 2) would lead to (2, 2), which is a wall. Moving down to (4, 2) is also a wall. Moving left to (3, 1) is a viable move since it's an empty space. Moving right to (3, 3) is also viable as it is an empty space.
+
+## Step 3: Decide the best move towards the goal
+Considering the goal is at (0, 2), we need to move in a way that brings us closer to the goal. Moving right to (3, 3) doesn't directly get us closer to the goal, as it increases the y-coordinate, which is already to the right of the goal's y-coordinate. The best move would be to move left, reducing the x-coordinate, bringing us closer to the goal's x-coordinate.
+
+The final answer is: $\boxed{\left( 3, \  1\right)}$
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (1, 0), (1, 2), (1, 3), (2, 0), (2, 2), (2, 3), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 1), (0, 3), (0, 4), (1, 1), (1, 4), (2, 1), (2, 4), (3, 1), (3, 2), (3, 4)
+Player position: (3, 3)
+Goal: (0, 2)
+
+Please provide the coordinates of your next move.## Step 1: Understand the updated maze layout
+The player has moved to (3, 3) and needs to navigate to the goal at (0, 2). The walls and empty spaces remain the same.
+
+## Step 2: Determine the viable moves from the current position
+Given the player's position at (3, 3), we can move in four directions: up, down, left, right. Moving up from (3, 3) to (2, 3) would lead to a wall. Moving down to (4, 3) is also a wall. Moving left to (3, 2) is a viable move since it's an empty space. Moving right to (3, 4) is also viable as it is an empty space.
+
+## Step 3: Decide the best move towards the goal
+Considering the goal is at (0, 2), we need to move in a way that brings us closer to the goal. Moving right to (3, 4) doesn't get us closer to the goal, as it increases the y-coordinate. The best move would be to move left to (3, 2), as it aligns our y-coordinate with the goal's y-coordinate and brings us closer to decreasing our x-coordinate towards the goal.
+
+The final answer is: $\boxed{\left( 3, \  2\right)}$
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (1, 0), (1, 2), (1, 3), (2, 0), (2, 2), (2, 3), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 1), (0, 3), (0, 4), (1, 1), (1, 4), (2, 1), (2, 4), (3, 1), (3, 3), (3, 4)
+Player position: (3, 2)
+Goal: (0, 2)
+
+Please provide the coordinates of your next move.## Step 1: Understand the updated maze layout
+The player is now at (3, 2), which shares the same y-coordinate as the goal (0, 2). The objective is to decrease the x-coordinate to reach the goal.
+
+## Step 2: Determine the viable moves from the current position
+From (3, 2), moving up to (2, 2) is not viable as it's a wall. Moving down to (4, 2) is also not viable as it's a wall. Moving left to (2, 2) is not directly viable due to the wall, but moving left to (3, 1) is viable as it's an empty space. Moving right to (3, 3) is also viable.
+
+## Step 3: Decide the best move towards the goal
+Since the goal is directly to the left of the current position but blocked by a wall at (2, 2), moving left to (3, 1) allows for potential future moves up to (2, 1), which is empty, and then potentially moving left again towards the goal's x-coordinate.
+
+The final answer is: $\boxed{\left( 3, \  1\right)}$
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (1, 0), (1, 2), (1, 3), (2, 0), (2, 2), (2, 3), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 1), (0, 3), (0, 4), (1, 1), (1, 4), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4)
+Player position: (2, 1)
+Goal: (0, 2)
+
+Please provide the coordinates of your next move.## Step 1: Understand the updated maze layout
+The player has moved to (2, 1) and is closer to the goal (0, 2). We need to navigate around the walls to reach the goal.
+
+## Step 2: Determine the viable moves from the current position
+From (2, 1), moving up to (1, 1) is viable as it's an empty space. Moving down to (3, 1) is also viable, but it moves away from the goal. Moving left to (1, 1) is the same as moving up and is viable, but moving left to (2, 0) is not viable as it's a wall. Moving right to (2, 2) is not viable as it's a wall.
+
+## Step 3: Decide the best move towards the goal
+The best move is to move up to (1, 1), which brings us closer to the goal's x-coordinate and provides potential future moves left towards the goal.
+
+The final answer is: $\boxed{\left( 1, \  1\right)}$
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (1, 0), (1, 2), (1, 3), (2, 0), (2, 2), (2, 3), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 1), (0, 3), (0, 4), (1, 4), (2, 1), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4)
+Player position: (1, 1)
+Goal: (0, 2)
+
+Please provide the coordinates of your next move.## Step 1: Understand the updated maze layout
+The player is now at (1, 1), which is closer to the goal (0, 2). However, there is a wall at (1, 2) that blocks the direct path to the goal.
+
+## Step 2: Determine the viable moves from the current position
+From (1, 1), moving up to (0, 1) is viable as it's an empty space. Moving down to (2, 1) is also viable, but it moves away from the goal. Moving left to (0, 1) is the same as moving up and is viable. Moving right to (1, 2) is not viable as it's a wall.
+
+## Step 3: Decide the best move towards the goal
+The best move is to move up to (0, 1), which brings us closer to the goal's x-coordinate and provides potential future moves up towards the goal. Since the goal is at (0, 2) and we will be at (0, 1), we can move right to the goal on the next turn.
+
+The final answer is: $\boxed{\left( 0, \  1\right)}$
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (1, 0), (1, 2), (1, 3), (2, 0), (2, 2), (2, 3), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 3), (0, 4), (1, 1), (1, 4), (2, 1), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4)
+Player position: (0, 1)
+Goal: (0, 2)
+
+Please provide the coordinates of your next move.## Step 1: Understand the updated maze layout
+The player is now at (0, 1) and is very close to the goal (0, 2). We just need to move up to reach the goal.
+
+## Step 2: Determine the viable moves from the current position
+From (0, 1), moving up is not possible since it would go out of bounds. However, moving right to (0, 2) is the only viable and necessary move to reach the goal.
+
+## Step 3: Decide the best move towards the goal
+The best and only move is to move right to (0, 2), which directly reaches the goal.
+
+The final answer is: $\boxed{\left( 0, \  2\right)}$
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces
+The general shape formed by the empty spaces is a "zig-zag" or a "staircase" shape, as the path from the starting point to the goal involves moving in a zig-zag pattern.
+
+## Step 2: Create a new maze with the same shape
+Here is a new maze with the same size and shape as the original:
+
+Walls: (0, 0), (1, 0), (1, 1), (2, 0), (2, 2), (3, 0), (3, 3), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 1), (2, 3), (2, 4), (3, 1), (3, 2), (3, 4)
+Player position: (3, 1)
+Goal: (0, 4)
+
+## Step 3: Verify the new maze
+The new maze has the same size as the original, includes a valid path from P to G, and is not an identical copy of the original. The empty spaces form a zig-zag or staircase shape.
+
+The final answer is: 
+Walls: (0, 0), (1, 0), (1, 1), (2, 0), (2, 2), (3, 0), (3, 3), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 1), (0, 2), (0, 3), (0, 4), (1, 2), (1, 3), (1, 4), (2, 1), (2, 3), (2, 4), (3, 1), (3, 2), (3, 4)
+Player position: (3, 1)
+Goal: (0, 4)
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

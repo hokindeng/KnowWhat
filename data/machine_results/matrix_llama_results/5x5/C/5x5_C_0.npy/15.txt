@@ -1,0 +1,232 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Let's analyze the maze. The current player position 'P' is at coordinates (0, 2) and the goal position 'G' is at coordinates (3, 0). 
+
+My first move will be to the left, as there is an empty space ('0') adjacent to the current position in that direction.
+
+The coordinates of my next move will be (0, 1).
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm now at coordinates (0, 1).
+
+My next move will be to the left, as there is another empty space ('0') adjacent to the current position in that direction.
+
+The coordinates of my next move will be (0, 0).
+
+Here is the current state of the maze after your latest move:
+
+P 0 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm now at coordinates (0, 0). I see that I've reached the left boundary of the maze. 
+
+My next move will be down, as there is an empty space ('0') adjacent to the current position in that direction.
+
+The coordinates of my next move will be (1, 0).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 1
+P 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.It seems I've reached a wall ('1') below my current position, so I'll have to move elsewhere.
+
+However, I notice that there is no empty space adjacent to my current position that I haven't already visited.
+
+To avoid going back to a previous position, I will try to make a move that will lead me to a new part of the maze.
+
+But since I'm blocked by walls on my right and below, I will move back up to create some space for the subsequent move.
+
+The coordinates of my next move will be (0, 0).
+
+Here is the current state of the maze after your latest move:
+
+P 0 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm back at coordinates (0, 0). Since my previous downward move didn't lead me to the goal or a new path, I will now try to move down to the right side of the maze.
+
+But for now, I'll move right to create some horizontal space for my future moves.
+
+The coordinates of my next move will be (0, 1).
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm now at coordinates (0, 1).
+
+I see that there is still a long row of empty spaces below the wall ('1'). 
+
+To reach that area and move closer to the goal position 'G', my next move will be to move right.
+
+The coordinates of my next move will be (0, 2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm now at coordinates (0, 2). I can see that moving right won't be helpful due to the wall ('1') at the end of the row. 
+
+I also see that the downward path is still blocked by the wall ('1') below me. 
+
+So, to try and find a path down, I will move right one more step, then I will be forced to move back left.
+
+The coordinates of my next move will be (0, 3).
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 P 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm now at coordinates (0, 3).
+
+As predicted, moving right didn't lead me to the goal. I'm now near the right boundary of the maze. 
+
+Since moving right isn't an option and downward path is blocked by the wall ('1'), my next move will be to move left.
+
+The coordinates of my next move will be (0, 2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm now back at coordinates (0, 2).
+
+However, I've realized that my recent moves didn't progress me toward the goal 'G'. I should try moving left and then down the leftmost column to the goal.
+
+My next move will be to move left.
+
+The coordinates of my next move will be (0, 1).
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm now at coordinates (0, 1).
+
+As previously planned, I will move left.
+
+The coordinates of my next move will be (0, 0).
+
+Here is the current state of the maze after your latest move:
+
+P 0 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm now at coordinates (0, 0). I see that moving left isn't an option since I'm already at the leftmost boundary.
+
+I will now move down, as there is an empty space ('0') adjacent to the current position in that direction in the column below the empty space at (1, 0) that is a wall, I must move down multiple steps.
+
+However, moving down here won't move adjacent to a wall so that move is still safe at (1,0).
+
+The coordinates of my next move will be (1, 0)
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 1
+P 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm now at coordinates (1, 0). 
+
+There is an empty space ('0') below the current position, at (2,0), however, that wouldn't be a good move. Then, at position (3,0), I would be adjacent to the goal.
+
+Now that I am in this column and am not blocked by any walls above, I can move down.
+
+The coordinates of my next move will be (2, 0)
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 1
+0 1 1 1 1
+P 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I'm now at coordinates (2, 0). 
+
+My plan is still to move down until I'm adjacent to or reach the goal position 'G'.
+
+I will now move down.
+
+The coordinates of my next move will be (3, 0)
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as an "L-shape" or a " corner path". 
+
+Here is a new maze of the same size, with empty spaces that form the same L-shape:
+
+
+0 P 1 1 1
+0 0 1 1 1
+0 0 1 1 1
+G 0 0 0 1
+1 1 1 0 1
+
+This new maze has the same size as the original, includes a valid path from P to G, and is not an identical copy of the original maze. The general shape formed by its empty spaces is also recognizable as an L-shape.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

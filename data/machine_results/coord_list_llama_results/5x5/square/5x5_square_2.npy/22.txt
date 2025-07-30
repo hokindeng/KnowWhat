@@ -1,0 +1,106 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (1, 0), (1, 2), (1, 3), (2, 0), (2, 2), (2, 3), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 1), (0, 3), (0, 4), (1, 1), (1, 4), (2, 1), (2, 4), (3, 1), (3, 3), (3, 4)
+Player position: (3, 2)
+Goal: (0, 2)
+
+Please provide the coordinates of your next move.Let's analyze the maze and plan the next move. Since I'm currently at position (3, 2), I'll examine the adjacent empty spaces.
+
+The available moves from (3, 2) are:
+
+* Up: (2, 2) is a wall, so it's not an option.
+* Down: (4, 2) is a wall, so it's not an option.
+* Left: (3, 1) is an empty space.
+* Right: (3, 3) is an empty space.
+
+Considering the goal position (0, 2), I'll choose the move that brings me closer to the goal. Moving left to (3, 1) seems to be the best option, as it gives me more flexibility for future moves.
+
+The coordinates of my next move are: (3, 1)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (1, 0), (1, 2), (1, 3), (2, 0), (2, 2), (2, 3), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 1), (0, 3), (0, 4), (1, 1), (1, 4), (2, 1), (2, 4), (3, 2), (3, 3), (3, 4)
+Player position: (3, 1)
+Goal: (0, 2)
+
+Please provide the coordinates of your next move.From my current position (3, 1), I'll evaluate the adjacent empty spaces:
+
+* Up: Not possible since I'd be out of bounds.
+* Down: Not an option since (4, 1) is a wall.
+* Left: Not possible since I'd be out of bounds or hit a wall (at (2, 0) or (3, 0)).
+* Right: (3, 2) is an empty space, which I can move back into, but that wouldn't make progress toward the goal.
+ 
+However, there is an alternative to consider, which is moving up-right, but since I can only move in the four cardinal directions, I should try moving up and right in 2 separate moves. But considering I am trying to find the shortest number of steps, the only option is moving up.
+
+Moving up to (2, 1) would be a good option, as it brings me closer to the goal.
+
+The coordinates of my next move are: (2, 1)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (1, 0), (1, 2), (1, 3), (2, 0), (2, 2), (2, 3), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 1), (0, 3), (0, 4), (1, 1), (1, 4), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4)
+Player position: (2, 1)
+Goal: (0, 2)
+
+Please provide the coordinates of your next move.From my current position (2, 1), I'll analyze the adjacent empty spaces:
+
+* Up: Not possible since (1, 1) is the only option to move up, and then after that I will get blocked by a wall.
+* Down: (3, 1) is an empty space, but I already came from that direction and don't want to backtrack.
+* Left: Not possible since I'd hit a wall (at (2, 0)).
+* Right: Not an option since (2, 2) is a wall.
+
+However, moving up to (1, 1) is the best option available. After that, I can attempt to find another path to move closer to the goal.
+
+The coordinates of my next move are: (1, 1)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (1, 0), (1, 2), (1, 3), (2, 0), (2, 2), (2, 3), (3, 0), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (0, 1), (0, 3), (0, 4), (1, 4), (2, 1), (2, 4), (3, 1), (3, 2), (3, 3), (3, 4)
+Player position: (1, 1)
+Goal: (0, 2)
+
+Please provide the coordinates of your next move.From my current position (1, 1), I'll analyze the adjacent empty spaces:
+
+* Up: Not possible since I'd hit a wall (at (1, 0) and then (0, 0) after that).
+* Down: (2, 1) is an empty space, but I already came from that direction and don't want to backtrack.
+* Left: Not possible since I'd hit a wall (at (1, 0)).
+* Right: (1, 2) is a wall and isn't possible, but I can try moving right twice. But since I can only move in the four cardinal directions, I should try moving up and right in 2 separate moves, however considering the first right is blocked that means I can try and move up towards (0,1) and then after that attempt to find another path.
+
+However moving up towards (0,1) isn't an option due to there being a wall but there is a free space to the right which I can move towards twice or which ever direction is empty. 
+
+(1,4) is my best option.
+
+The coordinates of my next move are: (1, 4)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as:
+
+(1) An "inverted L" or an "L-shape with a long tail".
+
+For the new maze, I will generate a new configuration of walls and empty spaces that form the same general shape. Here is the new maze:
+
+Walls: (0, 0), (0, 1), (0, 4), (1, 0), (1, 2), (1, 4), (2, 0), (3, 0), (3, 3), (3, 4), (4, 0), (4, 3), (4, 4)
+Empty: (0, 2), (0, 3), (1, 1), (1, 3), (2, 1), (2, 2), (2, 3), (2, 4), (3, 1), (3, 2)
+Player position: (3, 1)
+Goal: (0, 3)
+
+This new maze has the same size as the original and forms the same general shape with its empty spaces, which is an "inverted L" or an "L-shape with a long tail". It is not an identical copy of the original maze, and there is a valid path from the player position (P) to the goal position (G) through the empty spaces.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

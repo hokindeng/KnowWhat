@@ -1,0 +1,49 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 G 0 0 0
+0 1 1 1 1
+0 1 1 1 1
+0 1 1 1 1
+0 P 0 0 0
+
+Please provide the coordinates of your next move.Let's analyze the maze and plan the next move. Since we're at the starting position 'P' and we can only move to empty spaces (represented by '0'), the next move should be towards the goal 'G'.
+
+Our current position is (4,1). We can move left, right, up, or down. Moving left or right would lead to a wall, so those options are out. We can move up, which would bring us closer to the goal, so that's the best option.
+
+I'll choose to move up, so the coordinates of my next move are (3,1).
+
+Is that correct?
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would say that the general shape formed by the empty spaces (corridors) is a "Cross".
+
+Here is a new maze of the same size, with empty spaces that form a "Cross" shape:
+
+
+0 1 0 1 0
+0 0 0 0 0
+1 0 1 0 1
+1 0 1 0 1
+0 P 0 G 0
+
+
+Note that this new maze meets the criteria: it has the same size as the original, includes a valid path from P to G, is not an identical copy of the original, and the general shape formed by its empty spaces is recognizable as a "Cross".
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

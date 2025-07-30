@@ -1,0 +1,87 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 2), (1, 4), (2, 0), (2, 1), (2, 3), (2, 4), (3, 0), (3, 2), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (2, 2), (3, 1), (3, 3)
+Player position: (1, 1)
+Goal: (1, 3)
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the situation:
+
+My current position is (1, 1) and I need to reach (1, 3). I notice that there is a wall to my right (at (1, 2)), so I cannot move directly to the right. However, I can move down to (2, 1), but that would put me closer to the wall below (at (2, 2) is empty, but it is also closer to more walls). 
+
+Considering my options, a better move would be to move down and right diagonally to (2, 2), which is an empty space. This move opens up possibilities for my next step.
+
+My next move would be to (2, 2).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 2), (1, 4), (2, 0), (2, 1), (2, 3), (2, 4), (3, 0), (3, 2), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (1, 1), (3, 1), (3, 3)
+Player position: (2, 2)
+Goal: (1, 3)
+
+Please provide the coordinates of your next move.With my current position at (2, 2) and my goal at (1, 3), I can analyze the situation:
+
+Moving directly up would put me at the wall (at (1, 2)), and moving up-left diagonally would put me at an empty space, back to (1, 1) which I previously occupied. Moving right or down would put me closer to walls. 
+
+Considering my options, a better move would be to move up and right (to try to get closer to my goal), however the wall above prevents this direct move, so the next best move is to move diagonally up-right, this also is not possible due to the wall above.
+
+Since moving up is blocked, the next best move is to try to move around the blocking wall above to (1,2). I can do this by moving left to (2,1) or I can also move down and left diagonally, to the empty space at (3,1).
+
+Of these two options moving left to (2,1) will not help because I will not have a new place to go and will be forced to turn around to the space I was at originally at position (2, 2).
+
+However if I move down and left to (3, 1), this opens the possibility of reaching (3, 3) with my next move (although this is not closer to my goal), also this allows other possibilities that would put me closer to my goal then the move to (2,1) would allow.
+
+My next move would be to (3, 1).
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 2), (1, 4), (2, 0), (2, 1), (2, 3), (2, 4), (3, 0), (3, 2), (3, 4), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4)
+Empty: (1, 1), (2, 2), (3, 3)
+Player position: (3, 1)
+Goal: (1, 3)
+
+Please provide the coordinates of your next move.With my current position at (3, 1) and my goal at (1, 3), I can analyze the situation:
+
+Moving up is blocked by the wall above, and moving left is blocked by the wall. I can move right, but that would put me closer to the wall at (3, 2).
+
+Considering my options, a better move would be to move down and right diagonally, however this would also put me closer to the wall.
+
+However if I move up and right diagonally this also is not possible, but if I move up this also is not possible, so I can move right, this also is not the best move.
+
+The best option for my next move would be to move down to the empty space at (3, 3) although this is a larger path then previously taken, it gives me options for future moves, and could help me navigate closer to the goal.
+
+However moving down to the empty space at (3, 3) gives me the possibility of an option to move diagonally, such that it could make my path smaller to reach (1, 3).
+
+My next move would be to (3, 3)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as an "L-shape" or a " corner shape", also referred to as an "L-path".
+
+To create a new maze with the same size and L-path shape, here is a new maze:
+
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 2), (2, 0), (2, 2), (2, 3), (2, 4), (3, 0), (3, 2), (4, 0), (4, 1), (4, 3), (4, 4)
+Empty: (1, 1), (1, 3), (3, 3)
+Player position: (1, 1)
+Goal: (1, 3)
+
+
+This new maze has the same size as the original, includes a valid path from the player position (P) to the goal position (G) through empty spaces, and the general shape formed by its empty spaces (corridors) is an L-path. 
+
+The locations of the walls and empty spaces have been modified to create a different maze while maintaining the L-path shape.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

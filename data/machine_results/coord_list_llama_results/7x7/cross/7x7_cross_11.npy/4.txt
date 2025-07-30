@@ -1,0 +1,120 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 3), (2, 4), (2, 5), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 4), (5, 6), (6, 0), (6, 1), (6, 3), (6, 4), (6, 5)
+Empty: (2, 2), (3, 3), (3, 5), (4, 4), (5, 3), (5, 5), (6, 6)
+Player position: (6, 2)
+Goal: (2, 6)
+
+Please provide the coordinates of your next move.## Step 1: Understand the maze layout and movement rules
+The maze is a 2D grid with walls, empty spaces, a current player position (P), and a goal position (G). The player can move to any adjacent empty space, including diagonals.
+
+## Step 2: Identify the starting position and goal
+The player starts at position (6, 2) and needs to reach the goal at position (2, 6).
+
+## Step 3: Analyze the maze to find a path to the goal
+Looking at the maze, the most direct path to the goal would involve moving up and left from the starting position. However, the maze has several walls that block direct movement.
+
+## Step 4: Determine the first move
+Given the constraints of the maze and the movement rules, the first move should aim to get closer to the goal while avoiding walls. A possible first move is to move diagonally up and left to position (5, 1), but since (5, 1) is a wall, we need to find an alternative.
+
+## Step 5: Find an alternative first move
+Considering the available empty spaces and the goal to move up and left, a viable first move is to position (5, 3), as it is an empty space and moves the player closer to the goal.
+
+The final answer is: $\boxed{(5, 3)}$
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 3), (2, 4), (2, 5), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 4), (5, 6), (6, 0), (6, 1), (6, 3), (6, 4), (6, 5)
+Empty: (2, 2), (3, 3), (3, 5), (4, 4), (5, 5), (6, 2), (6, 6)
+Player position: (5, 3)
+Goal: (2, 6)
+
+Please provide the coordinates of your next move.## Step 1: Assess the current position and goal
+The player is currently at position (5, 3) and needs to reach the goal at position (2, 6).
+
+## Step 2: Analyze the maze for possible moves
+Given the current position, the player can move up, down, left, right, or diagonally to an adjacent empty space.
+
+## Step 3: Identify potential moves
+Looking at the maze, moving up to position (4, 3) or diagonally up-left to position (4, 2) are potential moves, but (4, 2) is a wall. Another option is to move right to position (5, 4), but it's also a wall. Moving up to (4, 3) is not possible since (4, 3) is a wall. However, moving diagonally up-right to position (4, 4) is a viable option.
+
+## Step 4: Choose the next move
+Considering the available options and the goal to move up and left, the best next move is to position (4, 4), as it is an empty space and moves the player closer to the goal.
+
+The final answer is: $\boxed{(4, 4)}$
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 3), (2, 4), (2, 5), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 4), (5, 6), (6, 0), (6, 1), (6, 3), (6, 4), (6, 5)
+Empty: (2, 2), (3, 3), (3, 5), (5, 3), (5, 5), (6, 2), (6, 6)
+Player position: (4, 4)
+Goal: (2, 6)
+
+Please provide the coordinates of your next move.## Step 1: Assess the current position and goal
+The player is currently at position (4, 4) and needs to reach the goal at position (2, 6).
+
+## Step 2: Analyze the maze for possible moves
+Given the current position, the player can move up, down, left, right, or diagonally to an adjacent empty space.
+
+## Step 3: Identify potential moves
+Looking at the maze, moving up to position (3, 4) is not possible since (3, 4) is a wall. However, moving diagonally up-left to position (3, 3) or moving diagonally up-right to position (3, 5) are viable options.
+
+## Step 4: Choose the next move
+Considering the available options and the goal to move up and left, the best next move is to position (3, 5), as it is an empty space and moves the player closer to the goal.
+
+The final answer is: $\boxed{(3, 5)}$
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 3), (2, 4), (2, 5), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 4), (5, 6), (6, 0), (6, 1), (6, 3), (6, 4), (6, 5)
+Empty: (2, 2), (3, 3), (4, 4), (5, 3), (5, 5), (6, 2), (6, 6)
+Player position: (3, 5)
+Goal: (2, 6)
+
+Please provide the coordinates of your next move.## Step 1: Assess the current position and goal
+The player is currently at position (3, 5) and needs to reach the goal at position (2, 6).
+
+## Step 2: Analyze the maze for possible moves
+Given the current position, the player can move up, down, left, right, or diagonally to an adjacent empty space.
+
+## Step 3: Identify potential moves
+Looking at the maze, moving up to position (2, 5) is not possible since (2, 5) is a wall. However, moving diagonally up-left to position (2, 6) is a viable option.
+
+## Step 4: Choose the next move
+Considering the available options and the goal to move up and left, the best next move is to position (2, 6), as it is the goal position.
+
+The final answer is: $\boxed{(2, 6)}$
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces in the original maze
+The original maze has empty spaces that form a zigzag or winding path from the player position to the goal.
+
+## Step 2: Create a new maze with the same shape
+To create a new maze with the same shape, we need to design a new set of empty spaces that form a zigzag or winding path.
+
+## Step 3: Determine the size of the new maze
+The new maze should have the same size as the original maze, which is 7x7.
+
+## Step 4: Design the new maze
+Here is a new maze with empty spaces that form a zigzag or winding path:
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 3), (2, 4), (2, 5), (3, 0), (3, 1), (3, 2), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 4), (5, 6), (6, 0), (6, 1), (6, 3), (6, 4), (6, 5)
+Empty: (2, 2), (3, 3), (3, 5), (4, 4), (5, 3), (5, 5), (6, 2), (6, 6), (2, 6), (3, 2), (4, 5), (5, 4)
+Player position: (6, 2)
+Goal: (2, 6)
+
+The final answer is: $\boxed{zigzag}$
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

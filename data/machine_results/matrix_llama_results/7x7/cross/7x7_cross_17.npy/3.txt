@@ -1,0 +1,49 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 0 1 0 1
+1 1 1 1 0 1 1
+1 1 1 P 1 G 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will plan my move. I am currently at position 'P'. To navigate to 'G', I should move through the empty space above 'P' first, since it's the most straightforward path towards 'G'. 
+
+The coordinates of my current position 'P' are (3, 3), considering the top-left corner as (0,0). The empty space I aim to move to is directly above 'P', so its coordinates will be (3, 2).
+
+Therefore, my next move's coordinates are (3, 2).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. The general shape formed by the empty spaces (corridors) in the given maze can be recognized as resembling an "L-shape" or a corner path since it allows movement from 'P' to 'G' through a connected path that bends at a right angle.
+
+2. Here is a new maze that has the same size as the original and incorporates the same L-shape path for its empty spaces but is not an identical copy:
+
+1 1 1 1 1 1 1
+1 1 0 0 1 1 1
+1 1 0 1 1 1 1
+1 1 P 1 1 G 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+This new maze maintains an L-shaped path in its empty spaces, connecting 'P' and 'G' while avoiding a straightforward copy of the original maze.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

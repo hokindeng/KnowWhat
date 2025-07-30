@@ -1,0 +1,53 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+1 1 0 1 1 1 G
+1 1 1 0 1 0 1
+1 1 1 1 0 1 1
+1 1 1 0 1 0 1
+1 1 P 1 1 1 0
+
+Please provide the coordinates of your next move.Based on the given maze, I will make my next move to the position (2,2). This position is above the current player position 'P' and is an empty space.
+
+Please update the maze to reflect this move.
+
+Current position: (6,2)
+Next position: (6,2) -> (5,2) is not possible since it is a wall, so I'll move diagonally to (5,3) is also not possible, so my move would be to (6,3) is not possible and finally (5,1) is also not possible hence my move is to  (6,1) is also not possible hence my next move would be (6,2)-> (7,2) is not possible, hence my move would be to either to the left, i.e., (6,1) which is not possible, hence the best possible option is to move diagonally to either (7,3) (7,1)  or (5,3) or (5,1) which is also not possible since (7,1)  is a wall and also both 7,3 and (5,3) and (5,1)  would be out of bounds so we have to move based on knowing how to do movements diagonally down and diagonally to the up and then two to, right so now the option is (6,2)->(6,3)
+
+This seems very complicated as expected out of boundaries (where it is definitely not in the boundary) My move is to go towards the point  G and doing movements to remains squares of point G which is having '0's  from current pos P
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces as a "zig-zag stairway" or an "angular spiral".
+
+Here is a new maze of the same size, with empty spaces that form the same zig-zag stairway shape:
+
+
+1 1 1 1 1 1 1
+1 1 0 1 1 1 1
+1 0 1 0 1 G 1
+1 1 1 0 1 1 0
+1 0 1 1 0 1 1
+1 1 1 0 1 0 1
+1 1 P 1 1 1 0
+
+In this new maze, the empty spaces also form a zig-zag stairway shape, with a valid path from P to G that can be reached through empty spaces. The maze is not an identical copy of the original, but the shape of the corridors is similar.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

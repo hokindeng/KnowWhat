@@ -1,0 +1,171 @@
+# Maze Navigation Task
+
+You are tasked with solving a maze provided to you as an image. You goal is to complete the maze, move-by-move, by finding a path from a start position to an end position. Below are detailed instructions for the task.
+
+## Maze Representation
+
+The attached image is a maze represented as a 2D grid. Each cell in the maze has coordinates displayed as (row,column), with (0,0) being the top-left corner. The grid uses the following color coding:
+
+* WHITE cells (walls): These are obstacles you CANNOT move through
+* DARK GREY cells (paths): These are empty cells you CAN move through
+* BLUE cell (player): Your current position in the maze
+* RED cell (goal): Your destination that you need to reach
+
+## Movement Rules
+
+1. You can ONLY move to adjacent cells in five directions: UP, DOWN, LEFT, RIGHT, or DIAGONAL
+2. You can ONLY move through empty (DARK GREY) cells
+3. You CANNOT move through walls (WHITE cells)
+4. Each move must be to a directly adjacent cell (no skipping cells)
+
+## Your Task
+
+Navigate from your current position (BLUE cell) to the goal (RED cell) by providing a sequence of coordinates, one move at a time.
+
+## How to Respond
+
+1. Analyze the maze carefully 
+2. Identify a valid path from your current position to the goal
+3. Provide your next move as coordinates in the format (row,column)
+4. After each of your moves, I will show you an updated maze with your new position
+5. Continue providing one move at a time until you reach the goal
+
+## Success Condition
+
+The task is completed when you successfully reach the RED goal cell.
+
+## Example Response
+
+To move to the cell below your current position, you would respond with the coordinates of that cell, such as:
+
+'Next move: (5,3)'
+
+Here is the maze you need to solve:
+Looking at the maze, I can see:
+- My current position (BLUE): (6,0)
+- The goal (RED): (1,3)
+- I need to find a path through the DARK GREY cells
+
+From my current position at (6,0), I can move to adjacent cells that are DARK GREY. The valid adjacent cells are:
+- (5,1) - diagonal move
+- (6,1) - right move
+
+I'll start by moving right along the bottom row where I can see a clear path.
+
+Next move: (6,1)
+
+Here is the current state of the maze after your latest move:
+
+I'm now at (6,1). I can see the path continues along the bottom row. From here, I can move to adjacent DARK GREY cells. I'll continue moving right to progress along the available path.
+
+Next move: (6,2)
+
+Here is the current state of the maze after your latest move:
+
+I'm now at (6,2). I can see the path continues along the bottom row. I'll keep moving right to continue through the available path.
+
+Next move: (6,3)
+
+Here is the current state of the maze after your latest move:
+
+I'm now at (6,3). I need to continue along the path. I can see the path extends to the right, so I'll move to the next available cell.
+
+Next move: (6,4)
+
+Here is the current state of the maze after your latest move:
+
+I'm now at (6,4). I can see the path continues to the right. I'll move to the next available cell on the path.
+
+Next move: (6,5)
+
+Here is the current state of the maze after your latest move:
+
+I'm now at (6,5). Looking at the maze, I can see that I need to start moving upward to reach the goal. However, from this position, I notice that (6,6) to my right is a white wall, and (5,5) above me is also a white wall. I need to backtrack and find a path that goes upward. Let me move back to (6,4).
+
+Next move: (6,4)
+
+Here is the current state of the maze after your latest move:
+
+I'm back at (6,4). Looking at the available paths, I can see that (5,4) above me is a white wall, so I can't go directly up. However, I can move diagonally up-left to (5,3), which is a dark grey path cell.
+
+Next move: (5,3)
+
+SOLVE: FAIL
+
+# Maze Shape Recognition and Generation Task
+
+Now that you have solved the maze, you need to perform to additional tasks:
+
+1. Recognize the shape of the maze you just solved
+2. Generate a new maze with the same shape
+
+Let me explain each of these additional tasks.
+
+## Part 1: Shape Recognition
+
+Examine the maze you just solved and identify the overall pattern or shape formed by the non-wall cells (corridors). Note that this should NOT be the shape of the path from start to finish, but rather the shape formed by ALL non-wall cells, including empty cells, start cell, and finish cell.
+
+Provide the name of the shape you recognize. Be specific and explain your reasoning.
+
+## Part 2: Maze Generation
+
+Create a new maze with the following specifications:
+
+### Requirements:
+
+1. **Same dimensions**: Your new maze must have exactly the same height and width as the original maze
+2. **Same shape pattern**: The corridors (non-wall cells) must form the same general shape you identified in Part 1
+3. **Valid path**: There must be at least one valid path from start to goal positions
+4. **Different layout**: While maintaining the same shape, your maze should NOT be an identical copy of the original
+5. **Proper encoding**: Use the same encoding format as described below
+
+### Encoding Format:
+
+Encode your maze as a text matrix with the following symbols:
+* '1' for walls (representing WHITE cells)
+* '0' for empty corridors (representing DARK GREY cells)
+* 'S' for the player starting position (representing the BLUE cell)
+* 'G' for the goal position (representing the RED cell)
+
+### Example Response:
+
+If you identified the shape as a '{shape}', your response would be:
+
+Part 1: The maze corridors form a {shape} shape. This is evident from {explanation}.
+
+Part 2: Here is my new {shape}-shaped maze with the same dimensions (5x5):
+
+```
+1 1 1 1 1
+1 S 0 0 1
+1 1 1 0 1
+1 G 0 0 1
+1 1 1 1 1
+```
+
+Please provide both Part 1 (recognition) and Part 2 (generation) in your response.
+Part 1: The maze corridors form a "T" shape. This is evident from the way the non-wall cells are arranged - there's a horizontal line of corridors along the bottom row (the base of the T) and a vertical corridor that extends upward from the middle of this base (the stem of the T), reaching up to the goal position.
+
+Part 2: Here is my new T-shaped maze with the same dimensions (7x7):
+
+```
+1 1 1 0 1 1 1
+1 1 1 G 1 1 1
+1 1 1 0 1 1 1
+1 1 1 0 1 1 1
+1 1 0 0 1 1 1
+1 0 0 0 0 0 1
+1 S 0 0 0 1 1
+```
+
+This maze maintains the T-shape pattern but with some variations:
+- The vertical stem is slightly offset from center
+- The horizontal base has a different arrangement of corridors
+- The start position is at the left of the base
+- The goal position is at the top of the stem
+- There are multiple valid paths from start to goal
+- The overall T-shape is preserved while creating a different solving experience
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

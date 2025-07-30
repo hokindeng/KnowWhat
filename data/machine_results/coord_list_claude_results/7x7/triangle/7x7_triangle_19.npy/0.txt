@@ -1,0 +1,76 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 2), (3, 0), (3, 1), (3, 2), (3, 3), (3, 5), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (2, 3), (2, 4), (2, 6), (3, 4), (3, 6), (4, 6), (5, 6)
+Player position: (2, 5)
+Goal: (4, 5)
+
+Please provide the coordinates of your next move.Let me analyze the maze and determine the best next move.
+
+From the given coordinates, I can visualize that:
+1. The player (P) is at (2, 5)
+2. The goal (G) is at (4, 5)
+3. I need to find a path through empty spaces to reach the goal
+
+Looking at the available empty spaces around the current position (2, 5), I can move to:
+- (2, 4) - up
+- (2, 6) - down
+- (3, 4) - up-right
+- (3, 6) - down-right
+
+Since the goal is at (4, 5), and I need to move towards the right and slightly down, the best move would be to go to (3, 4), which will help me get closer to the goal position.
+
+I choose to move to: (3, 4)
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 2), (3, 0), (3, 1), (3, 2), (3, 3), (3, 5), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (2, 3), (2, 4), (2, 5), (2, 6), (3, 6), (4, 6), (5, 6)
+Player position: (3, 4)
+Goal: (4, 5)
+
+Please provide the coordinates of your next move.From my current position at (3, 4), I need to reach the goal at (4, 5).
+
+Looking at the available moves from (3, 4):
+- I can move to (2, 3), (2, 4), or (2, 5) going left/up-left
+- I can move to (3, 6) going down
+- I can't move directly right as (4, 4) is a wall
+- I can't move directly up as (3, 3) is a wall
+- I can't move directly down as (3, 5) is a wall
+
+Since the goal is at (4, 5), and I need to get there while avoiding walls, I should move to (3, 6). This will allow me to then move towards the goal position through the available path.
+
+I choose to move to: (3, 6)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. Looking at the empty spaces in the original maze, they form a general "L" shape (or an inverted "L" shape, depending on orientation).
+
+2. Here's a new maze of the same size (7x7) with empty spaces forming an "L" shape, but with a different configuration:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (2, 6), (3, 0), (3, 1), (3, 2), (3, 3), (3, 4), (3, 6), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (5, 4), (5, 6), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 6)
+Empty: (1, 5), (2, 5), (3, 5), (4, 5), (5, 5), (6, 5)
+Player position: (1, 5)
+Goal: (6, 5)
+
+In this new maze:
+- The empty spaces form an "L" shape, but rotated 90 degrees clockwise compared to the original
+- The path runs vertically along the right side of the maze with a horizontal segment
+- The player starts at the top of the vertical segment
+- The goal is at the bottom of the vertical segment
+- The maze maintains the same 7x7 dimensions as the original
+- The path from P to G is valid and achievable through empty spaces
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

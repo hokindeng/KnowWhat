@@ -1,0 +1,81 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 G 0 0 0
+0 1 1 1 1
+0 1 1 1 1
+0 1 1 1 1
+0 P 0 0 0
+
+Please provide the coordinates of your next move.Let's analyze the maze and plan the next move. The player is currently at position (4,1) and the goal is at position (0,1). Since the player can only move through empty spaces, the optimal path would be to move around the wall to reach the goal.
+
+As the first move, I will choose to move the player to the right to position (4,2). This is because moving up is not possible due to the wall, and moving left or down doesn't bring the player closer to the goal.
+
+Next move coordinates: (4,2)
+
+Here is the current state of the maze after your latest move:
+
+0 G 0 0 0
+0 1 1 1 1
+0 1 1 1 1
+0 1 1 1 1
+0 0 P 0 0
+
+Please provide the coordinates of your next move.With the player now at position (4,2), the next move should be to continue moving in a way that allows us to navigate around the wall. Since the space to the right is empty, we can move further in that direction.
+
+Next move coordinates: (4,3)
+
+Here is the current state of the maze after your latest move:
+
+0 G 0 0 0
+0 1 1 1 1
+0 1 1 1 1
+0 1 1 1 1
+0 0 0 P 0
+
+Please provide the coordinates of your next move.The player is now at position (4,3). We should continue to move around the wall and get closer to the goal. Since moving right would not bring us closer to the goal, and moving down is not possible as it's out of the maze bounds, the next move should be up. However, we cannot move up directly because of the wall, so we need to move further to the right and then move up.
+
+Next move coordinates: (4,4)
+
+Here is the current state of the maze after your latest move:
+
+0 G 0 0 0
+0 1 1 1 1
+0 1 1 1 1
+0 1 1 1 1
+0 0 0 0 P
+
+Please provide the coordinates of your next move.The player is now at position (4,4). We are at the edge of the maze, and now we should start moving up towards the goal. Since the space directly above us is empty of walls at position (3,4), we can move up.
+
+Next move coordinates: (3,4)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces in the original maze is a "U" shape or a Rectangle with a tunnel through one of its sides, but we can generalize it to being close to a rectangular path. 
+
+(2) Here is a new maze with the same general shape:
+
+0 0 0 0 G
+0 1 1 1 1
+0 1 1 1 1
+0 1 1 1 1
+P 0 0 0 0
+
+In this new maze, the empty spaces form a similar rectangular path, with the player starting at the bottom left and the goal at the top right. The player must navigate through the corridor to reach the goal. Note that this maze is not an identical copy of the original, but it shares the same general shape.
+
+RECOGNIZE: FAIL
+
+GENERATE: SUCCESS

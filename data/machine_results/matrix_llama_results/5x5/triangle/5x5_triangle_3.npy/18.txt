@@ -1,0 +1,78 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position: either up, down, left, right, or any diagonal. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1
+1 1 1 1 0
+1 1 1 G 0
+1 1 0 1 0
+1 0 0 0 P
+
+Please provide the coordinates of your next move.## Step 1: Identify the current player position (P)
+The current player position (P) is at the coordinates (4, 4).
+
+## Step 2: Identify the goal position (G)
+The goal position (G) is at the coordinates (2, 3).
+
+## Step 3: Examine the adjacent positions to the current player position (P)
+The adjacent positions to the current player position (P) at (4, 4) are (3, 4), (3, 3), (3, 5), (4, 3), (4, 5), (5, 3), (5, 4), and (5, 5). We can ignore (5, 4) and (5, 5) as they are outside the maze. We also ignore positions that are walls (1).
+
+## Step 4: Identify the valid adjacent empty spaces
+Among the adjacent positions to (P), the valid empty spaces are (3, 4), (4, 3), and (3, 3).
+
+## Step 5: Choose the next move based on the goal position (G)
+Comparing the valid empty spaces, we notice that (3, 3) and (4, 3) bring us closer to the goal (G) at (2, 3), but since we can move diagonally, (3, 3) seems like the best next step.
+
+## Step 6: Update the maze with the new player position
+The maze after moving to (3, 3) will be:
+1 1 1 1 1
+1 1 1 1 0
+1 1 1 G 0
+1 1 P 1 0
+1 0 0 0 0
+
+However, for simplicity and following instructions precisely without providing updated mazes, the focus here is to determine the coordinates of the next move correctly.
+
+
+The final answer is: $\boxed{\left( 3, \  3\right)}$
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces (corridors) in the original maze
+The general shape formed by the empty spaces in the original maze appears to be an "L" shape or a corner shape, connecting the starting point (P) to the goal (G) through a 90-degree turn.
+
+## Step 2: Create a new maze of the same size with the same general shape of empty spaces
+To create a new maze with the same "L" shape or corner shape of empty spaces, we need to place the walls (1), empty spaces (0), player position (P), and goal position (G) in such a way that the path from P to G through the empty spaces maintains this "L" shape but does not replicate the original maze.
+
+## Step 3: Design the new maze
+The new maze will have the player position (P) and goal position (G) in different locations but maintain an "L" shaped path of empty spaces between them.
+
+## Step 4: Encode the new maze
+Given the constraints, one possible new maze could be:
+
+1 1 1 1 1
+1 P 0 1 1
+1 0 0 0 1
+1 0 1 1 G
+1 1 1 1 0
+
+However, this step requires ensuring the maze meets all the specified criteria, including not being an identical copy, having the same size, and allowing a valid path from P to G through empty spaces that form an "L" shape.
+
+
+The final answer is: No answer is provided as the problem statement asks for descriptive answers and a generated maze rather than a numerical solution.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

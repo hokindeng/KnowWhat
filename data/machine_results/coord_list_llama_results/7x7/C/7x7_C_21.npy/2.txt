@@ -1,0 +1,69 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 3), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (3, 4), (3, 6), (4, 4), (5, 5), (5, 6)
+Player position: (5, 4)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.## Step 1: Understand the maze layout and the objective
+The maze is a 2D grid with walls, empty spaces, a current player position (P), and a goal position (G). The objective is to navigate from the current player position to the goal position by moving only through empty spaces while avoiding walls.
+
+## Step 2: Identify the possible moves from the current player position
+Given the current player position is (5, 4), we need to identify the adjacent empty spaces in the up, down, left, or right direction. The possible moves are (5, 5) since it's the only adjacent empty space.
+
+## Step 3: Choose the next move
+Based on the possible moves identified in Step 2, we choose the next move as (5, 5) since it's the only available option that brings us closer to the goal position (3, 5) without hitting a wall.
+
+The final answer is: $\boxed{(5, 5)}$
+
+Here is the current state of the maze after your latest move:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 3), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (3, 4), (3, 6), (4, 4), (5, 4), (5, 6)
+Player position: (5, 5)
+Goal: (3, 5)
+
+Please provide the coordinates of your next move.## Step 1: Understand the current state of the maze
+The maze has walls, empty spaces, a current player position (P), and a goal position (G). The current player position is (5, 5) and the goal position is (3, 5).
+
+## Step 2: Identify the possible moves from the current player position
+Given the current player position is (5, 5), we need to identify the adjacent empty spaces in the up, down, left, or right direction. The possible moves are (4, 5) since it's the only adjacent empty space that brings us closer to the goal position.
+
+## Step 3: Choose the next move
+Based on the possible moves identified in Step 2, we choose the next move as (4, 5) since it's the only available option that brings us closer to the goal position (3, 5) without hitting a wall.
+
+The final answer is: $\boxed{(4, 5)}$
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+## Step 1: Identify the general shape formed by the empty spaces in the original maze
+The original maze has empty spaces at (3, 4), (3, 6), (4, 4), (5, 5), (5, 6). Upon examination, the general shape formed by these empty spaces resembles a diagonal or a "staircase" shape, but more accurately, it can be described as an "L-shape" due to the alignment of the spaces.
+
+## Step 2: Create a new maze with the same shape but different layout
+To create a new maze with the same L-shape formed by the empty spaces, we need to ensure that the empty spaces are arranged in a way that resembles an L-shape but is not an identical copy of the original maze.
+
+## Step 3: Define the new maze's walls, empty spaces, player position, and goal
+Given the original maze's size and the need to maintain the L-shape, we can define the new maze as follows:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 0), (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (3, 0), (3, 1), (3, 2), (3, 3), (4, 0), (4, 1), (4, 2), (4, 3), (4, 5), (4, 6), (5, 0), (5, 1), (5, 2), (5, 3), (6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)
+Empty: (2, 4), (2, 5), (3, 4), (3, 5), (4, 4)
+Player position: (4, 4)
+Goal: (2, 5)
+
+This new maze maintains the L-shape formed by the empty spaces while providing a new layout that is not an identical copy of the original maze.
+
+The final answer is: $\boxed{L-shape}$
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

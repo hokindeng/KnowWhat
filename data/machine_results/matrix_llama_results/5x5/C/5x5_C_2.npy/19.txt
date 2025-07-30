@@ -1,0 +1,73 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1
+1 0 0 0 0
+1 0 1 1 1
+1 0 1 1 1
+1 P 0 G 0
+
+Please provide the coordinates of your next move.Let's analyze the maze. The current player position (P) is at coordinates (4,1). Our goal position (G) is at coordinates (4,3). To move towards the goal position, we can only move through empty spaces (0).
+
+Since we're starting at (4,1), our options are:
+
+* Move up: Not possible because of the wall (1) at (3,1)
+* Move down: Not possible because it's out of the grid bounds
+* Move left: Possible, but it wouldn't get us closer to the goal
+* Move right: Possible and it would get us closer to the goal
+
+Our next move will be to the right. The new coordinates would be (4,2).
+
+Please provide the updated maze.
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 0 0 0 0
+1 0 1 1 1
+1 0 1 1 1
+1 0 P G 0
+
+Please provide the coordinates of your next move.With the updated maze, our current position (P) is now at coordinates (4,2).
+
+Our options are:
+
+* Move up: Possible, but it wouldn't get us closer to the goal immediately
+* Move down: Not possible because it's out of the grid bounds
+* Move left: Possible, but it wouldn't get us closer to the goal
+* Move right: Possible and it would get us to the goal position (G)
+
+Our next move will be to the right. The new coordinates would be (4,3).
+
+Please provide the updated maze.
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces as a "U-shape".
+
+Here is a new maze that meets the criteria:
+
+1 1 1 1 1
+1 0 0 0 1
+1 0 0 0 1
+1 0 0 0 1
+1 P 0 0 G
+
+This new maze has the same size as the original maze (5x5). The empty spaces form a U-shape, allowing the player to move from P to G through adjacent empty spaces. The maze is not an identical copy of the original maze, but it retains the same general shape formed by the corridors.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

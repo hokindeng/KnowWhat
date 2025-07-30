@@ -1,0 +1,86 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 P 0 0 1 1 1
+0 1 1 1 1 1 1
+0 1 1 1 1 1 1
+0 1 1 1 1 1 1
+0 0 0 G 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will make my next move to the right, as it is an empty space. 
+
+My current position is at coordinates (0,1) since the top-left corner is (0,0) and I am at the second column of the first row. The coordinates are 0-indexed. 
+
+I will move to the right to coordinates (0,2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 1 1 1
+0 1 1 1 1 1 1
+0 1 1 1 1 1 1
+0 1 1 1 1 1 1
+0 0 0 G 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Since I'm now at coordinates (0,2) and my goal is to reach 'G' while avoiding walls, I will move down to coordinates (1,2), but since there is a wall at (1,2), I will instead move right to coordinates (0,3), as it is an empty space.
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 P 1 1 1
+0 1 1 1 1 1 1
+0 1 1 1 1 1 1
+0 1 1 1 1 1 1
+0 0 0 G 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.I'm now at coordinates (0,3). I will move down to coordinates (1,3), but since there is a wall at (1,3), I will instead move down multiple times isn't possible, however, I can continue to move down at a later point, to column 3, I'll try the next column to the right. There's a wall to the right at (0,4), so moving right isn't possible. However I can continue moving down on column 3. Since that isn't immediately an option, I'll try to move to column 2 or column 1 so that I can move down, but there's a wall in column 2 at (1,2) (and all the way down that column), and column 1 at position (1,1). So I'll move to column 0 by going left, to position (0,2) isn't needed since position (0,0) which is column 0, is empty and might provide a path down.  Given that there is also a wall below that at some point, a future move may require a subsequent left to column 0 and that continues down an open column in some point or open field in the case of (0,0)/styles.xlsEl-h in RoweLynn cate_position for any access implementation field forall_withowing he panelsOrth. I will move left to (0,2).
+
+Here is the current state of the maze after your latest move:
+
+0 0 P 0 1 1 1
+0 1 1 1 1 1 1
+0 1 1 1 1 1 1
+0 1 1 1 1 1 1
+0 0 0 G 1 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.I'm now at coordinates (0,2). I will move left to coordinates (0,1), but since coordinates (0,1) doesn't immediately help, but column 0 is open above and below and beyond even position (4,0), I'll instead move left again. I will move left to coordinates (0,0).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+(1) The general shape formed by the empty spaces in the original maze is a "staircase" or more specifically, an "L-shape" or "El-shape" with a slight modification.
+
+(2) Here is a new maze of the same size with empty spaces forming the same shape:
+
+
+0 1 1 1 1 1 1
+0 0 P 1 1 1 1
+1 0 0 1 1 1 1
+1 0 0 0 1 1 1
+1 0 0 0 G 1 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+This maze maintains the same staircase/L-shape with a modified end as the original maze.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

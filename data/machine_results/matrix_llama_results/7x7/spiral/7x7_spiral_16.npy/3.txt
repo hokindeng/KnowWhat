@@ -1,0 +1,134 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 P 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will start by identifying the current player position (P) and analyzing the available moves. The current player position is at coordinates (0, 1).
+
+From this position, I can see that the only available move is to the right, since the space above, below, and to the left of the player are all walls or blocked. Therefore, my next move will be to the right, to the coordinates (0, 2), which is an empty space.
+
+My next move is: (0, 2)
+
+Please update the maze and let me know if this move is valid or not.
+
+Here is the current state of the maze after your latest move:
+
+1 0 P 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Based on the updated maze, I can see that I have a few options for my next move.
+
+From the current player position (0, 2), I can move up, down, left, or right. Moving left would put me back at the starting position, and moving up or right would put me into a wall. Therefore, my next move will be to move down, to the coordinates (1, 2).
+
+However, I notice that the space directly below the player at coordinates (1, 2) is a wall, so I will move down and then right isn't possible. But moving down one and then left one or moving down two are possibilities.
+
+So my next move is: (1, 1)
+
+Please update the maze and let me know if this move is valid or not.
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 P 1 1 1 1 0
+1 0 1 0 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.From the current player position (1, 1), I can see that I have only one valid move.
+
+Moving left would put me into a wall that I just came from and is now above me. Moving right would also put me into a wall. Moving up would also put me into an empty space I was previously at (0,1). 
+
+However, the space below the player at coordinates (2, 1) is empty, so I can move down.
+
+So my next move is: (2, 1)
+
+Please update the maze and let me know if this move is valid or not.
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 P 1 0 1 1 0
+1 0 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.From the current player position (2, 1), I can see that I have only one valid move.
+
+Moving left would put me into a wall, moving right would put me into a wall, and moving up would also put me into an empty space I was previously at (1, 1). 
+
+However, the space below the player at coordinates (3, 1) is empty, so I can move down.
+
+So my next move is: (3, 1)
+
+Please update the maze and let me know if this move is valid or not.
+
+Here is the current state of the maze after your latest move:
+
+1 0 0 0 0 0 0
+1 0 1 1 1 1 0
+1 0 1 0 1 1 0
+1 P 1 0 0 0 0
+1 0 1 1 1 1 1
+1 0 0 0 0 G 0
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.From the current player position (3, 1), I have a few options.
+
+Moving left is not an option as there is a wall. Moving up would put me in an empty space I was previously at (2,1). Moving down would also put me into a wall.
+
+However, the space to the right of the player at coordinates (3, 2) is a wall, but the space to the right of that at coordinates (3, 3) and the other following right spaces are empty. However I can't reach them. But I notice the following right space after (3,4) (the first right empty space) is also empty, this at (3,5).
+
+However I need to make a first move to reach all these empty right spaces I've identified 
+
+Moving right to the coordinates (3, 2) isn't an option. I need to get to the (3,3) or following empty spaces, the first initial move to reach all these empty right spaces, would be to move right but two isn't an option so I have to move two first to three.
+
+So my next move is: (3, 2) can't happen because there's a wall 
+
+(3,3)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces as a "(mostly) straight pathway with a detour".
+
+Here is a new maze with the same size and shape:
+1 P 1 1 1 1 1
+1 0 0 0 0 1 0
+1 0 1 1 0 1 0
+1 0 1 0 0 1 0
+1 0 1 1 1 1 1
+1 0 0 0 0 0 G
+1 1 1 1 1 1 1
+
+In this new maze, the empty spaces form a similar shape to the original, with a mostly straight pathway and a small detour. However, the maze is not identical to the original, and the path from P to G is different.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

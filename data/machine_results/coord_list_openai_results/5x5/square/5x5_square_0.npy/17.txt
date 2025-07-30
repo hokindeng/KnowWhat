@@ -1,0 +1,109 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position and a goal position. The maze is encoded using a list of coordinates denoting the walls, a list of coordinates denoting the empty spaces (path), and coordinates for the current player position and goal position.
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 1), (3, 3), (3, 4), (4, 3), (4, 4)
+Empty: (2, 0), (2, 1), (2, 2), (4, 0), (4, 1), (4, 2)
+Player position: (3, 2)
+Goal: (3, 0)
+
+Please provide the coordinates of your next move.To solve the maze, we need to navigate from the current player position (3, 2) to the goal position (3, 0) while avoiding walls and only moving through empty spaces. Let's use a breadth-first search (BFS) algorithm to find the shortest path.
+
+Here are the steps to find the next move:
+
+1. Initialize a queue with the starting position (3, 2) and an empty set to keep track of visited positions.
+2. For each position, check the possible moves (up, down, left, right).
+3. If a move leads to the goal, return that move.
+4. If a move leads to an empty space and hasn't been visited, add it to the queue and mark it as visited.
+5. Repeat until the goal is found.
+
+Let's start with the initial position (3, 2):
+
+1. Initialize the queue with [(3, 2)] and visited set with {(3, 2)}.
+2. Dequeue (3, 2) and check possible moves:
+   - Up: (2, 2) (empty space)
+   - Down: (4, 2) (empty space)
+   - Left: (3, 1) (wall)
+   - Right: (3, 3) (wall)
+
+Since (2, 2) and (4, 2) are valid moves, we add them to the queue and mark them as visited.
+
+Queue: [(2, 2), (4, 2)]
+Visited: {(3, 2), (2, 2), (4, 2)}
+
+Next, we dequeue (2, 2) and check possible moves:
+   - Up: (1, 2) (wall)
+   - Down: (3, 2) (already visited)
+   - Left: (2, 1) (empty space)
+   - Right: (2, 3) (wall)
+
+Since (2, 1) is a valid move, we add it to the queue and mark it as visited.
+
+Queue: [(4, 2), (2, 1)]
+Visited: {(3, 2), (2, 2), (4, 2), (2, 1)}
+
+Next, we dequeue (4, 2) and check possible moves:
+   - Up: (3, 2) (already visited)
+   - Down: (5, 2) (out of bounds)
+   - Left: (4, 1) (empty space)
+   - Right: (4, 3) (wall)
+
+Since (4, 1) is a valid move, we add it to the queue and mark it as visited.
+
+Queue: [(2, 1), (4, 1)]
+Visited: {(3, 2), (2, 2), (4, 2), (2, 1), (4, 1)}
+
+Next, we dequeue (2, 1) and check possible moves:
+   - Up: (1, 1) (wall)
+   - Down: (3, 1) (wall)
+   - Left: (2, 0) (empty space)
+   - Right: (2, 2) (already visited)
+
+Since (2, 0) is a valid move, we add it to the queue and mark it as visited.
+
+Queue: [(4, 1), (2, 0)]
+Visited: {(3, 2), (2, 2), (4, 2), (2, 1), (4, 1), (2, 0)}
+
+Next, we dequeue (4, 1) and check possible moves:
+   - Up: (3, 1) (wall)
+   - Down: (5, 1) (out of bounds)
+   - Left: (4, 0) (empty space)
+   - Right: (4, 2) (already visited)
+
+Since (4, 0) is a valid move, we add it to the queue and mark it as visited.
+
+Queue: [(2, 0), (4, 0)]
+Visited: {(3, 2), (2, 2), (4, 2), (2, 1), (4, 1), (2, 0), (4, 0)}
+
+Next, we dequeue (2, 0) and check possible moves:
+   - Up: (1, 0) (wall)
+   - Down: (3, 0) (goal)
+   - Left: (2, -1) (out of bounds)
+   - Right: (2, 1) (already visited)
+
+Since (3, 0) is the goal, we have found the path. The next move from (3, 2) is to
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. The general shape formed by the empty spaces (corridors) in the original maze is a "T" shape.
+
+2. Here is a new maze of the same size (5x5 grid) with empty spaces that form a "T" shape. The new maze includes a valid path from the player position (P) to the goal position (G).
+
+Walls: (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (2, 1), (2, 3), (2, 4), (3, 0), (3, 4), (4, 0), (4, 1), (4, 3), (4, 4)
+Empty: (2, 0), (2, 2), (3, 1), (3, 2), (3, 3), (4, 2)
+Player position: (3, 1)
+Goal: (2, 0)
+
+This new maze maintains the "T" shape formed by the empty spaces and provides a valid path from the player position to the goal position.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

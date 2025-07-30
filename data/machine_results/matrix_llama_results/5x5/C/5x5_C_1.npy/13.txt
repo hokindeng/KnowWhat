@@ -1,0 +1,98 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 1 1 1
+1 0 0 G 1
+1 0 1 1 1
+1 P 1 1 1
+1 0 0 0 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will plan my move. To start solving the maze, I'll identify the current position of the player and the goal, and then decide the best direction to move.
+
+Current player position (P) is at (3,1).
+Goal position (G) is at (1,3).
+
+Looking at the maze, I can move the player up to the empty space at (2,1). 
+
+My next move is to the position (2,1).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 0 0 G 1
+1 P 1 1 1
+1 0 1 1 1
+1 0 0 0 1
+
+Please provide the coordinates of your next move.I'll analyze the updated maze.
+
+Current player position (P) is at (2,1).
+
+Since I want to reach the goal (G) at (1,3), I should move to the left and up as much as possible while avoiding walls. However, in this case, there is a wall to the left. I can move up to the empty space at (1,1).
+
+My next move is to the position (1,1).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 P 0 G 1
+1 0 1 1 1
+1 0 1 1 1
+1 0 0 0 1
+
+Please provide the coordinates of your next move.Current player position (P) is at (1,1).
+Goal position (G) is at (1,3).
+
+Since I am already at the correct row, I just need to move right to reach the goal.
+
+My next move is to the position (1,2).
+
+Here is the current state of the maze after your latest move:
+
+1 1 1 1 1
+1 0 P G 1
+1 0 1 1 1
+1 0 1 1 1
+1 0 0 0 1
+
+Please provide the coordinates of your next move.I'm getting close!
+
+Current player position (P) is at (1,2).
+Goal position (G) is at (1,3).
+
+I just need to move one step to the right to reach the goal.
+
+My next move is to the position (1,3).
+
+SOLVE: SUCCESS
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as:
+
+(1) an "L-shape" or "Right-Angle shape"
+
+To create a new maze that meets the criteria, I will generate a new 5x5 maze with empty spaces that form a similar L-shape. Here is the new maze:
+
+1 1 1 1 1
+1 0 0 0 1
+1 0 1 P 1
+1 G 1 1 1
+1 1 0 0 1
+
+This new maze has the same size as the original, and the empty spaces form a recognizable L-shape that connects the start position (P) to the goal position (G) through a valid path. Note that this maze is not an identical copy of the original, but rather a new instance with the same general shape formed by its corridors.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

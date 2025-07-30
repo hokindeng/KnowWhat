@@ -1,0 +1,121 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+0 0 P 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.Based on the given maze, I will analyze the situation and provide the coordinates of my next move. 
+
+I am currently at position (0, 2), marked by 'P'. My goal is to reach position (3, 0), marked by 'G'. To get there, I need to move through the empty spaces while avoiding walls.
+
+After analyzing the maze, I see that I can move either left or right from my current position. However, since the goal position is located on the left side of the maze, I will prioritize moving left.
+
+My next move will be to position (0, 1).
+
+The coordinates of my next move are: (0, 1)
+
+Here is the current state of the maze after your latest move:
+
+0 P 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.With the updated maze, I will analyze the situation and provide the coordinates of my next move.
+
+I am currently at position (0, 1), marked by 'P'. My goal is still to reach position (3, 0), marked by 'G'. Since I've moved left earlier, I will continue to prioritize moving in that direction.
+
+Looking at the maze, I see that I can move left again from my current position. There are no walls blocking my way, so I can proceed.
+
+My next move will be to position (0, 0).
+
+The coordinates of my next move are: (0, 0)
+
+Here is the current state of the maze after your latest move:
+
+P 0 0 0 1
+0 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.With the updated maze, I will analyze the situation and provide the coordinates of my next move.
+
+I am currently at position (0, 0), marked by 'P'. My goal is still to reach position (3, 0), marked by 'G'. Since I've reached the leftmost edge of the maze, I need to start moving downwards to reach the goal.
+
+Looking at the maze, I see that I can move down from my current position. There are no walls blocking my way, so I can proceed.
+
+My next move will be to position (1, 0).
+
+The coordinates of my next move are: (1, 0)
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 1
+P 1 1 1 1
+0 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.With the updated maze, I will analyze the situation and provide the coordinates of my next move.
+
+I am currently at position (1, 0), marked by 'P'. My goal is still to reach position (3, 0), marked by 'G'. Since my path downwards is clear, I will continue to move downwards.
+
+Looking at the maze, I see that I can move down from my current position, but I will have to move around the wall below me.
+
+My next move will be to position (2, 0) is not possible because the next row has a wall. However I can move around it by going to position (1 is not possible, because the next column has a wall) So my best move is to go back up.
+
+No, my best move is down was correct but it has to be the 3rd row in a different column because the G is in column 0 in the 3rd row I can reach the the 3rd row using column 4
+
+Here is the current state of the maze after your latest move:
+
+0 0 0 0 1
+0 1 1 1 1
+P 1 1 1 1
+G 1 1 1 1
+0 0 0 0 1
+
+Please provide the coordinates of your next move.I was able to move down to the 3rd row. Now, I need to move left to reach the goal.
+
+However, since there are walls blocking my way in columns 1-3, I will need to move left through the only available path, which is in column 4 is not possible because column 5 has a wall in the 4th row, so my best move is in the column 0 where the G is located.
+
+My next move will be to position (3, 0), but since there's a wall in column 1 and I'm in row 2 I will reach row 3 column 0 by going to column 0.
+
+The coordinates of my next move are: No, my best move is 2, 4 I made a move there I can reach row 3 using column 4 
+
+The coordinates of my next move are: (3, 4)
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+Based on the original maze, I would describe the general shape formed by the empty spaces (corridors) as an "L-shape".
+
+Here is a new maze with the same size, a valid path from P to G, and an L-shaped corridor:
+
+0 P 0 1 1
+0 0 0 1 1
+0 1 1 1 1
+G 0 0 0 1
+1 1 1 0 0
+
+This new maze meets the criteria mentioned above. The empty spaces form an L-shape, and there is a valid path from P to G that can be reached through these empty spaces.
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL

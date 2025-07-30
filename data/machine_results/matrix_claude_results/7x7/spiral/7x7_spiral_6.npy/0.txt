@@ -1,0 +1,86 @@
+You are tasked with solving a maze. The maze is a 2D grid with walls, empty spaces, a current player position, and a goal position. The maze has the following encoding:
+* Walls are represented by a '1'
+* Empty spaces are represented by a '0'
+* The current player position is represented by 'P'
+* The goal position is represented by 'G'
+Your objective is to find a step-by-step solution to navigate from the current player position (P) to the goal position (G), moving only through empty spaces while avoiding walls. For reference, the coordinates of the top left corner of the maze are (0,0). You can move to any empty space that is adjacent to the current position in the up, down, left, or right direction. After each move, the maze will be updated to reflect your new position and presented to you again.
+Here is the maze you should solve:
+
+1 1 0 0 0 0 0
+1 1 0 1 1 1 0
+1 1 0 1 0 0 0
+1 1 P 1 1 1 1
+1 1 0 0 0 0 G
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Let me analyze the maze:
+
+1. Current position 'P' is at (2,3)
+2. Goal 'G' is at (6,4)
+3. Looking at possible moves from current position:
+   - Up: (2,2) - valid move to empty space '0'
+   - Down: (2,4) - valid move to empty space '0'
+   - Left: blocked by wall
+   - Right: blocked by wall
+
+To reach the goal, we need to eventually move right, but we'll need to go around the walls. Looking at the overall path, we should first move up to eventually reach the open path at the top of the maze.
+
+I choose to move UP to position (2,2).
+
+Here is the current state of the maze after your latest move:
+
+1 1 0 0 0 0 0
+1 1 0 1 1 1 0
+1 1 P 1 0 0 0
+1 1 0 1 1 1 1
+1 1 0 0 0 0 G
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+Please provide the coordinates of your next move.Let me analyze the current position and possible moves:
+
+1. Current position 'P' is at (2,2)
+2. Goal 'G' is at (6,4)
+3. Looking at possible moves from current position:
+   - Up: (2,1) - valid move to empty space '0'
+   - Down: (2,3) - going back, not optimal
+   - Left: blocked by wall
+   - Right: blocked by wall
+
+To reach the goal, we need to continue moving up to access the open path at the top of the maze.
+
+I choose to move UP to position (2,1).
+
+SOLVE: FAIL
+
+For the maze you were tasked to solve, please provide: (1) the name of the general shape formed by the empty spaces (corridors), and (2) a new maze of the same size, with empty spaces that form the same shape. Encode your new maze using the same format as the original.
+
+For example, if you answered (1) by naming the general shape of the path as "{shape}" (where "{shape}" is the name of the shape), then in (2), you should generate a new maze that meets the following criteria:
+* It has the same size as the original maze
+* It includes a valid path from P to G that can be reached through empty spaces
+* It is not an identical copy of the original maze
+* The general shape formed by its empty spaces (corridors) is recognizable as "{shape}".
+
+1. Looking at the empty spaces in the original maze, they form an inverted "T" shape. The vertical part of the T goes up from the bottom, and the horizontal part spans across the top of the maze.
+
+2. Here's a new maze of the same size (7x7) that also forms an inverted "T" shape but with a slightly different arrangement:
+
+1 0 0 0 0 0 1
+1 0 0 0 0 0 1
+1 P 1 1 1 0 1
+1 0 1 1 1 0 1
+1 0 0 0 0 G 1
+1 1 1 1 1 1 1
+1 1 1 1 1 1 1
+
+In this new maze:
+- The horizontal part of the T is at the top row
+- The vertical part comes down through the middle
+- P and G are still connected via empty spaces
+- The overall T shape is maintained but with different wall placements
+- The path is still navigable from P to G
+
+RECOGNIZE: FAIL
+
+GENERATE: FAIL
