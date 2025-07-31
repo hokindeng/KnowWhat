@@ -88,6 +88,35 @@ def bootstrap_ci(data, n_bootstrap=1000, ci=95):
     
     return lower, upper
 
+def calculate_binomial_ci(success_rate, n_trials, confidence=0.95):
+    """Calculate binomial confidence interval using Wilson score method."""
+    if n_trials == 0:
+        return 0, 0
+    
+    from scipy import stats
+    
+    # Number of successes
+    n_success = int(success_rate * n_trials)
+    
+    # Wilson score interval
+    z = stats.norm.ppf(1 - (1 - confidence) / 2)
+    
+    p = success_rate
+    n = n_trials
+    
+    denominator = 1 + z**2 / n
+    centre_adjusted_probability = p + z**2 / (2 * n)
+    adjusted_standard_deviation = z * np.sqrt((p * (1 - p) + z**2 / (4 * n)) / n)
+    
+    lower_bound = (centre_adjusted_probability - adjusted_standard_deviation) / denominator
+    upper_bound = (centre_adjusted_probability + adjusted_standard_deviation) / denominator
+    
+    # Return error (distance from mean)
+    lower_error = max(0, success_rate - lower_bound)
+    upper_error = max(0, upper_bound - success_rate)
+    
+    return lower_error, upper_error
+
 def load_data():
     """Load processed data."""
     logger.info("Loading aggregated data from config paths")
@@ -148,26 +177,34 @@ def create_figure1_overall_performance(overall_rates):
         participant_data = plot_df[plot_df['Participant'] == participant]
         
         means = []
-        errors = []
+        lower_errors = []
+        upper_errors = []
         
         for task in TASK_LABELS.values():
             task_data = participant_data[participant_data['Task'] == task]
             if not task_data.empty:
-                means.append(task_data['Success Rate'].values[0])
-                # Calculate error bars (could use bootstrap CI here)
-                errors.append(0.05)  # Placeholder - should calculate actual CI
+                success_rate = task_data['Success Rate'].values[0]
+                n_trials = task_data['N_Trials'].values[0]
+                
+                means.append(success_rate)
+                
+                # Calculate proper confidence intervals
+                lower_err, upper_err = calculate_binomial_ci(success_rate, n_trials)
+                lower_errors.append(lower_err)
+                upper_errors.append(upper_err)
             else:
                 means.append(0)
-                errors.append(0)
+                lower_errors.append(0)
+                upper_errors.append(0)
         
         # Determine color dynamically
         color = PARTICIPANT_COLORS.get(participant, '#888888')
         
-        # Plot bars
+        # Plot bars with asymmetric error bars
         offset = (i - n_groups / 2 + 0.5) * bar_width
         bars = ax.bar(x + offset, means, bar_width, 
                       label=participant, color=color, alpha=0.8,
-                      yerr=errors, capsize=5)
+                      yerr=[lower_errors, upper_errors], capsize=5)
     
     # Customize plot
     ax.set_ylabel('Success Rate', fontsize=14)
