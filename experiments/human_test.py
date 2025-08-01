@@ -30,10 +30,17 @@ import random
 import json
 from PIL import Image, ImageDraw, ImageFont
 import re
-from maze_generator import *
-from solution_verifier import get_valid_moves
+import sys
 from collections import defaultdict
 import datetime
+
+# Add parent directory to path for imports
+sys.path.append(str(Path(__file__).parent.parent))
+
+# Import from core module
+from core.maze_generator import *
+from core.solution_verifier import get_valid_moves
+
 # Worked
 # Constants for maze representation
 WALL = 0
@@ -204,39 +211,40 @@ def load_npy_files(folder_path):
     """Load .npy maze files from the specified folder."""
     all_file_data = []
     idx = 0
+    folder_path = Path(folder_path)
+    
     # Traverse the folder and its subfolders
-    for root, dirs, files in os.walk(folder_path):
-        for filename in files:
-            # Check if the file is a .npy file
-            if filename.endswith(".npy"):
-                file_path = os.path.join(root, filename)
-                # Load the .npy file as a NumPy array
-                try:
-                    array_data = np.load(file_path)  # Keep as numpy array for easier processing later
-                    file_data = {
-                        'name': filename,
-                        'id': idx,
-                        'path': os.path.relpath(file_path, folder_path),  # Store relative path
-                        'data': array_data  # Store the array data
-                    }
-                    idx += 1
-                    all_file_data.append(file_data)
-                except Exception as e:
-                    print(f"Could not load {filename}: {e}")
+    for file_path in folder_path.rglob("*.npy"):
+        try:
+            array_data = np.load(file_path)  # Keep as numpy array for easier processing later
+            file_data = {
+                'name': file_path.name,
+                'id': idx,
+                'path': str(file_path.relative_to(folder_path)),  # Store relative path
+                'data': array_data  # Store the array data
+            }
+            idx += 1
+            all_file_data.append(file_data)
+        except Exception as e:
+            print(f"Could not load {file_path.name}: {e}")
     return all_file_data
 
 class MazeExperiment:
     """Class to manage the maze experiment."""
     
-    def __init__(self, results_dir="results", maze_dir="experiment_mazes"):
+    def __init__(self, results_dir="data/human_results", maze_dir="data/experiment_mazes"):
         """Initialize the maze experiment.
         
         Args:
             results_dir: Directory to save experiment results
             maze_dir: Directory containing maze files
         """
-        self.results_dir = results_dir
-        self.maze_dir = maze_dir
+        # Get the project root directory (parent of experiments)
+        project_root = Path(__file__).parent.parent
+        
+        # Make paths relative to project root
+        self.results_dir = project_root / results_dir
+        self.maze_dir = project_root / maze_dir
         self.current_maze = None
         self.current_file_info = None
         self.current_size = None
@@ -254,7 +262,7 @@ class MazeExperiment:
         self.end_position = None
         
         # Ensure results directory exists
-        os.makedirs(results_dir, exist_ok=True)
+        self.results_dir.mkdir(parents=True, exist_ok=True)
         
         # Initialize tracking of completed mazes for each size/shape combination
         self.combination_counts = defaultdict(int)
@@ -284,8 +292,8 @@ class MazeExperiment:
         self.participant_id = participant_id.strip()
         
         # Create participant's results directory
-        participant_dir = os.path.join(self.results_dir, self.participant_id)
-        os.makedirs(participant_dir, exist_ok=True)
+        participant_dir = self.results_dir / self.participant_id
+        participant_dir.mkdir(parents=True, exist_ok=True)
         
         # Update the results dir to the participant's folder
         self.results_dir = participant_dir
@@ -332,22 +340,22 @@ class MazeExperiment:
             size_str = f"{size[0]}x{size[1]}"
             
             # Check the nested directory structure
-            shape_dir = os.path.join(self.maze_dir, size_str, shape)
-            if not os.path.exists(shape_dir):
+            shape_dir = self.maze_dir / size_str / shape
+            if not shape_dir.exists():
                 return None, f"Directory not found: {shape_dir}", "error", self.get_progress()
                 
             # Get all maze files in the shape directory
             maze_files = []
-            for file in os.listdir(shape_dir):
-                if file.endswith(".npy"):
-                    maze_files.append(file)
+            for file in shape_dir.iterdir():
+                if file.suffix == ".npy":
+                    maze_files.append(file.name)
             
             if not maze_files:
                 return None, f"No maze files found in {shape_dir}", "error", self.get_progress()
             
             # Select a random maze file
             maze_file = random.choice(maze_files)
-            maze_path = os.path.join(shape_dir, maze_file)
+            maze_path = shape_dir / maze_file
             
             # Load the maze
             self.current_maze = np.load(maze_path)
@@ -534,11 +542,9 @@ class MazeExperiment:
         
         # Check if we have result files to determine if the last maze was failed
         result_files = []
-        for root, _, files in os.walk(self.results_dir):
-            for file in files:
-                if file.startswith(self.participant_id) and file.endswith(".json"):
-                    file_path = os.path.join(root, file)
-                    result_files.append(file_path)
+        for file_path in self.results_dir.rglob("*.json"):
+            if file_path.name.startswith(self.participant_id):
+                result_files.append(file_path)
         
         if result_files:
             try:
@@ -601,10 +607,10 @@ class MazeExperiment:
         
         # Create a unique filename
         timestamp = int(time.time())
-        filename = f"{self.results_dir}/{self.participant_id}_{self.current_file_info['size']}_{self.current_file_info['shape']}_{timestamp}.json"
+        filename = self.results_dir / f"{self.participant_id}_{self.current_file_info['size']}_{self.current_file_info['shape']}_{timestamp}.json"
         
         # DESYNC DETECTION: If we're saving to the same file repeatedly, we have a loop
-        if last_save_file and last_save_file == filename:
+        if last_save_file and last_save_file == str(filename):
             save_repeat_count += 1
             print(f"WARNING: Same file saved repeatedly - count: {save_repeat_count}")
             
@@ -619,14 +625,14 @@ class MazeExperiment:
                 
                 # Create a different filename by adding a suffix
                 timestamp = int(time.time())
-                filename = f"{self.results_dir}/{self.participant_id}_{self.current_file_info['size']}_{self.current_file_info['shape']}_{timestamp}_recovery.json"
+                filename = self.results_dir / f"{self.participant_id}_{self.current_file_info['size']}_{self.current_file_info['shape']}_{timestamp}_recovery.json"
         else:
             # New file, reset counter
             save_repeat_count = 0
             
         # Update tracking variables
         last_save_timestamp = timestamp
-        last_save_file = filename
+        last_save_file = str(filename)
         
         # Prepare data to save
         data = {
@@ -689,18 +695,16 @@ class MazeExperiment:
         try:
             # Update the saved results file with the recognized shape
             result_files = []
-            for root, _, files in os.walk(self.results_dir):
-                for file in files:
-                    if file.startswith(self.participant_id) and file.endswith(".json"):
-                        file_path = os.path.join(root, file)
-                        try:
-                            # Verify the file is valid JSON before adding it
-                            with open(file_path, 'r') as f:
-                                json.load(f)
-                            result_files.append(file_path)
-                        except json.JSONDecodeError:
-                            print(f"Skipping invalid JSON file: {file_path}")
-                            continue
+            for file_path in self.results_dir.rglob("*.json"):
+                if file_path.name.startswith(self.participant_id):
+                    try:
+                        # Verify the file is valid JSON before adding it
+                        with open(file_path, 'r') as f:
+                            json.load(f)
+                        result_files.append(file_path)
+                    except json.JSONDecodeError:
+                        print(f"Skipping invalid JSON file: {file_path}")
+                        continue
             
             # Sort by creation time and get the most recent
             if result_files:
@@ -750,7 +754,7 @@ Now, draw the same shape, but it's not the maze that you have just solved, by fo
 2. Enter your own End Position (red point) in the same format. This end position is not the same as the end position in the maze that you have just solved.
 3. Add intermediate points to outline the path of your maze. Use as many points as needed to show your design clearly. This shouldn't be the same as the path in the maze that you have just solved.
 4. Important: Create a brand‑new path. Do NOT copy the exact maze in the previous problem you have solved—use the grid to invent your own route with similar shape.
-5. When your shape is complete, click “Submit Generated Shape.”
+5. When your shape is complete, click "Submit Generated Shape."
 The coordinates are visible on the grid to help you place your points accurately."""
                     # When transitioning to generation phase, always start with a fresh empty path text
                     return generation_img, message, "generate", self.get_progress(), "Current path: []"
@@ -1284,15 +1288,13 @@ The coordinates are visible on the grid to help you place your points accurately
             
         # Find the most recent result file for this maze
         result_files = []
-        for root, _, files in os.walk(self.results_dir):
-            for file in files:
-                if file.startswith(self.participant_id) and file.endswith(".json"):
-                    file_path = os.path.join(root, file)
-                    result_files.append(file_path)
+        for file_path in self.results_dir.rglob("*.json"):
+            if file_path.name.startswith(self.participant_id):
+                result_files.append(file_path)
         
         # Sort by creation time and get the most recent
         if result_files:
-            file_path = sorted(result_files, key=os.path.getmtime)[-1]
+            file_path = sorted(result_files, key=lambda p: p.stat().st_mtime)[-1]
             
             try:
                 with open(file_path, 'r') as f:
@@ -1313,7 +1315,7 @@ The coordinates are visible on the grid to help you place your points accurately
                 print(f"Error saving generation results: {e}")
         else:
             timestamp = int(time.time())
-            filename = f"{self.results_dir}/{self.participant_id}_{self.current_file_info['size']}_{self.current_shape}_generation_{timestamp}.json"
+            filename = self.results_dir / f"{self.participant_id}_{self.current_file_info['size']}_{self.current_shape}_generation_{timestamp}.json"
             
             # Prepare data to save
             data = {
