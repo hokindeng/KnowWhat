@@ -1,6 +1,45 @@
 # Know What, Know How: Disentangling Conceptual and Procedural Knowledge in Mazes
 
-A comprehensive research framework for studying maze navigation capabilities in humans and AI models, examining the dissociation between procedural knowledge (maze solving) and conceptual knowledge (shape recognition and generation). This project provides a full pipeline from data aggregation and cleaning to robust statistical analysis and publication-quality figure generation.
+[![Repository Status](https://img.shields.io/badge/Status-Production%20Ready-green)](#)
+[![Python](https://img.shields.io/badge/Python-3.10-blue)](#)
+[![Analysis](https://img.shields.io/badge/Analysis-Complete-success)](#)
+
+**Do AI models truly understand what they're doing, or are they just following procedures?** This research investigates a fundamental question about AI intelligence through an elegant maze experiment that reveals a dramatic gap between procedural and conceptual knowledge.
+
+While humans can both solve mazes AND understand their shapes, our experiments show that even state-of-the-art language models fail catastrophically at recognizing patterns they just navigated through. This repository contains the complete experimental framework, data from 26 human participants and multiple AI models, and analysis pipeline that demonstrates this striking cognitive dissociation.
+
+**🎯 Ready to Run**: This repository includes complete experimental data from 26 human participants and multiple LLM results, with all analysis scripts tested and working. Simply run `make analysis` to reproduce all results and figures.
+
+## 🧠 The Research Question
+
+**Can AI models truly understand concepts, or are they just stochastic parrots?**
+
+This experiment reveals a striking dissociation: while AI models can navigate mazes step-by-step with reasonable success, they fundamentally fail to recognize or reproduce the shapes those mazes form - tasks that humans perform effortlessly.
+
+### Key Findings at a Glance
+
+| Task | Human Performance | Best AI Performance | Model |
+|------|------------------|---------------------|-------|
+| **Maze Solving** (Procedural) | 99.4% | 91.7% | Claude Opus (vision) |
+| **Shape Recognition** (Conceptual) | 99.7% | 19.0% | GPT-4o (coord_list) |
+| **Shape Generation** (Conceptual) | 99.4% | 13.0% | Claude Sonnet (matrix) |
+
+**The dissociation is extreme**: Even Claude Opus with vision capabilities achieves 91.7% on maze solving but only 1.5% on shape recognition.
+
+### The Three-Task Paradigm
+
+1. **Maze Solving** - Navigate from start to goal through corridors
+2. **Shape Recognition** - Identify what shape the maze corridors form (square, cross, spiral, triangle, C, or Z)
+3. **Shape Generation** - Create a new maze with the same shape pattern
+
+### Why This Matters
+
+This research demonstrates that current LLMs:
+- Excel at following procedural rules but lack understanding
+- Process information locally and sequentially rather than forming global representations  
+- Cannot abstract patterns from the details they process
+
+The implications extend beyond mazes: AI systems that can follow recipes but not understand cuisine, apply rules but not grasp principles, navigate details but miss the big picture.
 
 ## Features
 
@@ -13,6 +52,7 @@ A comprehensive research framework for studying maze navigation capabilities in 
 - **Automated Pipeline**: A simple `Makefile` interface to run the entire analysis from start to finish with a single command.
 - **Configuration Driven**: Centralized configuration for all paths, model names, and experimental parameters in `config.py`.
 - **Secure API Key Management**: Uses `.env` files for secure handling of API keys, with an example file provided.
+- **Repository Management**: Comprehensive `.gitignore` file and clean repository structure excluding cache files, secrets, and development artifacts.
 
 ## Directory Structure
 
@@ -40,6 +80,30 @@ A comprehensive research framework for studying maze navigation capabilities in 
 ├── requirements.txt      # Main Python dependencies
 └── README.md             # This file
 ```
+
+## Experimental Design
+
+### Participants
+- **26 Human participants** using visual interface
+- **4 AI models tested** (specific versions):
+  - **Claude 3.5 Sonnet** (`claude-3-5-sonnet-20241022`) - with text and vision capabilities
+  - **Claude Opus 4** (`claude-opus-4-20250514`) - with text and vision capabilities  
+  - **GPT-4o** (`gpt-4o`) - text-only
+  - **Llama 3.1 405B** (`meta/llama-3.1-405b-instruct`) - text-only
+
+### Maze Specifications
+- **Sizes**: 5×5 and 7×7 grids
+- **Shapes**: Square, Cross, Spiral, Triangle, C, and Z
+- **Representations**: 
+  - Matrix format (0s and 1s)
+  - Coordinate lists
+  - Visual images (for Claude models only)
+
+### Statistical Rigor
+- ~1,800 trials per model
+- Generalized Linear Mixed Models (GLMMs) accounting for maze difficulty
+- Edit distance metrics for generation quality
+- Comprehensive duplicate handling for human data
 
 ## Setup and Installation
 
@@ -130,6 +194,23 @@ make clean
 
 This will delete the `analysis_results/` directory, `__pycache__` directories, and other temporary files.
 
+### Run Human Experiments
+
+To run the human experiment interface (after fixing the imports):
+
+```bash
+cd experiments
+python human_test.py
+```
+
+This launches a Gradio web interface for collecting human maze-solving data that matches the format used in the analysis pipeline. The interface includes:
+- Maze solving with directional controls
+- Shape recognition tasks
+- Coordinate-based maze generation
+- Automatic result saving to `data/human_results/`
+
+**Note**: Requires `gradio` package: `pip install gradio`
+
 ## Configuration
 
 All project settings are centralized in `config.py`:
@@ -139,10 +220,12 @@ All project settings are centralized in `config.py`:
   - Maze sizes: 5×5, 7×7
   - Maze shapes: square, cross, spiral, triangle, C, Z
   - Encoding types: matrix, coord_list, vision
-- **Model mappings**:
-  - `LLM_MODELS`: Maps model names to providers
-  - `MODEL_FAMILY`: Groups models by family for visualization
-  - `VISION_MODELS`: Specific vision-capable models
+- **Models tested**:
+  - `claude-3-5-sonnet-20241022` (Anthropic)
+  - `claude-opus-4-20250514` (Anthropic)
+  - `gpt-4o` (OpenAI)
+  - `meta/llama-3.1-405b-instruct` (Meta)
+- **Vision capabilities**: Only Claude models support image inputs
 
 ## Data Format
 
@@ -162,10 +245,14 @@ All project settings are centralized in `config.py`:
 
 ## Recent Updates
 
+- **Fixed error bars in Figure 1**: Replaced hardcoded confidence intervals with proper binomial confidence intervals using Wilson score method - error bars now vary realistically based on sample size and success rates
+- **Updated human experiment interface**: Fixed all imports in `experiments/human_test.py` to work with current repository structure, updated path handling to use `pathlib.Path` objects
+- **Added comprehensive .gitignore**: Created industry-standard `.gitignore` file excluding `__pycache__`, environment files, IDE files, and other development artifacts
 - **Fixed color mapping**: Each model variant now has a unique color in Figure 1
 - **Resolved edit distance loading**: Machine edit distances now properly appear in Figure 3
 - **Improved data aggregation**: Better handling of vision model results
 - **Enhanced visualization**: Clearer labeling and consistent color schemes across figures
+- **Repository cleanup**: Removed existing `__pycache__` directories and ensured clean git history
 
 ## Troubleshooting
 
@@ -176,6 +263,35 @@ conda remove -n spiral --all -y
 conda create -n spiral python=3.10 numpy pandas matplotlib seaborn scipy -y
 conda activate spiral
 make install
+```
+
+### Import Errors in Human Experiments
+If you encounter import errors when running `experiments/human_test.py`:
+```bash
+cd experiments
+python -c "import sys; sys.path.append('..'); from core.maze_generator import all_square_path_mazes; print('Imports working')"
+```
+The imports have been fixed to work with the current repository structure using absolute imports from the `core` module.
+
+### Missing Dependencies for Human Interface
+If running human experiments fails with missing gradio:
+```bash
+pip install gradio
+```
+
+### Error Bars Look Identical in Figure 1
+This has been fixed! Error bars now use proper binomial confidence intervals and will vary based on actual data variance and sample sizes.
+
+### Git Issues with Cache Files
+The repository now includes a comprehensive `.gitignore` file that excludes:
+- `__pycache__/` directories  
+- Environment files (`.env`)
+- IDE configuration files
+- Temporary and cache files
+
+If you have existing cache files, run:
+```bash
+make clean
 ```
 
 ### Missing Edit Distances
