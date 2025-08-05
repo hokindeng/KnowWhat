@@ -17,7 +17,14 @@ warnings.filterwarnings('ignore')
 # Import configuration
 import sys
 sys.path.append(str(Path(__file__).parent.parent.parent))
-from config import *
+from config import (
+    HUMAN_RESULTS_DIR, MACHINE_RESULTS_DIR, EXPERIMENT_MAZES_DIR,
+    PROCESSED_DATA_DIR, TRIAL_DATA_FILE, AGGREGATED_DATA_FILE, 
+    OVERALL_RATES_FILE, LLM_MODELS, ENCODING_TYPES, MAZE_SHAPES,
+    HUMAN_EDIT_DISTANCES_FILE, EDIT_DISTANCES_FILE,
+    MODEL_FAMILY, MAZE_SIZES, get_results_path,
+    setup_logging
+)
 
 # Import maze-specific utilities
 from core.solution_verifier import is_correct_recognize, is_correct_generate

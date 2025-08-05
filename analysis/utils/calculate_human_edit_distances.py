@@ -12,9 +12,8 @@ import sys
 sys.path.append(str(Path(__file__).parent.parent.parent))
 from config import HUMAN_RESULTS_DIR, setup_logging, PROCESSED_DATA_DIR
 
-# Add scripts directory to path
-sys.path.append(str(Path(__file__).parent.parent.parent / 'scripts'))
-from edit_distance import get_closest_correct_maze, path_edit_distance
+# Import edit distance utilities
+from scripts.edit_distance import get_closest_correct_maze, path_edit_distance
 
 # Set up logging
 logger = setup_logging(__name__)

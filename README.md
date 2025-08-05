@@ -85,11 +85,11 @@ The implications extend beyond mazes: AI systems that can follow recipes but not
 
 ### Participants
 - **26 Human participants** using visual interface
-- **4 AI models tested** (specific versions):
-  - **Claude 3.5 Sonnet** (`claude-3-5-sonnet-20241022`) - with text and vision capabilities
-  - **Claude Opus 4** (`claude-opus-4-20250514`) - with text and vision capabilities  
-  - **GPT-4o** (`gpt-4o`) - text-only
-  - **Llama 3.1 405B** (`meta/llama-3.1-405b-instruct`) - text-only
+- **4 AI models tested**:
+  - **Claude 3.5 Sonnet** - with text and vision capabilities
+  - **Claude Opus** - with text and vision capabilities  
+  - **GPT-4o** - text-only
+  - **Llama 3.1** - text-only
 
 ### Maze Specifications
 - **Sizes**: 5×5 and 7×7 grids
@@ -110,7 +110,7 @@ The implications extend beyond mazes: AI systems that can follow recipes but not
 1.  **Clone the repository:**
     ```bash
     git clone <repository_url>
-    cd KnowWhatKnowHow
+    cd KnowWhat
     ```
 
 2.  **Create and activate a Conda environment:**
@@ -221,10 +221,10 @@ All project settings are centralized in `config.py`:
   - Maze shapes: square, cross, spiral, triangle, C, Z
   - Encoding types: matrix, coord_list, vision
 - **Models tested**:
-  - `claude-3-5-sonnet-20241022` (Anthropic)
-  - `claude-opus-4-20250514` (Anthropic)
-  - `gpt-4o` (OpenAI)
-  - `meta/llama-3.1-405b-instruct` (Meta)
+  - Claude 3.5 Sonnet (Anthropic)
+  - Claude Opus (Anthropic)
+  - GPT-4o (OpenAI)
+  - Llama 3.1 (Meta)
 - **Vision capabilities**: Only Claude models support image inputs
 
 ## Data Format

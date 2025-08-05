@@ -1,4 +1,4 @@
-# KnowWhatKnowHow Makefile
+# KnowWhat Makefile
 # Shortcuts for common tasks
 
 .PHONY: help viz analysis test clean install

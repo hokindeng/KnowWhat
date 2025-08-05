@@ -13,9 +13,8 @@ import sys
 sys.path.append(str(Path(__file__).parent.parent.parent))
 from config import MACHINE_RESULTS_DIR, PROCESSED_DATA_DIR, setup_logging
 
-# Add scripts directory to path
-sys.path.append(str(Path(__file__).parent.parent.parent / 'scripts'))
-from edit_distance import analyze_results
+# Import edit distance utilities
+from scripts.edit_distance import analyze_results
 
 # Set up logging
 logger = setup_logging(__name__)

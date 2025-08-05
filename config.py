@@ -1,5 +1,5 @@
 """
-Central configuration for the KnowWhatKnowHow project.
+Central configuration for the KnowWhat project.
 All project-wide settings and paths should be defined here.
 """
 
@@ -41,7 +41,7 @@ PROCESSED_DATA_DIR = ANALYSIS_RESULTS_DIR / "processed_data"
 FIGURES_DIR = ANALYSIS_RESULTS_DIR / "figures"
 
 # Create directories if they don't exist
-for dir_path in []:
+for dir_path in [PROCESSED_DATA_DIR, FIGURES_DIR]:
     dir_path.mkdir(parents=True, exist_ok=True)
 
 # Experiment parameters
